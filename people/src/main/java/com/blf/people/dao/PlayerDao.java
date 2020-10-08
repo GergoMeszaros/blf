@@ -8,5 +8,6 @@ public interface PlayerDao {
 
     Player addPlayer(Player player);
 
+    Player updatePlayer(Long id, Player player);
 
 }

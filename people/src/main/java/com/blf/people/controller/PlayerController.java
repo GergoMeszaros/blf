@@ -27,5 +27,10 @@ public class PlayerController {
         log.info("The following player is added to database: " + player);
         return playerDao.addPlayer(player);
     }
+
+    @PutMapping("/{playerId}")
+    public Player updatePlayer(@PathVariable Long playerId, @RequestBody Player player){
+        return playerDao.updatePlayer(playerId,player);
+    }
 }
 
