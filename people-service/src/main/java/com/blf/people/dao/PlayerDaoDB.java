@@ -52,4 +52,14 @@ public class PlayerDaoDB implements PlayerDao {
         }
         return playerToUpdate;
     }
+
+    @Override
+    public Player deletePlayer(Long id) {
+        Player playerToDelete = playerRepository.findById(id).orElse(null);
+        playerRepository.deleteById(id);
+        log.info("Player deleted: " + playerToDelete);
+        return playerToDelete;
+    }
+
+
 }

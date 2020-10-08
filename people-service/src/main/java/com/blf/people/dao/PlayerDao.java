@@ -10,4 +10,6 @@ public interface PlayerDao {
 
     Player updatePlayer(Long id, Player player);
 
+    Player deletePlayer(Long id);
+
 }

@@ -17,20 +17,25 @@ public class PlayerController {
 
     PlayerDao playerDao;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Player> getAllPlayers(){
         return playerDao.getAllPlayers();
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public Player addPlayer(@RequestBody Player player){
         log.info("The following player is added to database: " + player);
         return playerDao.addPlayer(player);
     }
 
-    @PutMapping("/{playerId}")
+    @PutMapping("/edit/{playerId}")
     public Player updatePlayer(@PathVariable Long playerId, @RequestBody Player player){
         return playerDao.updatePlayer(playerId,player);
+    }
+
+    @DeleteMapping("/delete/{playerId}")
+    public Player deletePlayer(@PathVariable Long playerId){
+        return playerDao.deletePlayer(playerId);
     }
 }
 
