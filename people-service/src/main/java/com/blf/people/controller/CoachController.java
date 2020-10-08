@@ -25,4 +25,10 @@ public class CoachController {
         return coachDao.addCoach(coach);
     }
 
+    @PutMapping("/{coachId}")
+    public Coach updateCoach(@PathVariable Long coachId, @RequestBody Coach coach){
+        return coachDao.updateCoach(coachId,coach);
+    }
+
+
 }
