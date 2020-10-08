@@ -26,8 +26,8 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
-    public Player updatePlayer(Long id, Player updatedPlayer) {
-        Player playerToUpdate = playerRepository.findById(id).orElse(null);
+    public Player updatePlayer(Long playerId, Player updatedPlayer) {
+        Player playerToUpdate = playerRepository.findById(playerId).orElse(null);
 
         if (playerToUpdate != null) {
             playerToUpdate.setName(updatedPlayer.getName());
@@ -48,15 +48,15 @@ public class PlayerDaoDB implements PlayerDao {
 
             log.info("Updated Player: " + playerToUpdate);
         } else {
-            log.info("Player not found with the following id: " + id);
+            log.info("Player not found with the following id: " + playerId);
         }
         return playerToUpdate;
     }
 
     @Override
-    public Player deletePlayer(Long id) {
-        Player playerToDelete = playerRepository.findById(id).orElse(null);
-        playerRepository.deleteById(id);
+    public Player deletePlayer(Long playerId) {
+        Player playerToDelete = playerRepository.findById(playerId).orElse(null);
+        playerRepository.deleteById(playerId);
         log.info("Player deleted: " + playerToDelete);
         return playerToDelete;
     }
