@@ -25,10 +25,13 @@ public class CoachController {
         return coachDao.addCoach(coach);
     }
 
-    @PutMapping("/{coachId}")
+    @PutMapping("/update/{coachId}")
     public Coach updateCoach(@PathVariable Long coachId, @RequestBody Coach coach){
         return coachDao.updateCoach(coachId,coach);
     }
 
-
+    @DeleteMapping("/delete/{coachId}")
+    public Coach deleteCoach(@PathVariable Long coachId){
+        return coachDao.deleteCoach(coachId);
+    }
 }
