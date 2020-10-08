@@ -21,7 +21,7 @@ public class CoachController {
     }
 
     @PostMapping("/add")
-    public Coach addCoach(Coach coach){
+    public Coach addCoach(@RequestBody Coach coach){
         return coachDao.addCoach(coach);
     }
 
