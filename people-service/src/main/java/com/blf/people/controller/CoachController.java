@@ -3,9 +3,7 @@ import com.blf.people.dao.CoachDao;
 import com.blf.people.entity.Coach;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +19,10 @@ public class CoachController {
     public List<Coach> getAllCoaches(){
         return coachDao.getAllCoaches();
     }
+
+    @PostMapping("/add")
+    public Coach addCoach(Coach coach){
+        return coachDao.addCoach(coach);
+    }
+
 }
