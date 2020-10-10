@@ -1,4 +1,7 @@
 package com.blf.gameservice.repository;
 
-public interface SeasonRepository {
+import com.blf.gameservice.entity.Season;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SeasonRepository extends JpaRepository<Season, Long> {
 }
