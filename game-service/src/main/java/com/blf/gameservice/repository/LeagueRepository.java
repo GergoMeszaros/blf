@@ -9,5 +9,5 @@ import java.util.List;
 public interface LeagueRepository extends JpaRepository<League, Long> {
 
     @Query("SELECT league FROM League league JOIN Season season ON League.seasonId = Season.id")
-    List<League> getAllLeague();
+    List<League> getAllLeagueJoinedSeasons();
 }

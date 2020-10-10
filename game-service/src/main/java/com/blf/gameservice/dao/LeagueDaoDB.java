@@ -16,6 +16,6 @@ public class LeagueDaoDB implements LeagueDao{
 
     @Override
     public List<League> getAllLeague() {
-        return leagueRepository.getAllLeague();
+        return leagueRepository.getAllLeagueJoinedSeasons();
     }
 }
