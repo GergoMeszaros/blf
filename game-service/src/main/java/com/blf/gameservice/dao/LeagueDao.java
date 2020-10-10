@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface LeagueDao {
 
-    List<League> getAllLeague();
+    List<League> getAllLeagues();
 }

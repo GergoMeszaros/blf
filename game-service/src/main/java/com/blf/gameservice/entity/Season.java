@@ -1,12 +1,11 @@
 package com.blf.gameservice.entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,4 +19,10 @@ public class Season {
     Long id;
 
     String date;
+
+    @OneToMany( mappedBy = "season")
+    @JsonBackReference
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    Set<League> league;
 }
