@@ -22,11 +22,11 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    int seasonId;
-    //int ageGroupId;
-    int coachId;
-    int assistantCoachId;
-    int leagueId;
+    Integer seasonId;
+    // Integer ageGroupId;
+    Integer coachId;
+    Integer assistantCoachId;
+    Integer leagueId;
 
     String name;
     String address;

@@ -1,10 +1,10 @@
 package com.blf.gameservice.controller;
 import com.blf.gameservice.dao.LeagueDao;
-import com.blf.gameservice.dao.MatchDao;
+import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.dao.SeasonDao;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.League;
-import com.blf.gameservice.entity.Match;
+import com.blf.gameservice.entity.Event;
 import com.blf.gameservice.entity.Season;
 import com.blf.gameservice.entity.Team;
 import lombok.AllArgsConstructor;
@@ -23,7 +23,7 @@ public class GameController {
 
     LeagueDao leagueDao;
     SeasonDao seasonDao;
-    MatchDao matchDao;
+    EventDao matchDao;
     TeamDao teamDao;
 
     @GetMapping("/seasons")
@@ -37,7 +37,7 @@ public class GameController {
     }
 
     @GetMapping("/matches")
-    public List<Match> getAllMatches(){
+    public List<Event> getAllMatches(){
         return matchDao.getAllMatches();
     }
 

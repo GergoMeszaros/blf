@@ -1,4 +1,5 @@
 package com.blf.gameservice.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Match {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,44 +26,41 @@ public class Match {
     @Column(name = "league_id", updatable = false, insertable = false)
     Integer leagueId;
 
-
-   // private Season season;
-
-   // private League league;
+    @Type(type = "date")
+    Date eventDate;
 
 
+    // private Season season;
+
+    // private League league;
 
     Integer homeTeamId;
     Integer awayTeamId;
-
     Integer homeTotalScore;
     Integer awayTotalScore;
-    Integer h1QScore;
-    Integer h1QScoreTaken;
-    Integer h2QScore;
-    Integer h2QScoreTaken;
-    Integer h3QScore;
-    Integer h3QScoreTaken;
-    Integer h4QScore;
-    Integer h4QScoreTaken;
+    Integer h1qScore;
+    Integer h1qTaken;
+    Integer h2qScore;
+    Integer h2qTaken;
+    Integer h3qScore;
+    Integer h3qTaken;
+    Integer h4qScore;
+    Integer h4qTaken;
     Integer hExScore;
-    Integer hExScoreTaken;
-    Integer a1QScore;
-    Integer a1QScoreTaken;
-    Integer a2QScore;
-    Integer a2QScoreTaken;
-    Integer a3QScore;
-    Integer a3QScoreTaken;
-    Integer a4QScore;
-    Integer a4QScoreTaken;
+    Integer hExTaken;
+    Integer a1qScore;
+    Integer a1qTaken;
+    Integer a2qScore;
+    Integer a2qTaken;
+    Integer a3qScore;
+    Integer a3qTaken;
+    Integer a4qScore;
+    Integer a4qTaken;
     Integer aExScore;
-    Integer aExScoreTaken;
-
+    Integer aExTaken;
     Integer bestPlayerId;
 
     String summary;
 
-    @Type(type = "date")
-    Date matchDate;
     String address;
 }
