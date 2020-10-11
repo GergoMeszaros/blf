@@ -1,5 +1,6 @@
 package com.blf.gameservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,11 +30,6 @@ public class Event {
     @Type(type = "date")
     Date eventDate;
 
-
-    // private Season season;
-
-    // private League league;
-
     Integer homeTeamId;
     Integer awayTeamId;
     Integer homeTotalScore;
@@ -59,8 +55,10 @@ public class Event {
     Integer aExScore;
     Integer aExTaken;
     Integer bestPlayerId;
-
     String summary;
-
     String address;
+
+    @ManyToOne
+    @JsonManagedReference
+    private League league;
 }
