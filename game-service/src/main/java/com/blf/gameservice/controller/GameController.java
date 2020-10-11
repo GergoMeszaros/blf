@@ -2,9 +2,11 @@ package com.blf.gameservice.controller;
 import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.dao.MatchDao;
 import com.blf.gameservice.dao.SeasonDao;
+import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.League;
 import com.blf.gameservice.entity.Match;
 import com.blf.gameservice.entity.Season;
+import com.blf.gameservice.entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,7 @@ public class GameController {
     LeagueDao leagueDao;
     SeasonDao seasonDao;
     MatchDao matchDao;
+    TeamDao teamDao;
 
     @GetMapping("/seasons")
     public List<Season> getAllSeasons() {
@@ -36,5 +39,10 @@ public class GameController {
     @GetMapping("/matches")
     public List<Match> getAllMatches(){
         return matchDao.getAllMatches();
+    }
+
+    @GetMapping("/teams")
+    public List<Team> getAllTeam(){
+        return teamDao.getAllTeam();
     }
 }
