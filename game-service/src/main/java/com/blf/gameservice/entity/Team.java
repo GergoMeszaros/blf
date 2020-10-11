@@ -1,15 +1,12 @@
 package com.blf.gameservice.entity;
-
-import com.sun.xml.bind.v2.TODO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,10 +19,14 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Column(name = "season_id", updatable = false, insertable = false)
     Integer seasonId;
-    // Integer ageGroupId;
+
+    Integer ageGroupId;
     Integer coachId;
     Integer assistantCoachId;
+
+    @Column(name = "league_id", updatable = false, insertable = false)
     Integer leagueId;
 
     String name;
@@ -34,5 +35,10 @@ public class Team {
     //Todo (megjegyzés, age_group, blf??)
     //String note;
     //int blf;
+
+    @OneToMany(mappedBy = "team")
+    @JsonBackReference
+    private Set<TeamMember> teamMemberSet;
+
 
 }

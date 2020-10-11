@@ -20,5 +20,6 @@ public class Season {
 
     @OneToMany( mappedBy = "season")
     @JsonBackReference
-    Set<League> league;
+    private Set<League> league;
+
 }
