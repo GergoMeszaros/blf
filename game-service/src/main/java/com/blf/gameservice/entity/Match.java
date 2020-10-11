@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -22,10 +19,22 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Column(name = "season_id", updatable = false, insertable = false)
     Integer seasonId;
+
+    @Column(name = "league_id", updatable = false, insertable = false)
+    Integer leagueId;
+
+
+   // private Season season;
+
+   // private League league;
+
+
+
     Integer homeTeamId;
     Integer awayTeamId;
-    Integer leagueId;
+
     Integer homeTotalScore;
     Integer awayTotalScore;
     Integer h1QScore;
@@ -56,5 +65,4 @@ public class Match {
     @Type(type = "date")
     Date matchDate;
     String address;
-
 }

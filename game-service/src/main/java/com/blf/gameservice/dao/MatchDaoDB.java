@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Slf4j
 @AllArgsConstructor
+@Slf4j
 public class MatchDaoDB implements MatchDao{
 
     MatchRepository matchRepository;
 
     @Override
-    public List<Match> getAllMatch() {
+    public List<Match> getAllMatches() {
         return matchRepository.findAll();
     }
 }

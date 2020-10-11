@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface MatchDao {
 
-    List<Match> getAllMatch();
+    List<Match> getAllMatches();
 }

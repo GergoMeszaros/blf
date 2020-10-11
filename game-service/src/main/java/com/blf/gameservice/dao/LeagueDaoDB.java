@@ -18,7 +18,4 @@ public class LeagueDaoDB implements LeagueDao{
     public List<League> getAllLeagues() {
         return leagueRepository.findAll();
     }
-
-
-
 }
