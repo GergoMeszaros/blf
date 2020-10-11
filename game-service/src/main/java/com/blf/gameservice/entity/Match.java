@@ -22,34 +22,34 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    int seasonId;
-    int homeTeamId;
-    int awayTeamId;
-    int leagueId;
-    int homeTotalScore;
-    int awayTotalScore;
-    int h1QScore;
-    int h1QScoreTaken;
-    int h2QScore;
-    int h2QScoreTaken;
-    int h3QScore;
-    int h3QScoreTaken;
-    int h4QScore;
-    int h4QScoreTaken;
-    int hExScore;
-    int hExScoreTaken;
-    int a1QScore;
-    int a1QScoreTaken;
-    int a2QScore;
-    int a2QScoreTaken;
-    int a3QScore;
-    int a3QScoreTaken;
-    int a4QScore;
-    int a4QScoreTaken;
-    int aExScore;
-    int aExScoreTaken;
+    Integer seasonId;
+    Integer homeTeamId;
+    Integer awayTeamId;
+    Integer leagueId;
+    Integer homeTotalScore;
+    Integer awayTotalScore;
+    Integer h1QScore;
+    Integer h1QScoreTaken;
+    Integer h2QScore;
+    Integer h2QScoreTaken;
+    Integer h3QScore;
+    Integer h3QScoreTaken;
+    Integer h4QScore;
+    Integer h4QScoreTaken;
+    Integer hExScore;
+    Integer hExScoreTaken;
+    Integer a1QScore;
+    Integer a1QScoreTaken;
+    Integer a2QScore;
+    Integer a2QScoreTaken;
+    Integer a3QScore;
+    Integer a3QScoreTaken;
+    Integer a4QScore;
+    Integer a4QScoreTaken;
+    Integer aExScore;
+    Integer aExScoreTaken;
 
-    int bestPlayerId;
+    Integer bestPlayerId;
 
     String summary;
 
