@@ -1,7 +1,8 @@
 package com.blf.gameservice.controller;
-
 import com.blf.gameservice.dao.LeagueDao;
+import com.blf.gameservice.dao.SeasonDao;
 import com.blf.gameservice.entity.League;
+import com.blf.gameservice.entity.Season;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,12 @@ import java.util.List;
 public class GameController {
 
     LeagueDao leagueDao;
+    SeasonDao seasonDao;
+
+    @GetMapping("/seasons")
+    public List<Season> getAllSeasons() {
+        return seasonDao.getAllSeason();
+    }
 
     @GetMapping("/leagues")
     public List<League> getAllLeagues() {

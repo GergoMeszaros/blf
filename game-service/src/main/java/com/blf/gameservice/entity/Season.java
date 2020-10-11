@@ -1,7 +1,5 @@
 package com.blf.gameservice.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,7 +20,5 @@ public class Season {
 
     @OneToMany( mappedBy = "season")
     @JsonBackReference
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     Set<League> league;
 }

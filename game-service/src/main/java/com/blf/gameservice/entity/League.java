@@ -1,12 +1,8 @@
 package com.blf.gameservice.entity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-import org.springframework.web.bind.annotation.Mapping;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @Entity
@@ -21,13 +17,12 @@ public class League {
 
     String name;
     String organization;
-    //Integer seasonId;
     Integer ageGroupId;
+
+    @Column(name = "season_id", insertable = false, updatable = false)
+    Integer seasonId;
 
    @ManyToOne
    @JsonManagedReference
-   @ToString.Exclude
-   @EqualsAndHashCode.Exclude
-   //@JoinColumn(name = "seasonId", insertable = false, updatable = false)
    private Season season;
 }
