@@ -23,4 +23,9 @@ public class EventDaoDB implements EventDao {
     public List<Event> getEventsByAnyTeamId(Integer teamId) {
         return eventRepository.getEventsByAnyTeamId(teamId);
     }
+
+    @Override
+    public Event addNewEvent(Event event) {
+        return eventRepository.saveAndFlush(event);
+    }
 }

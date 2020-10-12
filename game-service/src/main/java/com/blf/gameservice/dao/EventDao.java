@@ -8,4 +8,6 @@ public interface EventDao {
     List<Event> getAllEvents();
 
     List<Event> getEventsByAnyTeamId(Integer teamId);
+
+    Event addNewEvent(Event event);
 }
