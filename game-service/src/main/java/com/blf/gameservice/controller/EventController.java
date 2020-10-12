@@ -35,4 +35,9 @@ public class EventController {
         return eventDao.updateEvent(eventId,updatedEvent);
     }
 
+    @DeleteMapping("/delete/{eventId}")
+    public Event deleteEvent(@PathVariable Long eventId){
+        return eventDao.deleteEvent(eventId);
+    }
+
 }

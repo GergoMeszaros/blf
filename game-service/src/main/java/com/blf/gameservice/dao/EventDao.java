@@ -13,4 +13,6 @@ public interface EventDao {
 
     Event updateEvent(Long eventId, Event updatedEvent);
 
+    Event deleteEvent(Long eventId);
+
 }

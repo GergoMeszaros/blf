@@ -73,4 +73,14 @@ public class EventDaoDB implements EventDao {
         }
         return eventToUpdate;
     }
+
+    @Override
+    public Event deleteEvent(Long eventId) {
+        Event eventToDelete = eventRepository.findById(eventId).orElse(null);
+
+        if (eventToDelete != null) {
+            eventRepository.deleteById(eventId);
+        }
+        return eventToDelete;
+    }
 }
