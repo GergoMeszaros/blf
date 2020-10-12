@@ -26,8 +26,8 @@ public class TeamController {
     }
 
     @PutMapping("/edit/{teamId}")
-    public Team updateTeam(@PathVariable Long teamId, @RequestBody Team teamToUpdate){
-        return teamDao.updateTeam(teamId,teamToUpdate);
+    public Team updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam){
+        return teamDao.updateTeam(teamId,updatedTeam);
     }
 
     @DeleteMapping("/delete/{teamId}")

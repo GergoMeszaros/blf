@@ -30,5 +30,9 @@ public class EventController {
         return eventDao.addNewEvent(event);
     }
 
+    @PutMapping("/edit/{eventId}")
+    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent){
+        return eventDao.updateEvent(eventId,updatedEvent);
+    }
 
 }

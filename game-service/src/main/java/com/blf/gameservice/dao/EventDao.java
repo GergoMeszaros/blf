@@ -10,4 +10,7 @@ public interface EventDao {
     List<Event> getEventsByAnyTeamId(Integer teamId);
 
     Event addNewEvent(Event event);
+
+    Event updateEvent(Long eventId, Event updatedEvent);
+
 }
