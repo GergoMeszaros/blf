@@ -31,6 +31,4 @@ public class League {
     @OneToMany(mappedBy = "league")
     @JsonBackReference
     private Set<Event> eventSet;
-
-
 }

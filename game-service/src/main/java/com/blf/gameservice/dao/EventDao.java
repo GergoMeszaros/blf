@@ -5,5 +5,7 @@ import java.util.List;
 
 public interface EventDao {
 
-    List<Event> getAllMatches();
+    List<Event> getAllEvents();
+
+    List<Event> getEventsByAnyTeamId(Integer teamId);
 }

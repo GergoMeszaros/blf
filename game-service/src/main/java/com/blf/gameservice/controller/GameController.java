@@ -4,6 +4,7 @@ import com.blf.gameservice.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ public class GameController {
 
     LeagueDao leagueDao;
     SeasonDao seasonDao;
-    EventDao matchDao;
+    EventDao eventDao;
     TeamDao teamDao;
     TeamMemberDao teamMemberDao;
 
@@ -32,9 +33,17 @@ public class GameController {
     }
 
     @GetMapping("/matches")
-    public List<Event> getAllMatches(){
-        return matchDao.getAllMatches();
+    public List<Event> getAllEvents(){
+        return eventDao.getAllEvents();
     }
+
+    @GetMapping("/matches/{teamId}")
+    public List<Event> xyz(@PathVariable Integer teamId){
+        return eventDao.getEventsByAnyTeamId(teamId);
+    }
+
+
+
 
     @GetMapping("/teams")
     public List<Team> getAllTeam(){

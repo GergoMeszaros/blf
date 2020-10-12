@@ -30,7 +30,7 @@ public class Event {
     @Column(name = "league_id", updatable = false, insertable = false)
     Integer leagueId;
 
-    @Type(type = "date")
+    //@Type(type = "date")
     Date eventDate;
 
     Integer homeTeamId;

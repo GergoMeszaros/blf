@@ -12,10 +12,15 @@ import java.util.List;
 @Slf4j
 public class EventDaoDB implements EventDao {
 
-    EventRepository matchRepository;
+    EventRepository eventRepository;
 
     @Override
-    public List<Event> getAllMatches() {
-        return matchRepository.findAll();
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
+    }
+
+    @Override
+    public List<Event> getEventsByAnyTeamId(Integer teamId) {
+        return eventRepository.getEventsByAnyTeamId(teamId);
     }
 }
