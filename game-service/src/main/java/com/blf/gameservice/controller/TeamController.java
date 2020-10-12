@@ -3,9 +3,7 @@ import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,9 +15,13 @@ public class TeamController {
 
     TeamDao teamDao;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Team> getAllTeam(){
         return teamDao.getAllTeam();
     }
 
+    @PostMapping("/add")
+    public Team addNewTeam(@RequestBody Team team){
+        return teamDao.addNewTeam(team);
+    }
 }

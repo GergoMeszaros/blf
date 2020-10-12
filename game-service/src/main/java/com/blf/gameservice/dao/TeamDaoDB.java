@@ -18,4 +18,9 @@ public class TeamDaoDB implements TeamDao{
     public List<Team> getAllTeam() {
         return teamRepository.findAll();
     }
+
+    @Override
+    public Team addNewTeam(Team team) {
+        return teamRepository.saveAndFlush(team);
+    }
 }
