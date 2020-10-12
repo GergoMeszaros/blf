@@ -33,6 +33,4 @@ public class SeasonController {
         return seasonDao.deleteSeason(seasonId);
     }
 
-
-
 }

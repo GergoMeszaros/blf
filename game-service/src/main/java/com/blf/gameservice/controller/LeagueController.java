@@ -4,9 +4,7 @@ import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.entity.League;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,17 @@ public class LeagueController {
     @GetMapping("/")
     public List<League> getAllLeagues() {
         return leagueDao.getAllLeagues();
+    }
+
+    @PostMapping("/add")
+    public League addNewLeague(@RequestBody League league){
+        log.info("The following league is added to database: " + league);
+        return leagueDao.addNewLeague(league);
+    }
+
+    @PutMapping("/edit/{leagueId}")
+    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague){
+        return leagueDao.updateLeague(leagueId, updatedLeague);
     }
 
 }

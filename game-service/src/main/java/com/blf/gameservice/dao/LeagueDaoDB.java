@@ -1,4 +1,5 @@
 package com.blf.gameservice.dao;
+
 import com.blf.gameservice.entity.League;
 import com.blf.gameservice.repository.LeagueRepository;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class LeagueDaoDB implements LeagueDao{
+public class LeagueDaoDB implements LeagueDao {
 
     LeagueRepository leagueRepository;
 
@@ -18,4 +19,28 @@ public class LeagueDaoDB implements LeagueDao{
     public List<League> getAllLeagues() {
         return leagueRepository.findAll();
     }
+
+    @Override
+    public League addNewLeague(League league) {
+        return leagueRepository.saveAndFlush(league);
+    }
+
+    @Override
+    public League updateLeague(Long leagueId, League updatedLeague) {
+        League leagueToUpdate = leagueRepository.findById(leagueId).orElse(null);
+
+        if (leagueToUpdate != null) {
+            leagueToUpdate.setName(updatedLeague.getName());
+            leagueToUpdate.setAgeGroupId(updatedLeague.getAgeGroupId());
+            leagueToUpdate.setOrganization(updatedLeague.getOrganization());
+            leagueToUpdate.setSeasonId(updatedLeague.getSeasonId());
+
+            leagueRepository.saveAndFlush(leagueToUpdate);
+        } else {
+            log.info("League not found with the following id: " + leagueId);
+        }
+        return leagueToUpdate;
+    }
+
+
 }

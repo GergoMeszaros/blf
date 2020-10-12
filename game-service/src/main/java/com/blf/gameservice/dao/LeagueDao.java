@@ -6,4 +6,9 @@ public interface LeagueDao {
 
     List<League> getAllLeagues();
 
+    League addNewLeague(League league);
+
+    League updateLeague(Long leagueId, League updatedLeague);
+
+    League deleteLeague(Long leagueId);
 }
