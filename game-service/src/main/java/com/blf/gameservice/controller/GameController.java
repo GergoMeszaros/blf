@@ -3,10 +3,7 @@ import com.blf.gameservice.dao.*;
 import com.blf.gameservice.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,18 @@ public class GameController {
     public List<Season> getAllSeasons() {
         return seasonDao.getAllSeason();
     }
+
+    @PostMapping("/addseason")
+    public Season addNewSeason(@RequestBody Season season){
+        log.info("The following season is added to database: " +season);
+        return seasonDao.addNewSeason(season);
+    }
+
+    @DeleteMapping("/deleteseason/{seasonId}")
+    public Season deleteSeason(@PathVariable Long seasonId){
+        return seasonDao.deleteSeason(seasonId);
+    }
+
 
     @GetMapping("/leagues")
     public List<League> getAllLeagues() {

@@ -5,4 +5,8 @@ import java.util.List;
 public interface SeasonDao {
 
     List<Season> getAllSeason();
+
+    Season addNewSeason(Season season);
+
+    Season deleteSeason(Long seasonId);
 }

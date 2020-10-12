@@ -18,10 +18,10 @@ public class TeamMember {
     @GeneratedValue
     Long id;
 
-    //@Column(name = "player_id", insertable = false, updatable = false)
+    @Column(name = "player_id", insertable = false, updatable = false)
     Integer playerId;
 
-    //@Column(name = "team_id", insertable = false, updatable = false)
+    @Column(name = "team_id", insertable = false, updatable = false)
     Integer teamId;
 
     @ManyToOne
