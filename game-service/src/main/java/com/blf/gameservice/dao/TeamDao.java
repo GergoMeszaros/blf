@@ -8,4 +8,9 @@ public interface TeamDao {
     List<Team> getAllTeam();
 
     Team addNewTeam(Team team);
+
+    Team updateTeam(Long teamId, Team updatedTeam);
+
+    Team deleteTeam(Long teamId);
+
 }
