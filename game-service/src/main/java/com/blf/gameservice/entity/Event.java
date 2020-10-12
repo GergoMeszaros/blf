@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.Type;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -61,9 +63,14 @@ public class Event {
     String summary;
     String address;
 
+/*
+    @Formula("h1q_score * h2q_score")
+    Integer teszt;
+*/
+
+
+
     @ManyToOne
     @JsonManagedReference
     private League league;
-
-
 }
