@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class LeagueDaoDB implements LeagueDao {
+public class LeagueDaoDB implements LeagueDao{
 
     LeagueRepository leagueRepository;
 
@@ -42,5 +42,14 @@ public class LeagueDaoDB implements LeagueDao {
         return leagueToUpdate;
     }
 
+    @Override
+    public League deleteLeague(Long leagueId) {
+        League leagueToDelete = leagueRepository.findById(leagueId).orElse(null);
+        if(leagueToDelete != null) {
+            leagueRepository.delete(leagueToDelete);
+        }
+        log.info("League deleted: " + leagueToDelete);
+        return leagueToDelete;
+    }
 
 }

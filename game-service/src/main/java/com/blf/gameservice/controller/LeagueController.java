@@ -32,4 +32,10 @@ public class LeagueController {
         return leagueDao.updateLeague(leagueId, updatedLeague);
     }
 
+    @DeleteMapping("/delete/{leagueId}")
+    public League deleteLeague(@PathVariable Long leagueId){
+        return leagueDao.deleteLeague(leagueId);
+    }
+
 }
+
