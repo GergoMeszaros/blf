@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -62,6 +63,8 @@ public class Event {
     Integer teszt;
 */
 
+    @ManyToMany(mappedBy = "teams")
+    private Set<Team> teamSet;
 
 
     @ManyToOne

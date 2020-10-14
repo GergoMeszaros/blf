@@ -36,6 +36,9 @@ public class Team {
     //String note;
     //int blf;
 
+    @ManyToMany
+    private Set<Event> events;
+
     @OneToMany(mappedBy = "team")
     @JsonBackReference
     private Set<TeamMember> teamMemberSet;
