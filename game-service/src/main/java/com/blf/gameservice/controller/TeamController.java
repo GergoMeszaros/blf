@@ -20,6 +20,11 @@ public class TeamController {
         return teamDao.getAllTeam();
     }
 
+    @GetMapping("/blfteams")
+    public List<Team> getALlBflTeams(){
+        return teamDao.getAllBlfTeams();
+    }
+
     @PostMapping("/add")
     public Team addNewTeam(@RequestBody Team team){
         return teamDao.addNewTeam(team);
@@ -34,4 +39,5 @@ public class TeamController {
     public Team deleteTeam(@PathVariable Long teamId){
         return teamDao.deleteTeam(teamId);
     }
+
 }

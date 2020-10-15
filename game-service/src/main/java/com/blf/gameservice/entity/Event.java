@@ -1,5 +1,7 @@
 package com.blf.gameservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -63,8 +65,6 @@ public class Event {
     Integer teszt;
 */
 
-    @ManyToMany(mappedBy = "teams")
-    private Set<Team> teamSet;
 
 
     @ManyToOne

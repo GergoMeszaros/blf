@@ -7,6 +7,8 @@ public interface TeamDao {
 
     List<Team> getAllTeam();
 
+    List<Team> getAllBlfTeams();
+
     Team addNewTeam(Team team);
 
     Team updateTeam(Long teamId, Team updatedTeam);
