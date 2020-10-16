@@ -1,5 +1,6 @@
-package com.blf.gameservice.dao;
+package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
 import com.blf.gameservice.repository.TeamRepository;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,6 @@
-package com.blf.gameservice.dao;
+package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.dao.SeasonDao;
 import com.blf.gameservice.entity.Season;
 import com.blf.gameservice.repository.SeasonRepository;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,7 @@
-package com.blf.people.dao;
+package com.blf.people.daodb;
 
+import com.blf.people.dao.PlayerDao;
+import com.blf.people.dto.PlayerDTO;
 import com.blf.people.entity.Player;
 import com.blf.people.repository.PlayerRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import java.util.List;
 public class PlayerDaoDB implements PlayerDao {
 
     PlayerRepository playerRepository;
+
 
     @Override
     public List<Player> getAllPlayers() {

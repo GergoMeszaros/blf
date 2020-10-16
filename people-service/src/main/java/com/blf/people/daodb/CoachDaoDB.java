@@ -1,5 +1,6 @@
-package com.blf.people.dao;
+package com.blf.people.daodb;
 
+import com.blf.people.dao.CoachDao;
 import com.blf.people.entity.Coach;
 import com.blf.people.repository.CoachRepository;
 import lombok.AllArgsConstructor;

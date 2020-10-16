@@ -1,5 +1,6 @@
-package com.blf.gameservice.dao;
+package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.entity.League;
 import com.blf.gameservice.repository.LeagueRepository;
 import lombok.AllArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class LeagueDaoDB implements LeagueDao{
+public class LeagueDaoDB implements LeagueDao {
 
     LeagueRepository leagueRepository;
 
