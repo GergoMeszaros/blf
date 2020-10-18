@@ -1,5 +1,7 @@
 package com.blf.people.service;
+
 import com.blf.people.dto.PlayerDTO;
+import com.blf.people.dto.PlayerWrapper;
 import com.blf.people.entity.Player;
 import com.blf.people.repository.PlayerRepository;
 import lombok.AllArgsConstructor;
@@ -19,14 +21,15 @@ public class WrapperService {
 
     PlayerRepository playerRepository;
 
-
     ModelMapper modelMapper;
 
-    public List<PlayerDTO> getAllPlayers(){
-        return playerRepository
-                .findAll()
-                .stream().map(this::convertPlayerToPlayerDto)
-                .collect(Collectors.toList());
+    public PlayerWrapper getAllPlayers() {
+        List<PlayerDTO> playerDTOList =
+                playerRepository
+                        .findAll()
+                        .stream().map(this::convertPlayerToPlayerDto)
+                        .collect(Collectors.toList());
+        return new PlayerWrapper(playerDTOList);
     }
 
     private PlayerDTO convertPlayerToPlayerDto(Player user) {

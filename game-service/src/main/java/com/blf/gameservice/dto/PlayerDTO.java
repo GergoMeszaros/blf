@@ -12,13 +12,12 @@ import java.util.Date;
 public class PlayerDTO {
 
     Long id;
-    //@Type(type = "date")
-    Date birthdate;
     String name;
     String pictureRoot;
     String pictureRootSecond;
     String school;
     String position;
+    Date birthdate;
     String birthplace;
     String telephone;
     String playerSummary;

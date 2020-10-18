@@ -44,9 +44,9 @@ public class TeamController {
         return teamDao.deleteTeam(teamId);
     }
 
-  /*  @GetMapping("/xyz")
-    public List<PlayerDTO> cvb() {
+    @GetMapping("/members")
+    public List<PlayerDTO> getPlayersForSC() {
         return teamMemberServiceCaller.getPlayersForSC();
-    }*/
+    }
 
 }
