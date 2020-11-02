@@ -1,5 +1,6 @@
 package com.blf.gameservice.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -25,7 +26,8 @@ public class League {
     Integer seasonId;
 
     @ManyToOne
-    @JsonManagedReference
+    //@JsonManagedReference
+    @JsonIgnore
     private Season season;
 
     @OneToMany(mappedBy = "league")

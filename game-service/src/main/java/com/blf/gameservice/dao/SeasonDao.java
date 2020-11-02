@@ -6,6 +6,8 @@ public interface SeasonDao {
 
     List<Season> getAllSeason();
 
+    Season getSeasonById(Long seasonId);
+
     Season addNewSeason(Season season);
 
     Season deleteSeason(Long seasonId);

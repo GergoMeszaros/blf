@@ -1,5 +1,7 @@
 package com.blf.gameservice.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,10 +9,12 @@ import java.util.Set;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
+//@JsonIgnoreProperties(value = {"leagues"})
 public class Season {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +23,7 @@ public class Season {
     String date;
 
     @OneToMany( mappedBy = "season")
-    @JsonBackReference
-    private Set<League> league;
-
+    @JsonIgnore
+    //@JsonBackReference
+    private Set<League> leagues;
 }

@@ -12,11 +12,12 @@ import java.util.List;
 @RequestMapping("/league")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin
 public class LeagueController {
 
     LeagueDao leagueDao;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<League> getAllLeagues() {
         return leagueDao.getAllLeagues();
     }

@@ -8,6 +8,7 @@ public interface PlayerDao {
 
     List<Player> getAllPlayers();
 
+    Player getPlayerById(Long id);
 
     Player addPlayer(Player player);
 

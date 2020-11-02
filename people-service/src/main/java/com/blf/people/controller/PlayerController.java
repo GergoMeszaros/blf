@@ -21,6 +21,10 @@ public class PlayerController {
         return playerDao.getAllPlayers();
     }
 
+    @GetMapping("/{playerId}")
+    public Player getPlayerById(@PathVariable Long playerId){
+        return playerDao.getPlayerById(playerId);
+    }
 
     @PostMapping("/add")
     public Player addPlayer(@RequestBody Player player){

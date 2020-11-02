@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/team")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin
 public class TeamController {
 
     TeamDao teamDao;

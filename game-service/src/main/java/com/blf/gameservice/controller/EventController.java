@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("/event")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin
 public class EventController {
 
     EventDao eventDao;
