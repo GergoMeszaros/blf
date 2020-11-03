@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("/player")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin
 public class PlayerController {
 
     PlayerDao playerDao;
