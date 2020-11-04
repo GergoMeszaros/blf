@@ -9,6 +9,8 @@ public interface EventDao {
 
     List<Event> getEventsByAnyTeamId(Integer teamId);
 
+    Event getEventById(Long eventId);
+
     Event addNewEvent(Event event);
 
     Event updateEvent(Long eventId, Event updatedEvent);

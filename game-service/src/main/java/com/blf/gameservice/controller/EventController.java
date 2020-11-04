@@ -21,6 +21,11 @@ public class EventController {
         return eventDao.getAllEvents();
     }
 
+    @GetMapping("/{eventId}")
+    public Event getEventById(@PathVariable Long eventId){
+        return eventDao.getEventById(eventId);
+    }
+
     @GetMapping("/team/{teamId}")
     public List<Event> getEventsByAnyTeamId(@PathVariable Integer teamId){
         return eventDao.getEventsByAnyTeamId(teamId);

@@ -68,6 +68,6 @@ public class Event {
 
 
     @ManyToOne
-    @JsonManagedReference
+    @JsonIgnore
     private League league;
 }

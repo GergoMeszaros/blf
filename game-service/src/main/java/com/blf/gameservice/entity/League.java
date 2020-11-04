@@ -31,6 +31,6 @@ public class League {
     private Season season;
 
     @OneToMany(mappedBy = "league")
-    @JsonBackReference
+    @JsonIgnore
     private Set<Event> eventSet;
 }

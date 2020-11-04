@@ -28,6 +28,9 @@ public class LeagueController {
         return leagueDao.addNewLeague(league);
     }
 
+    @GetMapping("/")
+
+
     @PutMapping("/edit/{leagueId}")
     public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague){
         return leagueDao.updateLeague(leagueId, updatedLeague);

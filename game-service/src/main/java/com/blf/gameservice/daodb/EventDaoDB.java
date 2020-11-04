@@ -27,6 +27,11 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
+    public Event getEventById(Long eventId) {
+        return eventRepository.findById(eventId).orElse(null);
+    }
+
+    @Override
     public Event addNewEvent(Event event) {
         return eventRepository.saveAndFlush(event);
     }
