@@ -25,6 +25,11 @@ public class TeamController {
         return teamDao.getAllTeam();
     }
 
+    @GetMapping("/{teamId}")
+    public Team getTeamById(@PathVariable Long teamId){
+        return teamDao.getTeamById(teamId);
+    }
+
     @GetMapping("/blfteams")
     public List<Team> getALlBflTeams() {
         return teamDao.getAllBlfTeams();

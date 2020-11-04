@@ -28,6 +28,11 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
+    public Team getTeamById(Long teamId) {
+        return teamRepository.findById(teamId).orElse(null);
+    }
+
+    @Override
     public Team addNewTeam(Team team) {
         return teamRepository.saveAndFlush(team);
     }
