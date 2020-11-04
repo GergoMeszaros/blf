@@ -22,6 +22,11 @@ public class CoachController {
         return coachDao.getAllCoaches();
     }
 
+    @GetMapping("/{coachId}")
+    public Coach getCoachById(@PathVariable Long coachId){
+        return coachDao.getCoachById(coachId);
+    }
+
     @PostMapping("/add")
     public Coach addCoach(@RequestBody Coach coach){
         return coachDao.addCoach(coach);

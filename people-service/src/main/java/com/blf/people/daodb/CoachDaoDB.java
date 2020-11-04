@@ -22,6 +22,11 @@ public class CoachDaoDB implements CoachDao {
     }
 
     @Override
+    public Coach getCoachById(Long coachId) {
+        return coachRepository.findById(coachId).orElse(null);
+    }
+
+    @Override
     public Coach addCoach(Coach coach) {
         return coachRepository.saveAndFlush(coach);
     }
