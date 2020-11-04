@@ -1,4 +1,5 @@
 package com.blf.gameservice.controller;
+
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
 import lombok.AllArgsConstructor;
@@ -17,32 +18,32 @@ public class EventController {
     EventDao eventDao;
 
     @GetMapping("")
-    public List<Event> getAllEvents(){
+    public List<Event> getAllEvents() {
         return eventDao.getAllEvents();
     }
 
     @GetMapping("/{eventId}")
-    public Event getEventById(@PathVariable Long eventId){
+    public Event getEventById(@PathVariable Long eventId) {
         return eventDao.getEventById(eventId);
     }
 
     @GetMapping("/team/{teamId}")
-    public List<Event> getEventsByAnyTeamId(@PathVariable Integer teamId){
+    public List<Event> getEventsByAnyTeamId(@PathVariable Integer teamId) {
         return eventDao.getEventsByAnyTeamId(teamId);
     }
 
     @PostMapping("/add")
-    public Event addNewEvent(@RequestBody Event event){
+    public Event addNewEvent(@RequestBody Event event) {
         return eventDao.addNewEvent(event);
     }
 
     @PutMapping("/edit/{eventId}")
-    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent){
-        return eventDao.updateEvent(eventId,updatedEvent);
+    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) {
+        return eventDao.updateEvent(eventId, updatedEvent);
     }
 
     @DeleteMapping("/delete/{eventId}")
-    public Event deleteEvent(@PathVariable Long eventId){
+    public Event deleteEvent(@PathVariable Long eventId) {
         return eventDao.deleteEvent(eventId);
     }
 

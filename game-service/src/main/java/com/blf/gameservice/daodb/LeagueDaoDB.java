@@ -22,6 +22,11 @@ public class LeagueDaoDB implements LeagueDao {
     }
 
     @Override
+    public League getLeagueById(Long leagueId) {
+        return leagueRepository.findById(leagueId).orElse(null);
+    }
+
+    @Override
     public League addNewLeague(League league) {
         return leagueRepository.saveAndFlush(league);
     }
@@ -46,7 +51,7 @@ public class LeagueDaoDB implements LeagueDao {
     @Override
     public League deleteLeague(Long leagueId) {
         League leagueToDelete = leagueRepository.findById(leagueId).orElse(null);
-        if(leagueToDelete != null) {
+        if (leagueToDelete != null) {
             leagueRepository.delete(leagueToDelete);
         }
         log.info("League deleted: " + leagueToDelete);

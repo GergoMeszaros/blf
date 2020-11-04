@@ -22,13 +22,19 @@ public class LeagueController {
         return leagueDao.getAllLeagues();
     }
 
+
+    @GetMapping("/{leagueId}")
+    public League getLeagueById(@PathVariable Long leagueId){
+        return leagueDao.getLeagueById(leagueId);
+    }
+
+
+
     @PostMapping("/add")
     public League addNewLeague(@RequestBody League league){
         log.info("The following league is added to database: " + league);
         return leagueDao.addNewLeague(league);
     }
-
-    @GetMapping("/")
 
 
     @PutMapping("/edit/{leagueId}")
