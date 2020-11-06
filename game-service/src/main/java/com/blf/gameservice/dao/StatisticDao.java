@@ -1,20 +1,20 @@
 package com.blf.gameservice.dao;
 
-import com.blf.gameservice.entity.Statistic;
+import com.blf.gameservice.entity.StatisticalRow;
 
 import java.util.List;
 
 public interface StatisticDao {
 
-    List<Statistic> getAllStatistics();
+    List<StatisticalRow> getAllStatistics();
 
-    Statistic getStatisticById(Long statisticId);
+    StatisticalRow getStatisticById(Long statisticId);
 
-    Statistic addNewStatistic(Statistic statistic);
+    StatisticalRow addNewStatistic(StatisticalRow statisticalrow);
 
-    Statistic updateStatistic(Statistic updatedStatistic);
+    StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow);
 
-    Statistic deleteStatistic(Long statisticId);
+    StatisticalRow deleteStatistic(Long statisticId);
 
 
 

@@ -2,24 +2,21 @@ package com.blf.gameservice.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Statistic {
+public class StatisticalRow {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     Long id;
 
-    Integer player_id;
-    Integer played_time;
+    Integer playerId;
+    Integer playedTime;
 
     @Column(name = "3pt_attempt")
     Integer pt3Attempt;

@@ -1,8 +1,8 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.StatisticDao;
-import com.blf.gameservice.entity.Statistic;
-import com.blf.gameservice.repository.StatisticRepository;
+import com.blf.gameservice.entity.StatisticalRow;
+import com.blf.gameservice.repository.StatisticalRowRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,31 +13,31 @@ import java.util.List;
 @Slf4j
 public class StatisticDaoDB implements StatisticDao {
 
-    StatisticRepository statisticRepository;
+    StatisticalRowRepository statisticRepository;
 
     @Override
-    public List<Statistic> getAllStatistics() {
+    public List<StatisticalRow> getAllStatistics() {
         return statisticRepository.findAll();
     }
 
     @Override
-    public Statistic getStatisticById(Long statisticId) {
+    public StatisticalRow getStatisticById(Long statisticId) {
         return statisticRepository.findById(statisticId).orElse(null);
     }
 
     @Override
-    public Statistic addNewStatistic(Statistic statistic) {
-        return statisticRepository.saveAndFlush(statistic);
+    public StatisticalRow addNewStatistic(StatisticalRow statisticalrow) {
+        return statisticRepository.saveAndFlush(statisticalrow);
     }
 
     @Override
-    public Statistic updateStatistic(Statistic updatedStatistic) {
+    public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow) {
         return null;
     }
 
     @Override
-    public Statistic deleteStatistic(Long statisticId) {
-        Statistic statToDelete = statisticRepository.findById(statisticId).orElse(null);
+    public StatisticalRow deleteStatistic(Long statisticId) {
+        StatisticalRow statToDelete = statisticRepository.findById(statisticId).orElse(null);
         statisticRepository.deleteById(statisticId);
         log.info("Deleted statistic: " + statToDelete);
         return statToDelete;
