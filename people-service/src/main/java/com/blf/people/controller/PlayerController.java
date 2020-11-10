@@ -4,6 +4,7 @@ import com.blf.people.dto.PlayerDTO;
 import com.blf.people.entity.Player;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,11 @@ import java.util.List;
 public class PlayerController {
 
     PlayerDao playerDao;
+
+    @GetMapping("/paginated")
+    public Page<Player> getPaginatedPlayers(){
+        return playerDao.getAllPaginatedPlayers();
+    }
 
     @GetMapping("")
     public List<Player> getAllPlayers(){

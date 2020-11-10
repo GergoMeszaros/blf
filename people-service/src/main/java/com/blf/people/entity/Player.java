@@ -1,4 +1,5 @@
 package com.blf.people.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,20 +17,22 @@ import java.util.Date;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String pictureRoot;
-    String pictureRootSecond;
-    String school;
-    String position;
+    private String name;
+    private String pictureRoot;
+    private String pictureRootSecond;
+    private String school;
+    private String position;
+
     @Type(type = "date")
-    Date birthdate;
-    String birthplace;
-    String telephone;
-    String playerSummary;
-    Integer isActive;
-    Integer startDate;
-    Integer age;
-    Integer height;
+    private Date birthdate;
+
+    private String birthplace;
+    private String telephone;
+    private String playerSummary;
+    private Integer isActive;
+    private Integer startDate;
+    private Integer age;
+    private Integer height;
 }

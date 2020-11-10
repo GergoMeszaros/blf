@@ -2,9 +2,13 @@ package com.blf.people.daodb;
 
 import com.blf.people.dao.PlayerDao;
 import com.blf.people.entity.Player;
+import com.blf.people.repository.PlayerPaginationRepository;
 import com.blf.people.repository.PlayerRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +20,18 @@ import java.util.stream.Collectors;
 public class PlayerDaoDB implements PlayerDao {
 
     PlayerRepository playerRepository;
+    PlayerPaginationRepository paginationRepository;
 
 
     @Override
     public List<Player> getAllPlayers() {
         return playerRepository.findAll().stream().limit(15).collect(Collectors.toList());
+    }
+
+    @Override
+    public Page<Player> getAllPaginatedPlayers() {
+        Pageable pageable = PageRequest.of(0,30);
+        return paginationRepository.findAll(pageable);
     }
 
     @Override
@@ -68,5 +79,6 @@ public class PlayerDaoDB implements PlayerDao {
         log.info("Player deleted: " + playerToDelete);
         return playerToDelete;
     }
+
 
 }
