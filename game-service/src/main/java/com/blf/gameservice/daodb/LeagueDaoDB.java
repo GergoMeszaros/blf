@@ -39,7 +39,7 @@ public class LeagueDaoDB implements LeagueDao {
             leagueToUpdate.setName(updatedLeague.getName() == null ? leagueToUpdate.getName() : updatedLeague.getName());
             leagueToUpdate.setAgeGroupId(updatedLeague.getAgeGroupId());
             leagueToUpdate.setOrganization(updatedLeague.getOrganization());
-            leagueToUpdate.setSeasonId(updatedLeague.getSeasonId());
+            //leagueToUpdate.setSeasonId(updatedLeague.getSeasonId());
 
             leagueRepository.saveAndFlush(leagueToUpdate);
         } else {

@@ -1,5 +1,7 @@
 package com.blf.gameservice.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -22,12 +24,11 @@ public class League {
     String organization;
     Integer ageGroupId;
 
-    @Column(name = "season_id", insertable = false, updatable = false)
+ /*   @Column(name = "season_id")
     Integer seasonId;
-
+*/
     @ManyToOne
     //@JsonManagedReference
-    @JsonIgnore
     private Season season;
 
     @OneToMany(mappedBy = "league")

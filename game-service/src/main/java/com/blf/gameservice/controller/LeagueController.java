@@ -29,7 +29,6 @@ public class LeagueController {
     }
 
 
-
     @PostMapping("/add")
     public League addNewLeague(@RequestBody League league){
         log.info("The following league is added to database: " + league);
