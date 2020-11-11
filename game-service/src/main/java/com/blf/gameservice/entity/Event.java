@@ -1,7 +1,6 @@
 package com.blf.gameservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -48,6 +47,7 @@ public class Event {
     private Integer a4qTaken;
     private Integer aExScore;
     private Integer aExTaken;
+    @Column(columnDefinition = "text")
     private String summary;
     private String address;
 
@@ -57,7 +57,7 @@ public class Event {
     @ManyToOne
     private League league;
 
-    @OneToMany(mappedBy = "event")
+    @ManyToMany(mappedBy = "events")
     @JsonBackReference
     private Set<Team> teams;
 

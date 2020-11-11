@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long>{
 
-    @Query("SELECT event FROM Event AS event WHERE event.homeTeamId = :teamId OR event.awayTeamId = :teamId")
+ /*   @Query("SELECT event FROM Event AS event WHERE event.homeTeamId = :teamId OR event.awayTeamId = :teamId")
      List<Event> getEventsByAnyTeamId(@Param("teamId") Integer teamId);
 
-
+*/
 
 }

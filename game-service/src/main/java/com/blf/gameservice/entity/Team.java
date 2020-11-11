@@ -27,8 +27,12 @@ public class Team {
     private String name;
     private String address;
 
+    @ManyToMany
+    @JsonIgnore
+    private Set<Event> events;
+
     @ManyToOne
-    private Event event;
+    private Season season;
 
     @OneToMany(mappedBy = "team")
     @JsonBackReference

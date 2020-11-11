@@ -19,7 +19,7 @@ public class Season {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String date;
+    private String name;
 
     @OneToMany( mappedBy = "season")
     @JsonBackReference
@@ -28,6 +28,9 @@ public class Season {
     @OneToMany(mappedBy = "season")
     @JsonBackReference
     private Set<Event> events;
+
+    @OneToMany(mappedBy = "season")
+    private Set<Team> teams;
 
 
 }

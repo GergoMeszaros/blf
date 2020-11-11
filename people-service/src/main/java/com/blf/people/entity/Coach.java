@@ -1,4 +1,5 @@
 package com.blf.people.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,11 +19,11 @@ public class Coach {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String email;
-    String phoneNumber;
-    String title;
-    String photoRoot;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String title;
+    private String photoRoot;
 }
