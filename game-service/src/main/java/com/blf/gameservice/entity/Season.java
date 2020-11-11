@@ -23,7 +23,7 @@ public class Season {
     String date;
 
     @OneToMany( mappedBy = "season")
-    @JsonIgnore
     //@JsonBackReference
+    @JsonBackReference
     private Set<League> leagues;
 }

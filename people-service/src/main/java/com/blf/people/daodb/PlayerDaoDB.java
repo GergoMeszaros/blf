@@ -29,8 +29,8 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
-    public Page<Player> getAllPaginatedPlayers() {
-        Pageable pageable = PageRequest.of(0,30);
+    public Page<Player> getAllPaginatedPlayers(int page) {
+        Pageable pageable = PageRequest.of(page,30);
         return paginationRepository.findAll(pageable);
     }
 

@@ -18,9 +18,9 @@ public class PlayerController {
 
     PlayerDao playerDao;
 
-    @GetMapping("/paginated")
-    public Page<Player> getPaginatedPlayers(){
-        return playerDao.getAllPaginatedPlayers();
+    @GetMapping("/paginated/{page}")
+    public Page<Player> getPaginatedPlayers(@PathVariable int page){
+        return playerDao.getAllPaginatedPlayers(page);
     }
 
     @GetMapping("")

@@ -16,7 +16,7 @@ public interface PlayerDao {
 
     Player deletePlayer(Long id);
 
-    Page<Player> getAllPaginatedPlayers();
+    Page<Player> getAllPaginatedPlayers(int page);
 
 
 }
