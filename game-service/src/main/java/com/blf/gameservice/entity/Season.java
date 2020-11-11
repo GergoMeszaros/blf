@@ -12,18 +12,22 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@JsonIgnoreProperties(value = {"leagues"})
 public class Season {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String date;
+    private String date;
 
     @OneToMany( mappedBy = "season")
-    //@JsonBackReference
     @JsonBackReference
     private Set<League> leagues;
+
+    @OneToMany(mappedBy = "season")
+    @JsonBackReference
+    private Set<Event> events;
+
+
 }

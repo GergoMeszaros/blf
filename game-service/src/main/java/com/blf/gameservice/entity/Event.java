@@ -2,11 +2,11 @@ package com.blf.gameservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,53 +21,45 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @Column(name = "season_id", updatable = false, insertable = false)
-    Integer seasonId;
+    @Type(type = "date")
+    private Date eventDate;
 
-    @Column(name = "league_id", updatable = false, insertable = false)
-    Integer leagueId;
-
-    //@Type(type = "date")
-    Date eventDate;
-
-    Integer homeTeamId;
-    Integer awayTeamId;
-    Integer homeTotalScore;
-    Integer awayTotalScore;
-    Integer h1qScore;
-    Integer h1qTaken;
-    Integer h2qScore;
-    Integer h2qTaken;
-    Integer h3qScore;
-    Integer h3qTaken;
-    Integer h4qScore;
-    Integer h4qTaken;
-    Integer hExScore;
-    Integer hExTaken;
-    Integer a1qScore;
-    Integer a1qTaken;
-    Integer a2qScore;
-    Integer a2qTaken;
-    Integer a3qScore;
-    Integer a3qTaken;
-    Integer a4qScore;
-    Integer a4qTaken;
-    Integer aExScore;
-    Integer aExTaken;
-    Integer bestPlayerId;
-    String summary;
-    String address;
-
-/*
-    @Formula("h1q_score * h2q_score")
-    Integer teszt;
-*/
-
-
+    private Integer homeTotalScore;
+    private Integer awayTotalScore;
+    private Integer h1qScore;
+    private Integer h1qTaken;
+    private Integer h2qScore;
+    private Integer h2qTaken;
+    private Integer h3qScore;
+    private Integer h3qTaken;
+    private Integer h4qScore;
+    private Integer h4qTaken;
+    private Integer hExScore;
+    private Integer hExTaken;
+    private Integer a1qScore;
+    private Integer a1qTaken;
+    private Integer a2qScore;
+    private Integer a2qTaken;
+    private Integer a3qScore;
+    private Integer a3qTaken;
+    private Integer a4qScore;
+    private Integer a4qTaken;
+    private Integer aExScore;
+    private Integer aExTaken;
+    private String summary;
+    private String address;
 
     @ManyToOne
-    @JsonIgnore
+    private Season season;
+
+    @ManyToOne
     private League league;
+
+    @OneToMany(mappedBy = "event")
+    @JsonBackReference
+    private Set<Team> teams;
+
+
 }

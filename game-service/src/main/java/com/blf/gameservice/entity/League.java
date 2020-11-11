@@ -1,4 +1,5 @@
 package com.blf.gameservice.entity;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -18,20 +19,16 @@ public class League {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String organization;
-    Integer ageGroupId;
+    private String name;
+    private String organization;
 
- /*   @Column(name = "season_id")
-    Integer seasonId;
-*/
     @ManyToOne
-    //@JsonManagedReference
     private Season season;
 
+
     @OneToMany(mappedBy = "league")
-    @JsonIgnore
+    @JsonBackReference
     private Set<Event> eventSet;
 }

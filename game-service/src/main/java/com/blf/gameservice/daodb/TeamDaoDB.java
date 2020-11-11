@@ -44,10 +44,6 @@ public class TeamDaoDB implements TeamDao {
         if (teamToUpdate != null) {
             teamToUpdate.setName(updatedTeam.getName());
             teamToUpdate.setAddress(updatedTeam.getAddress());
-            teamToUpdate.setLeagueId(updatedTeam.getLeagueId());
-            teamToUpdate.setSeasonId(updatedTeam.getSeasonId());
-            teamToUpdate.setCoachId(updatedTeam.getCoachId());
-            teamToUpdate.setAssistantCoachId(updatedTeam.getAssistantCoachId());
 
             teamRepository.saveAndFlush(teamToUpdate);
         } else {

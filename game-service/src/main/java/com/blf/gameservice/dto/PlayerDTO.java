@@ -1,9 +1,8 @@
 package com.blf.gameservice.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
-
 import java.util.Date;
 
 @Data
@@ -11,18 +10,18 @@ import java.util.Date;
 @NoArgsConstructor
 public class PlayerDTO {
 
-    Long id;
-    String name;
-    String pictureRoot;
-    String pictureRootSecond;
-    String school;
-    String position;
-    Date birthdate;
-    String birthplace;
-    String telephone;
-    String playerSummary;
-    Integer isActive;
-    Integer startDate;
-    Integer age;
-    Integer height;
+    private Long id;
+    private String name;
+    private String pictureRoot;
+    private String pictureRootSecond;
+    private String school;
+    private String position;
+    private Date birthdate;
+    private String birthplace;
+    private String telephone;
+    private String playerSummary;
+    private Integer isActive;
+    private Integer startDate;
+    private Integer age;
+    private Integer height;
 }

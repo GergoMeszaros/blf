@@ -65,13 +65,10 @@ public class EventDaoDB implements EventDao {
             eventToUpdate.setH4qTaken(updatedEvent.getH4qTaken());
             eventToUpdate.setHExTaken(updatedEvent.getHExTaken());
 
-            eventToUpdate.setHomeTeamId(updatedEvent.getHomeTeamId());
-            eventToUpdate.setAwayTeamId(updatedEvent.getAwayTeamId());
             eventToUpdate.setAddress(updatedEvent.getAddress());
             eventToUpdate.setEventDate(updatedEvent.getEventDate());
             eventToUpdate.setSummary(updatedEvent.getSummary());
             eventToUpdate.setLeague(updatedEvent.getLeague());
-            eventToUpdate.setBestPlayerId(updatedEvent.getBestPlayerId());
 
             eventRepository.saveAndFlush(eventToUpdate);
         } else {

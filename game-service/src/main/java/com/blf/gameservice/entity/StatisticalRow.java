@@ -13,34 +13,35 @@ public class StatisticalRow {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    Long id;
+    private Long id;
 
-    Integer playerId;
-    Integer playedTime;
+    private Integer playedTime;
 
     @Column(name = "3pt_attempt")
-    Integer pt3Attempt;
+    private Integer pt3Attempt;
 
     @Column(name = "3pt_made")
-    Integer pt3Made;
+    private Integer pt3Made;
 
-    Integer midRangeAttempt;
-    Integer midRangeMade;
-    Integer closeShotAttempt;
-    Integer closeShotMade;
-    Integer shotPercentage;
-    Integer freeThrowAttempt;
-    Integer freeThrowPercentage;
-    Integer defensiveRebound;
-    Integer offensiveRebound;
-    Integer totalRebound;
-    Integer steal;
-    Integer turnover;
-    Integer fouledAgainst;
-    Integer committedFoul;
-    Integer assist;
-    Integer technicalMistake;
-    Integer block;
-    Integer ibm;
-    Integer totalPts;
+    private Integer midRangeAttempt;
+    private Integer midRangeMade;
+    private Integer closeShotAttempt;
+    private Integer closeShotMade;
+    private Integer shotPercentage;
+    private Integer freeThrowAttempt;
+    private Integer freeThrowPercentage;
+    private Integer defensiveRebound;
+    private Integer offensiveRebound;
+    private Integer totalRebound;
+    private Integer steal;
+    private Integer turnover;
+    private Integer fouledAgainst;
+    private Integer committedFoul;
+    private Integer assist;
+    private Integer technicalMistake;
+    private Integer block;
+    private Integer ibm;
+    private Integer totalPts;
+
+
 }

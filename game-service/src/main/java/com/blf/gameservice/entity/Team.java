@@ -1,5 +1,7 @@
 package com.blf.gameservice.entity;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,26 +20,15 @@ public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @Column(name = "season_id", updatable = false, insertable = false)
-    Integer seasonId;
+    private Integer blf;
 
-    Integer ageGroupId;
-    Integer coachId;
-    Integer assistantCoachId;
-    Integer blf;
+    private String name;
+    private String address;
 
-    @Column(name = "league_id", updatable = false, insertable = false)
-    Integer leagueId;
-
-    String name;
-    String address;
-
-    //Todo (megjegyzés, age_group, blf??)
-    //String note;
-    //int blf;
-
+    @ManyToOne
+    private Event event;
 
     @OneToMany(mappedBy = "team")
     @JsonBackReference
