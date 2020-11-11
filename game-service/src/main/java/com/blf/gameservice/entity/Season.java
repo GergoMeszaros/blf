@@ -21,16 +21,16 @@ public class Season {
 
     private String name;
 
-    @OneToMany( mappedBy = "season")
+   /* @OneToMany( mappedBy = "season")
     @JsonBackReference
     private Set<League> leagues;
-
-    @OneToMany(mappedBy = "season")
+*/
+    /*@OneToMany(mappedBy = "season")
     @JsonBackReference
     private Set<Event> events;
-
-    @OneToMany(mappedBy = "season")
-    private Set<Team> teams;
-
+*/
+    /*@OneToMany(mappedBy = "season")
+    @JsonBackReference
+    private Set<Team> teams;*/
 
 }

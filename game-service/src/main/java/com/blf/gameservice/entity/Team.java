@@ -1,8 +1,6 @@
 package com.blf.gameservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,9 +25,14 @@ public class Team {
     private String name;
     private String address;
 
-    @ManyToMany
-    @JsonIgnore
+ /*   @OneToMany(mappedBy = "homeTeam")
+    @JsonBackReference
     private Set<Event> events;
+
+    @OneToMany(mappedBy = "awayTeam")
+    @JsonBackReference
+    private Set<Event> events2;
+*/
 
     @ManyToOne
     private Season season;

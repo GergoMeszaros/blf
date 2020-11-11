@@ -1,6 +1,5 @@
 package com.blf.gameservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +8,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Data
 @Entity
@@ -57,9 +55,12 @@ public class Event {
     @ManyToOne
     private League league;
 
-    @ManyToMany(mappedBy = "events")
-    @JsonBackReference
-    private Set<Team> teams;
+    @ManyToOne
+    private Team homeTeam;
+
+    @ManyToOne
+    private Team awayTeam;
 
 
 }
+
