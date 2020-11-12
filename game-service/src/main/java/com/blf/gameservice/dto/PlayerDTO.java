@@ -3,6 +3,7 @@ package com.blf.gameservice.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
@@ -24,4 +25,5 @@ public class PlayerDTO {
     private Integer startDate;
     private Integer age;
     private Integer height;
+
 }

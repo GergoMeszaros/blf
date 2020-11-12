@@ -20,7 +20,6 @@ public class Organizer {
     TeamMemberDao teamMemberDao;
 
 
-
     @GetMapping("/members")
     public List<TeamMember> getAllTeamMembers(){
         return teamMemberDao.getAllTeamMembers();

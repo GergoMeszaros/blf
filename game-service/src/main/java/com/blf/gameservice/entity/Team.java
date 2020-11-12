@@ -39,5 +39,6 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     @JsonBackReference
+    @Transient
     private Set<TeamMember> teamMemberSet;
 }

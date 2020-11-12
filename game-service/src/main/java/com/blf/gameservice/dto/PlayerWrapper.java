@@ -10,5 +10,5 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PlayerWrapper {
 
-    List<PlayerDTO> playerDTOS;
+   private List<PlayerDTO> playerDTOS;
 }
