@@ -21,4 +21,6 @@ public class TeamMember {
     @ManyToOne
     private Team team;
 
+    private Long playerId;
+
 }

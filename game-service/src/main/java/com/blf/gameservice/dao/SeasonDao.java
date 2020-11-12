@@ -8,7 +8,10 @@ public interface SeasonDao {
 
     Season getSeasonById(Long seasonId);
 
+    Season updateSeason(Long seasonId, Season updatedSeason);
+
     Season addNewSeason(Season season);
 
     Season deleteSeason(Long seasonId);
+
 }

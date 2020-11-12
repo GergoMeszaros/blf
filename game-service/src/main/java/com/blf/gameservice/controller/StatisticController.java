@@ -29,11 +29,16 @@ public class StatisticController {
         return statisticDao.getStatisticById(statisticId);
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping("/add")
     public StatisticalRow addNewStatistic(@RequestBody StatisticalRow statisticalrow){
 
         log.info("added statistic: " + statisticalrow);
         return statisticDao.addNewStatistic(statisticalrow);
+    }
+
+    @PutMapping("/edit/{statisticId}")
+    public StatisticalRow editStatisticalRow(@PathVariable Long statisticId, @RequestBody StatisticalRow updatedStatisticalRow){
+        return null;
     }
 
     @DeleteMapping("/delete/{statisticId}")

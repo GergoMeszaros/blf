@@ -31,10 +31,10 @@ public class WrapperService {
         return new PlayerWrapper(playerDTOList);
     }
 
-    private PlayerDTO convertPlayerToPlayerDto(Player user) {
+    private PlayerDTO convertPlayerToPlayerDto(Player player) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper
-                .map(user, PlayerDTO.class);
+                .map(player, PlayerDTO.class);
     }
 }

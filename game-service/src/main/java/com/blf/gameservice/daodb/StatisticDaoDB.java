@@ -31,7 +31,7 @@ public class StatisticDaoDB implements StatisticDao {
     }
 
     @Override
-    public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow) {
+    public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow) {
         return null;
     }
 

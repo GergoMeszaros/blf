@@ -45,9 +45,11 @@ public class Event {
     private Integer a4qTaken;
     private Integer aExScore;
     private Integer aExTaken;
+
+    private String address;
+
     @Column(columnDefinition = "text")
     private String summary;
-    private String address;
 
     @ManyToOne
     private Season season;

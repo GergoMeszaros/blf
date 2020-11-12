@@ -1,16 +1,11 @@
 package com.blf.gameservice.controller;
 
-
 import com.blf.gameservice.dao.SeasonDao;
 import com.blf.gameservice.entity.Season;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/season")
@@ -27,12 +22,17 @@ public class SeasonController {
     }
 
     @GetMapping("/{seasonId}")
-    public Season getSeasonById(@PathVariable Long seasonId){
+    public Season getSeasonById(@PathVariable Long seasonId) {
         return seasonDao.getSeasonById(seasonId);
     }
 
-    @PostMapping(value = "/add")
-    public Season addNewSeason(@RequestBody Season season){
+    @PutMapping("/edit/{seasonId}")
+    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updateSseason){
+        return seasonDao.updateSeason(seasonId, updateSseason);
+    }
+
+    @PostMapping("/add")
+    public Season addNewSeason(@RequestBody Season season) {
 
         //TODO --> season object simán nem mapként
         log.info("added season: " + season);
@@ -46,7 +46,7 @@ public class SeasonController {
     }
 
     @DeleteMapping("/delete/{seasonId}")
-    public Season deleteSeason(@PathVariable Long seasonId){
+    public Season deleteSeason(@PathVariable Long seasonId) {
         return seasonDao.deleteSeason(seasonId);
     }
 

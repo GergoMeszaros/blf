@@ -27,6 +27,20 @@ public class SeasonDaoDB implements SeasonDao {
     }
 
     @Override
+    public Season updateSeason(Long seasonId, Season updatedSeason) {
+        Season seasonToUpdate = seasonRepository.findById(seasonId).orElse(null);
+
+        if (seasonToUpdate != null) {
+            seasonToUpdate.setName(updatedSeason.getName() == null ? seasonToUpdate.getName() : updatedSeason.getName());
+
+            seasonRepository.saveAndFlush(seasonToUpdate);
+        } else {
+            log.info("Season not found with the following id: " + seasonId);
+        }
+        return seasonToUpdate;
+    }
+
+    @Override
     public Season addNewSeason(Season season) {
         return seasonRepository.saveAndFlush(season);
     }

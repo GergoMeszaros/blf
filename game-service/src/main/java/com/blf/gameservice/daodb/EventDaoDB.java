@@ -21,11 +21,6 @@ public class EventDaoDB implements EventDao {
         return eventRepository.findAll();
     }
 
- /*   @Override
-    public List<Event> getEventsByAnyTeamId(Integer teamId) {
-        return eventRepository.getEventsByAnyTeamId(teamId);
-    }
-*/
     @Override
     public Event getEventById(Long eventId) {
         return eventRepository.findById(eventId).orElse(null);

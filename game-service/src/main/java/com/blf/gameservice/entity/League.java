@@ -27,8 +27,4 @@ public class League {
     @ManyToOne
     private Season season;
 
-
-  /*  @OneToMany(mappedBy = "league")
-    @JsonBackReference
-    private Set<Event> eventSet;*/
 }

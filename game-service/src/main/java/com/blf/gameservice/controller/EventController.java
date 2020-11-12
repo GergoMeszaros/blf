@@ -27,15 +27,9 @@ public class EventController {
         return eventDao.getEventById(eventId);
     }
 
-/*
-    @GetMapping("/team/{teamId}")
-    public List<Event> getEventsByAnyTeamId(@PathVariable Integer teamId) {
-        return eventDao.getEventsByAnyTeamId(teamId);
-    }
-*/
-
     @PostMapping("/add")
     public Event addNewEvent(@RequestBody Event event) {
+        log.info("The following event is added to database: " + event);
         return eventDao.addNewEvent(event);
     }
 
