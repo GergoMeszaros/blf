@@ -1,5 +1,5 @@
-package com.blf.people.dao;
-import com.blf.people.entity.Player;
+package com.blf.gameservice.dao;
+import com.blf.gameservice.entity.Player;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.blf.people.entity;
+package com.blf.gameservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

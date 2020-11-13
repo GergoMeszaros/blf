@@ -1,7 +1,6 @@
-package com.blf.people.controller;
-import com.blf.people.dao.PlayerDao;
-import com.blf.people.dto.PlayerDTO;
-import com.blf.people.entity.Player;
+package com.blf.gameservice.controller;
+import com.blf.gameservice.dao.PlayerDao;
+import com.blf.gameservice.entity.Player;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

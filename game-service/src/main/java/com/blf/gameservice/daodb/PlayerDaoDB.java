@@ -1,9 +1,9 @@
-package com.blf.people.daodb;
+package com.blf.gameservice.daodb;
 
-import com.blf.people.dao.PlayerDao;
-import com.blf.people.entity.Player;
-import com.blf.people.repository.PlayerPaginationRepository;
-import com.blf.people.repository.PlayerRepository;
+import com.blf.gameservice.repository.PlayerPaginationRepository;
+import com.blf.gameservice.repository.PlayerRepository;
+import com.blf.gameservice.dao.PlayerDao;
+import com.blf.gameservice.entity.Player;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
