@@ -12,7 +12,7 @@ public interface StatisticDao {
 
     StatisticalRow addNewStatistic(StatisticalRow statisticalrow);
 
-    StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow);
+   // StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow);
 
     StatisticalRow deleteStatistic(Long statisticId);
 

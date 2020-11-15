@@ -1,9 +1,6 @@
 package com.blf.gameservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -11,8 +8,8 @@ import java.util.Date;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Player {
     @Id
@@ -35,4 +32,5 @@ public class Player {
     private Integer startDate;
     private Integer age;
     private Integer height;
+
 }

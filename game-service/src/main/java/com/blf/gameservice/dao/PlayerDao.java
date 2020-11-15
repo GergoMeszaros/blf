@@ -1,4 +1,5 @@
 package com.blf.gameservice.dao;
+import com.blf.gameservice.dto.PlayerWrapper;
 import com.blf.gameservice.entity.Player;
 import org.springframework.data.domain.Page;
 
@@ -17,6 +18,5 @@ public interface PlayerDao {
     Player deletePlayer(Long id);
 
     Page<Player> getAllPaginatedPlayers(int page);
-
 
 }

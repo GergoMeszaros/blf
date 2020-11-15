@@ -1,14 +1,17 @@
 package com.blf.gameservice.dto;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class PlayerWrapper {
 
-   private List<PlayerDTO> playerDTOS;
+    private List<PlayerDTO> playerDTOS;
 }

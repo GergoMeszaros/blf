@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -18,6 +19,6 @@ public class TeamMemberDaoDB implements TeamMemberDao {
 
     @Override
     public List<TeamMember> getAllTeamMembers() {
-        return teamMemberRepository.findAll();
+        return teamMemberRepository.findAll().stream().limit(12).collect(Collectors.toList());
     }
 }

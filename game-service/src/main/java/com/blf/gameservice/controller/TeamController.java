@@ -1,6 +1,6 @@
 package com.blf.gameservice.controller;
+
 import com.blf.gameservice.dao.TeamDao;
-import com.blf.gameservice.dto.PlayerDTO;
 import com.blf.gameservice.entity.Team;
 import com.blf.gameservice.servicecaller.TeamMemberServiceCaller;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class TeamController {
     }
 
     @GetMapping("/{teamId}")
-    public Team getTeamById(@PathVariable Long teamId){
+    public Team getTeamById(@PathVariable Long teamId) {
         return teamDao.getTeamById(teamId);
     }
 
@@ -50,9 +50,9 @@ public class TeamController {
         return teamDao.deleteTeam(teamId);
     }
 
-    @GetMapping("/members")
+   /* @GetMapping("/members")
     public List<PlayerDTO> getPlayersForSC() {
         return teamMemberServiceCaller.getPlayersForSC();
-    }
+    }*/
 
 }

@@ -1,10 +1,6 @@
 package com.blf.gameservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import javax.persistence.*;
 
 @Data
@@ -21,6 +17,20 @@ public class TeamMember {
     @ManyToOne
     private Team team;
 
-    private Long playerId;
+    @OneToOne
+    private Player player;
 
+    @Transient
+    private String seasonName;
+
+    @PostLoad
+    private void postLoad() {
+        setSeason();
+    }
+
+    public void setSeason() {
+        if (team != null) {
+            this.seasonName = team.getSeason().getName();
+        }
+    }
 }

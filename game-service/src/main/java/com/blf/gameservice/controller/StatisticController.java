@@ -36,10 +36,10 @@ public class StatisticController {
         return statisticDao.addNewStatistic(statisticalrow);
     }
 
-    @PutMapping("/edit/{statisticId}")
+   /* @PutMapping("/edit/{statisticId}")
     public StatisticalRow editStatisticalRow(@PathVariable Long statisticId, @RequestBody StatisticalRow updatedStatisticalRow){
         return null;
-    }
+    }*/
 
     @DeleteMapping("/delete/{statisticId}")
     public StatisticalRow deleteStatistic(@PathVariable Long statisticId){

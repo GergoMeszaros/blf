@@ -30,7 +30,7 @@ public class PlayerDaoDB implements PlayerDao {
 
     @Override
     public Page<Player> getAllPaginatedPlayers(int page) {
-        Pageable pageable = PageRequest.of(page,30);
+        Pageable pageable = PageRequest.of(page, 30);
         return paginationRepository.findAll(pageable);
     }
 
@@ -79,6 +79,4 @@ public class PlayerDaoDB implements PlayerDao {
         log.info("Player deleted: " + playerToDelete);
         return playerToDelete;
     }
-
-
 }

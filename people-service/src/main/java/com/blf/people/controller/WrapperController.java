@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @Slf4j
 public class WrapperController {
-
+/*
     WrapperService wrapperService;
 
     @GetMapping
     @ResponseBody
     public PlayerWrapper getAllDtoPlayers(){
         return wrapperService.getAllPlayers();
-    }
+    }*/
 }
