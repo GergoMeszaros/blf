@@ -25,5 +25,4 @@ public class Team {
 
     @ManyToOne
     private Season season;
-
 }

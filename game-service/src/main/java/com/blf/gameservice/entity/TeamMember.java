@@ -35,7 +35,7 @@ public class TeamMember {
 
     public void setIsBlfTeam(){
         if(team != null) {
-            this.isBlfTeam = team.getBlf() == 1 ? "yes" : "no";
+            this.isBlfTeam = team.getBlf() == 1 ? "Blf" : "";
         }
     }
 
