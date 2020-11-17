@@ -22,4 +22,9 @@ public class TeamMemberController {
     public List<TeamMember> getAllTeamMembers() {
         return teamMemberDao.getAllTeamMembers();
     }
+
+    @GetMapping("/season/{seasonId}")
+    public List<TeamMember> getAllTeamMembersBySeasonId(@PathVariable Long seasonId){
+        return teamMemberDao.getAllTeamMembersBySeasonId(seasonId);
+    }
 }

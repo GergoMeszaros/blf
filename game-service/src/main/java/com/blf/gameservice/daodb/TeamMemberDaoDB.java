@@ -21,4 +21,9 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     public List<TeamMember> getAllTeamMembers() {
         return teamMemberRepository.findAll().stream().limit(30).collect(Collectors.toList());
     }
+
+    @Override
+    public List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId) {
+        return teamMemberRepository.findAllByTeamSeasonId(seasonId);
+    }
 }

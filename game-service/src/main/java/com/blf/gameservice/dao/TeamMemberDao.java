@@ -7,4 +7,6 @@ import java.util.List;
 public interface TeamMemberDao {
 
     List<TeamMember> getAllTeamMembers();
+
+    List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId);
 }
