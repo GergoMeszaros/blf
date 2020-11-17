@@ -7,6 +7,8 @@ public interface EventDao {
 
     List<Event> getAllEvents();
 
+    List<Event> getAllEventsBySeasonId(Long seasonId);
+
     Event getEventById(Long eventId);
 
     Event addNewEvent(Event event);

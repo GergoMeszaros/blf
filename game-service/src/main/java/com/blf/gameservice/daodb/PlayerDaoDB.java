@@ -25,7 +25,7 @@ public class PlayerDaoDB implements PlayerDao {
 
     @Override
     public List<Player> getAllPlayers() {
-        return playerRepository.findAll().stream().limit(15).collect(Collectors.toList());
+        return playerRepository.findAll().stream().limit(30).collect(Collectors.toList());
     }
 
     @Override

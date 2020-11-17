@@ -22,6 +22,12 @@ public class EventController {
         return eventDao.getAllEvents();
     }
 
+
+    @GetMapping("/season/{seasonId}")
+    public List<Event> getAllEventsBySeasonId(@PathVariable Long seasonId){
+        return eventDao.getAllEventsBySeasonId(seasonId);
+    }
+
     @GetMapping("/{eventId}")
     public Event getEventById(@PathVariable Long eventId) {
         return eventDao.getEventById(eventId);

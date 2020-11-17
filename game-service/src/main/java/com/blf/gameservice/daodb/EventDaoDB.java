@@ -22,6 +22,11 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
+    public List<Event> getAllEventsBySeasonId(Long seasonId) {
+        return eventRepository.findAllBySeasonId(seasonId);
+    }
+
+    @Override
     public Event getEventById(Long eventId) {
         return eventRepository.findById(eventId).orElse(null);
     }
