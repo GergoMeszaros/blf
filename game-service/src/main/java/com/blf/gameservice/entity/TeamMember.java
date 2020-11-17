@@ -23,9 +23,20 @@ public class TeamMember {
     @Transient
     private String seasonName;
 
+    @Transient
+    private String isBlfTeam;
+
+
     @PostLoad
     private void postLoad() {
         setSeason();
+        setIsBlfTeam();
+    }
+
+    public void setIsBlfTeam(){
+        if(team != null) {
+            this.isBlfTeam = team.getBlf() == 1 ? "yes" : "no";
+        }
     }
 
     public void setSeason() {
