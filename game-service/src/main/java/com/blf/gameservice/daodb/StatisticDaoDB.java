@@ -21,6 +21,11 @@ public class StatisticDaoDB implements StatisticDao {
     }
 
     @Override
+    public List<StatisticalRow> getAllStatisticsBySeasonId(Long seasonId) {
+        return statisticRepository.findAllByPlayerSeasonId(seasonId);
+    }
+
+    @Override
     public StatisticalRow getStatisticById(Long statisticId) {
         return statisticRepository.findById(statisticId).orElse(null);
     }

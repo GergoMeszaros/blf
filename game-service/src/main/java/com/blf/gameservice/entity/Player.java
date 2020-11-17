@@ -33,4 +33,7 @@ public class Player {
     private Integer age;
     private Integer height;
 
+    @ManyToOne
+    private Season season;
+
 }

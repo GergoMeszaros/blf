@@ -24,6 +24,11 @@ public class StatisticController {
         return statisticDao.getAllStatistics().stream().limit(15).collect(Collectors.toList());
     }
 
+    @GetMapping("/season/{seasonId}")
+    public List<StatisticalRow> getAllStatisticsBySeasonId(@PathVariable Long seasonId){
+        return statisticDao.getAllStatisticsBySeasonId(seasonId);
+    }
+
     @GetMapping("/{statisticId}")
     public StatisticalRow getStatisticById(@PathVariable Long statisticId){
         return statisticDao.getStatisticById(statisticId);

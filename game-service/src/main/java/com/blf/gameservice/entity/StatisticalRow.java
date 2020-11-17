@@ -42,4 +42,7 @@ public class StatisticalRow {
     private Integer block;
     private Integer ibm;
     private Integer totalPts;
+
+    @ManyToOne
+    private Player player;
 }

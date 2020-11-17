@@ -8,11 +8,13 @@ public interface StatisticDao {
 
     List<StatisticalRow> getAllStatistics();
 
+    List<StatisticalRow> getAllStatisticsBySeasonId(Long seasonId);
+
     StatisticalRow getStatisticById(Long statisticId);
 
     StatisticalRow addNewStatistic(StatisticalRow statisticalrow);
 
-   // StatisticalRow updateStatistic(StatisticalRow updatedStatisticalrow);
+   // StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow);
 
     StatisticalRow deleteStatistic(Long statisticId);
 
