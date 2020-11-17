@@ -6,6 +6,8 @@ public interface LeagueDao {
 
     List<League> getAllLeagues();
 
+    List<League> getAllLeaguesBySeasonId(Long seasonId);
+
     League getLeagueById(Long leagueId);
 
     League addNewLeague(League league);

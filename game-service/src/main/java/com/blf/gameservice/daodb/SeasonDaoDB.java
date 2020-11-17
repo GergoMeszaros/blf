@@ -5,6 +5,7 @@ import com.blf.gameservice.entity.Season;
 import com.blf.gameservice.repository.SeasonRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class SeasonDaoDB implements SeasonDao {
 
     @Override
     public List<Season> getAllSeason() {
-        return seasonRepository.findAll();
+        return seasonRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override

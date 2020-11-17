@@ -22,6 +22,11 @@ public class LeagueController {
         return leagueDao.getAllLeagues();
     }
 
+    @GetMapping("/season/{seasonId}")
+    public List<League> getAllLeaguesBySeasonName(@PathVariable Long seasonId){
+        return leagueDao.getAllLeaguesBySeasonId(seasonId);
+    }
+
     @GetMapping("/{leagueId}")
     public League getLeagueById(@PathVariable Long leagueId){
         return leagueDao.getLeagueById(leagueId);

@@ -22,6 +22,11 @@ public class LeagueDaoDB implements LeagueDao {
     }
 
     @Override
+    public List<League> getAllLeaguesBySeasonId(Long seasonId) {
+        return leagueRepository.findAllBySeasonId(seasonId);
+    }
+
+    @Override
     public League getLeagueById(Long leagueId) {
         return leagueRepository.findById(leagueId).orElse(null);
     }
