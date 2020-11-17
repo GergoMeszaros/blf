@@ -24,6 +24,6 @@ public class TeamMemberDaoDB implements TeamMemberDao {
 
     @Override
     public List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId) {
-        return teamMemberRepository.findAllByTeamSeasonId(seasonId);
+        return teamMemberRepository.findAllByTeamSeasonIdOrderByTeam(seasonId);
     }
 }

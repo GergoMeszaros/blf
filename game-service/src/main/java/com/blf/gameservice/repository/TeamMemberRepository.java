@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface TeamMemberRepository extends JpaRepository<TeamMember, Long> {
 
-    List<TeamMember> findAllByTeamSeasonId(Long seasonId);
+    List<TeamMember> findAllByTeamSeasonIdOrderByTeam(Long seasonId);
 
 }
