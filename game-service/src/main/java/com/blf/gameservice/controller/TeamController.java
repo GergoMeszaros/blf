@@ -25,6 +25,11 @@ public class TeamController {
         return teamDao.getAllTeam();
     }
 
+    @GetMapping("/season/{seasonId}")
+    public List<Team> getAllTeamsBySeasonId(@PathVariable Long seasonId) {
+        return teamDao.getAllTeamsBySeasonId(seasonId);
+    }
+
     @GetMapping("/{teamId}")
     public Team getTeamById(@PathVariable Long teamId) {
         return teamDao.getTeamById(teamId);

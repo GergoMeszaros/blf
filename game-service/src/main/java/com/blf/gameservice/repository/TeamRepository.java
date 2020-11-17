@@ -11,4 +11,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     @Query("SELECT team FROM Team AS team WHERE team.blf = 1")
     List<Team> getAllBlfTeams();
 
+    List<Team> findAllBySeasonId(Long seasonId);
+
 }

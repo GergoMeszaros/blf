@@ -7,6 +7,8 @@ public interface TeamDao {
 
     List<Team> getAllTeam();
 
+    List<Team> getAllTeamsBySeasonId(Long seasonId);
+
     List<Team> getAllBlfTeams();
 
     Team getTeamById(Long teamId);

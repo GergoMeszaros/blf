@@ -23,6 +23,11 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
+    public List<Team> getAllTeamsBySeasonId(Long seasonId) {
+        return teamRepository.findAllBySeasonId(seasonId);
+    }
+
+    @Override
     public List<Team> getAllBlfTeams() {
         return teamRepository.getAllBlfTeams();
     }
