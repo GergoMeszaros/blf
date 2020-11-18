@@ -1,5 +1,6 @@
 package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.repository.PlayerPaginationRepository;
 import com.blf.gameservice.repository.PlayerRepository;
 import com.blf.gameservice.dao.PlayerDao;
@@ -27,6 +28,11 @@ public class PlayerDaoDB implements PlayerDao {
     public List<Player> getAllPlayers() {
         int limiter = 30;
         return playerRepository.findAll().stream().limit(limiter).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Player> getAllPlayersByName(SearchInput playerName) {
+        return playerRepository.findAllByNameContainingIgnoreCaseOrderByName(playerName.getName());
     }
 
     @Override

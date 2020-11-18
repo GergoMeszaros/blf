@@ -1,5 +1,6 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.entity.Player;
 import lombok.AllArgsConstructor;
@@ -18,14 +19,19 @@ public class PlayerController {
 
     PlayerDao playerDao;
 
-    @GetMapping("/paginated/{page}")
+   /* @GetMapping("/paginated/{page}")
     public Page<Player> getPaginatedPlayers(@PathVariable int page) {
         return playerDao.getAllPaginatedPlayers(page);
     }
-
+*/
     @GetMapping("")
     public List<Player> getAllPlayers() {
         return playerDao.getAllPlayers();
+    }
+
+    @PostMapping("/name")
+    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName){
+        return playerDao.getAllPlayersByName(playerName);
     }
 
     @GetMapping("/{playerId}")
