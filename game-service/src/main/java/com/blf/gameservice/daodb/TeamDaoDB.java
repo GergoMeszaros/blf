@@ -1,5 +1,6 @@
 package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
 import com.blf.gameservice.repository.TeamRepository;
@@ -28,7 +29,7 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
-    public List<Team> getTeamsByTeamName(Team team) {
+    public List<Team> getTeamsByTeamName(SearchInput team) {
         System.out.println(team.getName());
         return teamRepository.findAllByNameContainingIgnoreCase(team.getName());
     }

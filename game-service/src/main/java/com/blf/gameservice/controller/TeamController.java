@@ -1,5 +1,6 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
 import com.blf.gameservice.servicecaller.TeamMemberServiceCaller;
@@ -31,7 +32,7 @@ public class TeamController {
     }
 
     @PostMapping("/name")
-    public List<Team> getTeamsByTeamName(@RequestBody Team teamName){
+    public List<Team> getTeamsByTeamName(@RequestBody SearchInput teamName){
         return teamDao.getTeamsByTeamName(teamName);
     }
 
