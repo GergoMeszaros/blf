@@ -30,6 +30,11 @@ public class TeamController {
         return teamDao.getAllTeamsBySeasonId(seasonId);
     }
 
+    @PostMapping("/name")
+    public List<Team> getTeamsByTeamName(@RequestBody Team teamName){
+        return teamDao.getTeamsByTeamName(teamName);
+    }
+
     @GetMapping("/{teamId}")
     public Team getTeamById(@PathVariable Long teamId) {
         return teamDao.getTeamById(teamId);

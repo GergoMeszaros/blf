@@ -13,4 +13,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
 
     List<Team> findAllBySeasonId(Long seasonId);
 
+    List<Team> findAllByNameContainingIgnoreCase(String teamName);
+
 }
