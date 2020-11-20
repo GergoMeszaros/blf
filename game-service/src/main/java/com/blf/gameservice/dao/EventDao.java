@@ -8,7 +8,9 @@ public interface EventDao {
 
     List<Event> getAllEvents();
 
-    List<Event> getEventsBySeasonOrSearch(Long seasonId, SearchInput input);
+    List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input);
+
+    List<Event> getEventsBySearch(SearchInput input);
 
     Event getEventById(Long eventId);
 

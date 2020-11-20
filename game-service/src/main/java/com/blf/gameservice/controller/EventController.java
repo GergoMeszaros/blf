@@ -24,9 +24,14 @@ public class EventController {
     }
 
 
-    @PostMapping("/season/{seasonId}")
+    @PostMapping("/search/")
+    public List<Event> getAllEventsBySearch(@RequestBody SearchInput input){
+        return eventDao.getEventsBySearch(input);
+    }
+
+    @PostMapping("/search/{seasonId}")
     public List<Event> getAllEventsBySeasonId(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
-        return eventDao.getEventsBySeasonOrSearch(seasonId, input);
+        return eventDao.getEventsBySeasonAndSearch(seasonId, input);
     }
 
     @GetMapping("/{eventId}")

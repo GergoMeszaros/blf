@@ -24,10 +24,13 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
-    public List<Event> getEventsBySeasonOrSearch(Long seasonId, SearchInput input) {
-        List<Event> events;
-        events = seasonId != null ? eventRepository.findAllBySeasonId(seasonId)
-                : eventRepository.findAll();
+    public List<Event> getEventsBySearch(SearchInput input) {
+        return eventRepository.findAllBySearch(input.getInput());
+    }
+
+    @Override
+    public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
+        List<Event> events = eventRepository.findAllBySeasonId(seasonId);
         if (input != null) {
             String lowerCaseInput = input.getInput().toLowerCase();
             return events
@@ -41,6 +44,7 @@ public class EventDaoDB implements EventDao {
             return events;
         }
     }
+
 
     @Override
     public Event getEventById(Long eventId) {

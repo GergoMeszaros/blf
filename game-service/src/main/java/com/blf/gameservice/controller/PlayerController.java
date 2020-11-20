@@ -29,7 +29,7 @@ public class PlayerController {
         return playerDao.getAllPlayers();
     }
 
-    @PostMapping("/name")
+    @PostMapping("/search/")
     public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName){
         return playerDao.getAllPlayersByName(playerName);
     }
