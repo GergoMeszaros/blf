@@ -45,7 +45,6 @@ public class EventDaoDB implements EventDao {
         }
     }
 
-
     @Override
     public Event getEventById(Long eventId) {
         return eventRepository.findById(eventId).orElse(null);

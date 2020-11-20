@@ -9,5 +9,4 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     List<Player> findAllByNameContainingIgnoreCaseOrderByName(String playerName);
 
-
 }

@@ -1,5 +1,6 @@
 package com.blf.gameservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,10 +16,14 @@ public class League {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("Név")
     private String name;
+
+    @JsonProperty("Szervezet")
     private String organization;
 
     @ManyToOne
+    @JsonProperty("Szezon név")
     private Season season;
 
 }
