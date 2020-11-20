@@ -1,5 +1,6 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,9 @@ public class EventController {
     }
 
 
-    @GetMapping("/season/{seasonId}")
-    public List<Event> getAllEventsBySeasonId(@PathVariable Long seasonId){
-        return eventDao.getAllEventsBySeasonId(seasonId);
+    @PostMapping("/season/{seasonId}")
+    public List<Event> getAllEventsBySeasonId(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
+        return eventDao.getEventsBySeasonOrSearch(seasonId, input);
     }
 
     @GetMapping("/{eventId}")

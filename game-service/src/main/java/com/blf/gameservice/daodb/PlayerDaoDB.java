@@ -32,7 +32,7 @@ public class PlayerDaoDB implements PlayerDao {
 
     @Override
     public List<Player> getAllPlayersByName(SearchInput playerName) {
-        return playerRepository.findAllByNameContainingIgnoreCaseOrderByName(playerName.getName());
+        return playerRepository.findAllByNameContainingIgnoreCaseOrderByName(playerName.getInput());
     }
 
     @Override

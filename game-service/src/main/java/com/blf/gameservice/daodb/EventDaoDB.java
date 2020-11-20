@@ -1,5 +1,6 @@
 package com.blf.gameservice.daodb;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
 import com.blf.gameservice.repository.EventRepository;
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,8 +24,22 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
-    public List<Event> getAllEventsBySeasonId(Long seasonId) {
-        return eventRepository.findAllBySeasonId(seasonId);
+    public List<Event> getEventsBySeasonOrSearch(Long seasonId, SearchInput input) {
+        List<Event> events;
+        events = seasonId != null ? eventRepository.findAllBySeasonId(seasonId)
+                : eventRepository.findAll();
+        if (input != null) {
+            String lowerCaseInput = input.getInput().toLowerCase();
+            return events
+                    .stream()
+                    .filter(event -> event.getAddress().toLowerCase().contains(lowerCaseInput)
+                            || event.getHomeTeam().getName().toLowerCase().contains(lowerCaseInput)
+                            || event.getAwayTeam().getName().toLowerCase().contains(lowerCaseInput)
+                            || event.getLeague().getName().toLowerCase().contains(lowerCaseInput))
+                    .collect(Collectors.toList());
+        } else {
+            return events;
+        }
     }
 
     @Override

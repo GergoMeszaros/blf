@@ -30,8 +30,8 @@ public class TeamDaoDB implements TeamDao {
 
     @Override
     public List<Team> getTeamsByTeamName(SearchInput team) {
-        System.out.println(team.getName());
-        return teamRepository.findAllByNameContainingIgnoreCase(team.getName());
+        System.out.println(team.getInput());
+        return teamRepository.findAllByNameContainingIgnoreCase(team.getInput());
     }
 
     @Override

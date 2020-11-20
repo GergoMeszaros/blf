@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchInput {
 
-    private String name;
+    private String input;
 
 }
