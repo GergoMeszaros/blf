@@ -21,7 +21,9 @@ import java.util.stream.Collectors;
 public class PlayerDaoDB implements PlayerDao {
 
     PlayerRepository playerRepository;
-    PlayerPaginationRepository paginationRepository;
+    //PlayerPaginationRepository paginationRepository;
+
+    //private int numberOfPages;
 
 
     @Override
@@ -35,11 +37,12 @@ public class PlayerDaoDB implements PlayerDao {
         return playerRepository.findAllByNameContainingIgnoreCaseOrderByName(playerName.getInput());
     }
 
-    @Override
+ /*   @Override
     public Page<Player> getAllPaginatedPlayers(int page) {
-        Pageable pageable = PageRequest.of(page, 30);
+        Pageable pageable = PageRequest.of(page, numberOfPages);
         return paginationRepository.findAll(pageable);
     }
+*/
 
     @Override
     public Player getPlayerById(Long id) {

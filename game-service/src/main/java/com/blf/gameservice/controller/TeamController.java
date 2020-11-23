@@ -27,7 +27,7 @@ public class TeamController {
     }
 
     @GetMapping("/season/{seasonId}")
-    public List<Team> getAllTeamsBySeasonId(@PathVariable Long seasonId) {
+    public List<Team> getAllTeamsBySeason(@PathVariable Long seasonId) {
         return teamDao.getAllTeamsBySeasonId(seasonId);
     }
 

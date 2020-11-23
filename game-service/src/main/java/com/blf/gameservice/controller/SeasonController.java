@@ -27,8 +27,8 @@ public class SeasonController {
     }
 
     @PutMapping("/edit/{seasonId}")
-    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updateSseason){
-        return seasonDao.updateSeason(seasonId, updateSseason);
+    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updateSeason){
+        return seasonDao.updateSeason(seasonId, updateSeason);
     }
 
     @PostMapping("/add")
