@@ -3,12 +3,16 @@ package com.blf.gameservice.service;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.entity.Player;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class PlayerService {
 
-    PlayerDao playerDao;
+    private final PlayerDao playerDao;
 
     public List<Player> getAllPlayers() {
         return playerDao.getAllPlayers();

@@ -2,12 +2,16 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.entity.League;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class LeagueService {
 
-    LeagueDao leagueDao;
+    private final LeagueDao leagueDao;
 
     public List<League> getAllLeagues() {
         return leagueDao.getAllLeagues();
