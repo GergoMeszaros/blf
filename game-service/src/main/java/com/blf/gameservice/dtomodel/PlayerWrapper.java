@@ -1,4 +1,4 @@
-package com.blf.gameservice.dto;
+package com.blf.gameservice.dtomodel;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -3,7 +3,7 @@ package com.blf.gameservice.controller;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
-import com.blf.gameservice.servicecaller.TeamMemberServiceCaller;
+import com.blf.gameservice.dtoservice.TeamMemberServiceCaller;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

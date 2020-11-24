@@ -1,4 +1,4 @@
-package com.blf.gameservice.servicecaller;
+package com.blf.gameservice.dtoservice;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
