@@ -1,8 +1,8 @@
 package com.blf.gameservice.controller;
 
 import com.blf.gameservice.Search.SearchInput;
-import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.service.EventService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -16,43 +16,44 @@ import java.util.List;
 @CrossOrigin
 public class EventController {
 
-    EventDao eventDao;
+
+    EventService eventService;
 
     @GetMapping("")
     public List<Event> getAllEvents() {
-        return eventDao.getAllEvents();
+        return eventService.getAllEvents();
     }
 
 
     @PostMapping("/search/")
     public List<Event> getAllEventsBySearch(@RequestBody SearchInput input){
-        return eventDao.getEventsBySearch(input);
+        return eventService.getEventsBySearch(input);
     }
 
     @PostMapping("/search/{seasonId}")
     public List<Event> getAllEventsBySeasonAndSearch(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
-        return eventDao.getEventsBySeasonAndSearch(seasonId, input);
+        return eventService.getEventsBySeasonAndSearch(seasonId, input);
     }
 
     @GetMapping("/{eventId}")
     public Event getEventById(@PathVariable Long eventId) {
-        return eventDao.getEventById(eventId);
+        return eventService.getEventById(eventId);
     }
 
     @PostMapping("/add")
     public Event addNewEvent(@RequestBody Event event) {
         log.info("The following event is added to database: " + event);
-        return eventDao.addNewEvent(event);
+        return eventService.addNewEvent(event);
     }
 
     @PutMapping("/edit/{eventId}")
     public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) {
-        return eventDao.updateEvent(eventId, updatedEvent);
+        return eventService.updateEvent(eventId, updatedEvent);
     }
 
     @DeleteMapping("/delete/{eventId}")
     public Event deleteEvent(@PathVariable Long eventId) {
-        return eventDao.deleteEvent(eventId);
+        return eventService.deleteEvent(eventId);
     }
 
 }

@@ -3,6 +3,7 @@ package com.blf.gameservice.controller;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.entity.Player;
+import com.blf.gameservice.service.PlayerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -17,42 +18,42 @@ import java.util.List;
 @CrossOrigin
 public class PlayerController {
 
-    PlayerDao playerDao;
+    PlayerService playerService;
 
-   /* @GetMapping("/paginated/{page}")
-    public Page<Player> getPaginatedPlayers(@PathVariable int page) {
-        return playerDao.getAllPaginatedPlayers(page);
-    }
-*/
+    /* @GetMapping("/paginated/{page}")
+     public Page<Player> getPaginatedPlayers(@PathVariable int page) {
+         return playerDao.getAllPaginatedPlayers(page);
+     }
+ */
     @GetMapping("")
     public List<Player> getAllPlayers() {
-        return playerDao.getAllPlayers();
+        return playerService.getAllPlayers();
     }
 
     @PostMapping("/search/")
-    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName){
-        return playerDao.getAllPlayersByName(playerName);
+    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName) {
+        return playerService.getAllPlayersByName(playerName);
     }
 
     @GetMapping("/{playerId}")
     public Player getPlayerById(@PathVariable Long playerId) {
-        return playerDao.getPlayerById(playerId);
+        return playerService.getPlayerById(playerId);
     }
 
     @PostMapping("/add")
     public Player addPlayer(@RequestBody Player player) {
         log.info("The following player is added to database: " + player);
-        return playerDao.addPlayer(player);
+        return playerService.addPlayer(player);
     }
 
     @PutMapping("/edit/{playerId}")
     public Player updatePlayer(@PathVariable Long playerId, @RequestBody Player player) {
-        return playerDao.updatePlayer(playerId, player);
+        return playerService.updatePlayer(playerId, player);
     }
 
     @DeleteMapping("/delete/{playerId}")
     public Player deletePlayer(@PathVariable Long playerId) {
-        return playerDao.deletePlayer(playerId);
+        return playerService.deletePlayer(playerId);
     }
 
 }

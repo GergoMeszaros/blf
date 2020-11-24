@@ -1,7 +1,7 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.entity.League;
+import com.blf.gameservice.service.LeagueService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,37 +15,37 @@ import java.util.List;
 @CrossOrigin
 public class LeagueController {
 
-    LeagueDao leagueDao;
+    LeagueService leagueService;
 
     @GetMapping("")
     public List<League> getAllLeagues() {
-        return leagueDao.getAllLeagues();
+        return leagueService.getAllLeagues();
     }
 
     @GetMapping("/season/{seasonId}")
-    public List<League> getAllLeaguesBySeason(@PathVariable Long seasonId){
-        return leagueDao.getAllLeaguesBySeasonId(seasonId);
+    public List<League> getAllLeaguesBySeason(@PathVariable Long seasonId) {
+        return leagueService.getAllLeaguesBySeasonId(seasonId);
     }
 
     @GetMapping("/{leagueId}")
-    public League getLeagueById(@PathVariable Long leagueId){
-        return leagueDao.getLeagueById(leagueId);
+    public League getLeagueById(@PathVariable Long leagueId) {
+        return leagueService.getLeagueById(leagueId);
     }
 
     @PostMapping("/add")
-    public League addNewLeague(@RequestBody League league){
+    public League addNewLeague(@RequestBody League league) {
         log.info("The following league is added to database: " + league);
-        return leagueDao.addNewLeague(league);
+        return leagueService.addNewLeague(league);
     }
 
     @PutMapping("/edit/{leagueId}")
-    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague){
-        return leagueDao.updateLeague(leagueId, updatedLeague);
+    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) {
+        return leagueService.updateLeague(leagueId, updatedLeague);
     }
 
     @DeleteMapping("/delete/{leagueId}")
-    public League deleteLeague(@PathVariable Long leagueId){
-        return leagueDao.deleteLeague(leagueId);
+    public League deleteLeague(@PathVariable Long leagueId) {
+        return leagueService.deleteLeague(leagueId);
     }
 
 }
