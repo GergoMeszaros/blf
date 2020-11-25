@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -16,10 +17,10 @@ public class StatisticDaoDB implements StatisticDao {
 
     private final StatisticalRowRepository statisticRepository;
 
-
     @Override
     public List<StatisticalRow> getAllStatistics() {
-        return statisticRepository.findAll();
+        int limiter = 40;
+        return statisticRepository.findAll().stream().limit(limiter).collect(Collectors.toList());
     }
 
     @Override

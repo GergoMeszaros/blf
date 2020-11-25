@@ -22,8 +22,8 @@ public class League {
     @JsonProperty("Szervezet")
     private String organization;
 
-    @JsonProperty("Szezon név")
     @ManyToOne
+    @JsonProperty("Szezon név")
     private Season season;
 
 }

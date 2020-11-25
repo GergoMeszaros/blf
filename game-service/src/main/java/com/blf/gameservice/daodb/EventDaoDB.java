@@ -21,7 +21,8 @@ public class EventDaoDB implements EventDao {
 
     @Override
     public List<Event> getAllEvents() {
-        return eventRepository.findAll();
+        int limiter = 150;
+        return eventRepository.findAll().stream().limit(limiter).collect(Collectors.toList());
     }
 
     @Override
