@@ -3,17 +3,19 @@ package com.blf.gameservice.daodb;
 import com.blf.gameservice.dao.StatisticDao;
 import com.blf.gameservice.entity.StatisticalRow;
 import com.blf.gameservice.repository.StatisticalRowRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class StatisticDaoDB implements StatisticDao {
 
-    StatisticalRowRepository statisticRepository;
+    private final StatisticalRowRepository statisticRepository;
+
 
     @Override
     public List<StatisticalRow> getAllStatistics() {
@@ -35,11 +37,11 @@ public class StatisticDaoDB implements StatisticDao {
         return statisticRepository.saveAndFlush(statisticalrow);
     }
 
- /*   @Override
-    public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow) {
-        return null;
-    }
-*/
+    /*   @Override
+       public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow) {
+           return null;
+       }
+   */
     @Override
     public StatisticalRow deleteStatistic(Long statisticId) {
         StatisticalRow statToDelete = statisticRepository.findById(statisticId).orElse(null);

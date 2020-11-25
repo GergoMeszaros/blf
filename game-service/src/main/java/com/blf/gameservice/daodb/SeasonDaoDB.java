@@ -3,7 +3,7 @@ package com.blf.gameservice.daodb;
 import com.blf.gameservice.dao.SeasonDao;
 import com.blf.gameservice.entity.Season;
 import com.blf.gameservice.repository.SeasonRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class SeasonDaoDB implements SeasonDao {
 
-    SeasonRepository seasonRepository;
+    private final SeasonRepository seasonRepository;
+
 
     @Override
     public List<Season> getAllSeason() {

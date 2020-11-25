@@ -13,6 +13,7 @@ public class LeagueService {
 
     private final LeagueDao leagueDao;
 
+
     public List<League> getAllLeagues() {
         return leagueDao.getAllLeagues();
     }

@@ -2,43 +2,44 @@ package com.blf.gameservice.controller;
 
 import com.blf.gameservice.dao.StatisticDao;
 import com.blf.gameservice.entity.StatisticalRow;
+import com.blf.gameservice.service.StatisticService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/statistic")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 @CrossOrigin
 public class StatisticController {
 
-    StatisticDao statisticDao;
+   private final StatisticService statisticService;
 
 
     @GetMapping("")
-    public List<StatisticalRow> getAllStatistics(){
-        return statisticDao.getAllStatistics().stream().limit(15).collect(Collectors.toList());
+    public List<StatisticalRow> getAllStatistics() {
+        return statisticService.getAllStatistics();
     }
 
     @GetMapping("/season/{seasonId}")
-    public List<StatisticalRow> getAllStatisticsBySeasonId(@PathVariable Long seasonId){
-        return statisticDao.getAllStatisticsBySeasonId(seasonId);
+    public List<StatisticalRow> getAllStatisticsBySeasonId(@PathVariable Long seasonId) {
+        return statisticService.getAllStatisticsBySeasonId(seasonId);
     }
 
     @GetMapping("/{statisticId}")
-    public StatisticalRow getStatisticById(@PathVariable Long statisticId){
-        return statisticDao.getStatisticById(statisticId);
+    public StatisticalRow getStatisticById(@PathVariable Long statisticId) {
+        return statisticService.getStatisticById(statisticId);
     }
 
     @PostMapping("/add")
-    public StatisticalRow addNewStatistic(@RequestBody StatisticalRow statisticalrow){
+    public StatisticalRow addNewStatistic(@RequestBody StatisticalRow statisticalrow) {
 
         log.info("added statistic: " + statisticalrow);
-        return statisticDao.addNewStatistic(statisticalrow);
+        return statisticService.addNewStatistic(statisticalrow);
     }
 
    /* @PutMapping("/edit/{statisticId}")
@@ -47,8 +48,8 @@ public class StatisticController {
     }*/
 
     @DeleteMapping("/delete/{statisticId}")
-    public StatisticalRow deleteStatistic(@PathVariable Long statisticId){
-        return statisticDao.deleteStatistic(statisticId);
+    public StatisticalRow deleteStatistic(@PathVariable Long statisticId) {
+        return statisticService.deleteStatistic(statisticId);
     }
 
 }

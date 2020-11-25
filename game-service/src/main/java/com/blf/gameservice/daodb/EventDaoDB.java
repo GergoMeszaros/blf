@@ -4,7 +4,7 @@ import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
 import com.blf.gameservice.repository.EventRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +12,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class EventDaoDB implements EventDao {
 
-    EventRepository eventRepository;
+    private final EventRepository eventRepository;
+
 
     @Override
     public List<Event> getAllEvents() {

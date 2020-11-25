@@ -4,6 +4,7 @@ import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.entity.Event;
 import com.blf.gameservice.service.EventService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/event")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 @CrossOrigin
 public class EventController {
 
+    private final EventService eventService;
 
-    EventService eventService;
 
     @GetMapping("")
     public List<Event> getAllEvents() {

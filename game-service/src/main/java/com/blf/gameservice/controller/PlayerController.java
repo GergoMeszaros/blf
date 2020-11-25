@@ -5,6 +5,7 @@ import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.entity.Player;
 import com.blf.gameservice.service.PlayerService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +14,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/player")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 @CrossOrigin
 public class PlayerController {
 
-    PlayerService playerService;
+   private final PlayerService playerService;
+
 
     /* @GetMapping("/paginated/{page}")
      public Page<Player> getPaginatedPlayers(@PathVariable int page) {

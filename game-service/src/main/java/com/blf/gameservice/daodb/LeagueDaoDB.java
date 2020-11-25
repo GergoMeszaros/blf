@@ -3,18 +3,19 @@ package com.blf.gameservice.daodb;
 import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.entity.League;
 import com.blf.gameservice.repository.LeagueRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class LeagueDaoDB implements LeagueDao {
 
-    LeagueRepository leagueRepository;
+    private final LeagueRepository leagueRepository;
+
 
     @Override
     public List<League> getAllLeagues() {

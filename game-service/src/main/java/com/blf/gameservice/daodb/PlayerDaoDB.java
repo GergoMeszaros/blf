@@ -1,28 +1,23 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.Search.SearchInput;
-import com.blf.gameservice.repository.PlayerPaginationRepository;
 import com.blf.gameservice.repository.PlayerRepository;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.entity.Player;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class PlayerDaoDB implements PlayerDao {
 
-    PlayerRepository playerRepository;
+    private final PlayerRepository playerRepository;
     //PlayerPaginationRepository paginationRepository;
-
     //private int numberOfPages;
 
 

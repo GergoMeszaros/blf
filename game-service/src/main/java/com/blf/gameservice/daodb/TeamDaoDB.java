@@ -4,19 +4,19 @@ import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
 import com.blf.gameservice.repository.TeamRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class TeamDaoDB implements TeamDao {
 
 
-    TeamRepository teamRepository;
+    private final TeamRepository teamRepository;
 
     @Override
     public List<Team> getAllTeam() {

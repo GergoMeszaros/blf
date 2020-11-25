@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Builder
 public class Season {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
