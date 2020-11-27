@@ -1,6 +1,5 @@
 package com.blf.gameservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
