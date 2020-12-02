@@ -17,7 +17,7 @@ public class StatisticalRow {
 
     private Integer playedTime;
 
-    @Column(name = "w3pt_attempt")
+    @Column(name = "3pt_attempt")
     private Integer pt3Attempt;
 
     @Column(name = "3pt_made")

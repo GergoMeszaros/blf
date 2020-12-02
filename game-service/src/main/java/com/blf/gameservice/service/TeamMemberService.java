@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeamMemberService {
 
-    TeamMemberDao teamMemberDao;
+    private final TeamMemberDao teamMemberDao;
 
 
     public List<TeamMember> getAllTeamMembers() {
