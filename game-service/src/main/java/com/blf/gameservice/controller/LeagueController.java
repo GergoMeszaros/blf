@@ -34,18 +34,18 @@ public class LeagueController {
         return leagueService.getLeagueById(leagueId);
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public League addNewLeague(@RequestBody League league) {
         log.info("The following league is added to database: " + league);
         return leagueService.addNewLeague(league);
     }
 
-    @PutMapping("/edit/{leagueId}")
+    @PutMapping("/{leagueId}")
     public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) {
         return leagueService.updateLeague(leagueId, updatedLeague);
     }
 
-    @DeleteMapping("/delete/{leagueId}")
+    @DeleteMapping("/{leagueId}")
     public League deleteLeague(@PathVariable Long leagueId) {
         return leagueService.deleteLeague(leagueId);
     }
