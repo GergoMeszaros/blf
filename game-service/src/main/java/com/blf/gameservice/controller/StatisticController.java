@@ -1,9 +1,7 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.dao.StatisticDao;
 import com.blf.gameservice.entity.StatisticalRow;
 import com.blf.gameservice.service.StatisticService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -35,19 +33,19 @@ public class StatisticController {
         return statisticService.getStatisticById(statisticId);
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public StatisticalRow addNewStatistic(@RequestBody StatisticalRow statisticalrow) {
 
         log.info("added statistic: " + statisticalrow);
         return statisticService.addNewStatistic(statisticalrow);
     }
 
-   /* @PutMapping("/edit/{statisticId}")
+   /* @PutMapping("/{statisticId}")
     public StatisticalRow editStatisticalRow(@PathVariable Long statisticId, @RequestBody StatisticalRow updatedStatisticalRow){
         return null;
     }*/
 
-    @DeleteMapping("/delete/{statisticId}")
+    @DeleteMapping("/{statisticId}")
     public StatisticalRow deleteStatistic(@PathVariable Long statisticId) {
         return statisticService.deleteStatistic(statisticId);
     }
