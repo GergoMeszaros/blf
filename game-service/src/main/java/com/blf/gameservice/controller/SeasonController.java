@@ -28,12 +28,12 @@ public class SeasonController {
         return seasonService.getSeasonById(seasonId);
     }
 
-    @PutMapping("/edit/{seasonId}")
+    @PutMapping("/{seasonId}")
     public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updatedSeason) {
         return seasonService.updateSeason(seasonId, updatedSeason);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/")
     public Season addNewSeason(@RequestBody Season season) {
 
         //TODO --> season object simán nem mapként
@@ -42,7 +42,7 @@ public class SeasonController {
 
     }
 
-    @DeleteMapping("/delete/{seasonId}")
+    @DeleteMapping("/{seasonId}")
     public Season deleteSeason(@PathVariable Long seasonId) {
         return seasonService.deleteSeason(seasonId);
     }
