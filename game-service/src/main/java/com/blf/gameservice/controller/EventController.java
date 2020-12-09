@@ -25,20 +25,19 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
+    @GetMapping("/{eventId}")
+    public Event getEventById(@PathVariable Long eventId) {
+        return eventService.getEventById(eventId);
+    }
 
-    @PostMapping("/search/")
+    @PostMapping("")
     public List<Event> getAllEventsBySearch(@RequestBody SearchInput input){
         return eventService.getEventsBySearch(input);
     }
 
-    @PostMapping("/search/{seasonId}")
+    @PostMapping("/{seasonId}")
     public List<Event> getAllEventsBySeasonAndSearch(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
         return eventService.getEventsBySeasonAndSearch(seasonId, input);
-    }
-
-    @GetMapping("/{eventId}")
-    public Event getEventById(@PathVariable Long eventId) {
-        return eventService.getEventById(eventId);
     }
 
     @PostMapping("/add")
@@ -47,12 +46,12 @@ public class EventController {
         return eventService.addNewEvent(event);
     }
 
-    @PutMapping("/edit/{eventId}")
+    @PutMapping("/{eventId}")
     public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) {
         return eventService.updateEvent(eventId, updatedEvent);
     }
 
-    @DeleteMapping("/delete/{eventId}")
+    @DeleteMapping("/{eventId}")
     public Event deleteEvent(@PathVariable Long eventId) {
         return eventService.deleteEvent(eventId);
     }
