@@ -26,16 +26,6 @@ public class TeamController {
         return teamService.getAllTeam();
     }
 
-    @GetMapping("/season/{seasonId}")
-    public List<Team> getAllTeamsBySeason(@PathVariable Long seasonId) {
-        return teamService.getAllTeamsBySeasonId(seasonId);
-    }
-
-    @PostMapping("/name")
-    public List<Team> getTeamsByTeamName(@RequestBody SearchInput teamName){
-        return teamService.getTeamsByTeamName(teamName);
-    }
-
     @GetMapping("/{teamId}")
     public Team getTeamById(@PathVariable Long teamId) {
         return teamService.getTeamById(teamId);
@@ -46,17 +36,29 @@ public class TeamController {
         return teamService.getAllBlfTeams();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/search/{seasonId}")
+    public List<Team> getAllTeamsBySeason(@PathVariable Long seasonId) {
+        return teamService.getAllTeamsBySeasonId(seasonId);
+    }
+
+    @PostMapping("/search")
+    public List<Team> getTeamsByTeamName(@RequestBody SearchInput teamName) {
+        return teamService.getTeamsByTeamName(teamName);
+    }
+
+    //TODO Search with input and season together is missing ---> sample in EventDaoDB !!!!
+
+    @PostMapping("")
     public Team addNewTeam(@RequestBody Team team) {
         return teamService.addNewTeam(team);
     }
 
-    @PutMapping("/edit/{teamId}")
+    @PutMapping("/{teamId}")
     public Team updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam) {
         return teamService.updateTeam(teamId, updatedTeam);
     }
 
-    @DeleteMapping("/delete/{teamId}")
+    @DeleteMapping("/{teamId}")
     public Team deleteTeam(@PathVariable Long teamId) {
         return teamService.deleteTeam(teamId);
     }

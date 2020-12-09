@@ -24,14 +24,14 @@ public class LeagueController {
         return leagueService.getAllLeagues();
     }
 
-    @GetMapping("/season/{seasonId}")
-    public List<League> getAllLeaguesBySeason(@PathVariable Long seasonId) {
-        return leagueService.getAllLeaguesBySeasonId(seasonId);
-    }
-
     @GetMapping("/{leagueId}")
     public League getLeagueById(@PathVariable Long leagueId) {
         return leagueService.getLeagueById(leagueId);
+    }
+
+    @PostMapping("/search/{seasonId}")
+    public List<League> getAllLeaguesBySeason(@PathVariable Long seasonId) {
+        return leagueService.getAllLeaguesBySeasonId(seasonId);
     }
 
     @PostMapping("")

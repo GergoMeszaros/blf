@@ -35,12 +35,12 @@ public class EventController {
         return eventService.getEventsBySearch(input);
     }
 
-    @PostMapping("/{seasonId}")
+    @PostMapping("/search/{seasonId}")
     public List<Event> getAllEventsBySeasonAndSearch(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
         return eventService.getEventsBySeasonAndSearch(seasonId, input);
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public Event addNewEvent(@RequestBody Event event) {
         log.info("The following event is added to database: " + event);
         return eventService.addNewEvent(event);

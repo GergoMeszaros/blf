@@ -23,7 +23,7 @@ public class StatisticController {
         return statisticService.getAllStatistics();
     }
 
-    @GetMapping("/season/{seasonId}")
+    @GetMapping("/search/{seasonId}")
     public List<StatisticalRow> getAllStatisticsBySeasonId(@PathVariable Long seasonId) {
         return statisticService.getAllStatisticsBySeasonId(seasonId);
     }

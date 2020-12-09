@@ -23,7 +23,7 @@ public class TeamMemberController {
         return teamMemberService.getAllTeamMembers();
     }
 
-    @GetMapping("/season/{seasonId}")
+    @PostMapping("/search/{seasonId}")
     public List<TeamMember> getAllTeamMembersBySeasonId(@PathVariable Long seasonId) {
         return teamMemberService.getAllTeamMembersBySeasonId(seasonId);
     }

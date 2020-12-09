@@ -32,14 +32,14 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @PostMapping("/search")
-    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName) {
-        return playerService.getAllPlayersByName(playerName);
-    }
-
     @GetMapping("/{playerId}")
     public Player getPlayerById(@PathVariable Long playerId) {
         return playerService.getPlayerById(playerId);
+    }
+
+    @PostMapping("/search")
+    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName) {
+        return playerService.getAllPlayersByName(playerName);
     }
 
     @PostMapping("")

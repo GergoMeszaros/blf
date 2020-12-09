@@ -33,7 +33,7 @@ public class SeasonController {
         return seasonService.updateSeason(seasonId, updatedSeason);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public Season addNewSeason(@RequestBody Season season) {
 
         //TODO --> season object simán nem mapként

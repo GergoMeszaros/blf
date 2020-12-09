@@ -18,7 +18,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonProperty("Név")
+    //@JsonProperty("Név")
     private String name;
 
     @JsonProperty("Fénykép")
