@@ -32,7 +32,7 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @PostMapping("/search/")
+    @PostMapping("/search")
     public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName) {
         return playerService.getAllPlayersByName(playerName);
     }
@@ -42,18 +42,18 @@ public class PlayerController {
         return playerService.getPlayerById(playerId);
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public Player addPlayer(@RequestBody Player player) {
         log.info("The following player is added to database: " + player);
         return playerService.addPlayer(player);
     }
 
-    @PutMapping("/edit/{playerId}")
+    @PutMapping("/{playerId}")
     public Player updatePlayer(@PathVariable Long playerId, @RequestBody Player player) {
         return playerService.updatePlayer(playerId, player);
     }
 
-    @DeleteMapping("/delete/{playerId}")
+    @DeleteMapping("/{playerId}")
     public Player deletePlayer(@PathVariable Long playerId) {
         return playerService.deletePlayer(playerId);
     }
