@@ -49,19 +49,8 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
-    public Team updateTeam(Long teamId, Team updatedTeam) {
-        Team teamToUpdate = teamRepository.findById(teamId).orElse(null);
-
-        if (teamToUpdate != null) {
-            teamToUpdate.setName(updatedTeam.getName());
-            teamToUpdate.setAddress(updatedTeam.getAddress());
-
-            teamRepository.saveAndFlush(teamToUpdate);
-        } else {
-            log.info("Team not found with the following id: " + teamId);
-        }
-
-        return teamToUpdate;
+    public Team updateTeam(Team updatedTeam) {
+        return teamRepository.saveAndFlush(updatedTeam);
     }
 
     @Override

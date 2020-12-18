@@ -1,4 +1,5 @@
 package com.blf.gameservice.dao;
+
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.entity.Team;
 
@@ -12,15 +13,13 @@ public interface TeamDao {
 
     List<Team> getTeamsByTeamName(SearchInput team);
 
-
-
     List<Team> getAllBlfTeams();
 
     Team getTeamById(Long teamId);
 
     Team addNewTeam(Team team);
 
-    Team updateTeam(Long teamId, Team updatedTeam);
+    Team updateTeam(Team updatedTeam);
 
     Team deleteTeam(Long teamId);
 

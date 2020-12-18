@@ -18,9 +18,6 @@ public class TeamController {
 
     private final TeamService teamService;
 
-    //TeamMemberServiceCaller teamMemberServiceCaller;
-
-
     @GetMapping("")
     public List<Team> getAllTeam() {
         return teamService.getAllTeam();
@@ -46,15 +43,13 @@ public class TeamController {
         return teamService.getTeamsByTeamName(teamName);
     }
 
-    //TODO Search with input and season together is missing ---> sample in EventDaoDB !!!!
-
     @PostMapping("")
     public Team addNewTeam(@RequestBody Team team) {
         return teamService.addNewTeam(team);
     }
 
     @PutMapping("/{teamId}")
-    public Team updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam) {
+    public Team updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam) throws IllegalAccessException {
         return teamService.updateTeam(teamId, updatedTeam);
     }
 
@@ -63,9 +58,5 @@ public class TeamController {
         return teamService.deleteTeam(teamId);
     }
 
-   /* @GetMapping("/members")
-    public List<PlayerDTO> getPlayersForSC() {
-        return teamMemberServiceCaller.getPlayersForSC();
-    }*/
 
 }

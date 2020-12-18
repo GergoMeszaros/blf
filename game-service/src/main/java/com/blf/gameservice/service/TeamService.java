@@ -3,16 +3,20 @@ package com.blf.gameservice.service;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
+import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TeamService {
 
     private final TeamDao teamDao;
+    private final UpdateValidator updateValidator;
 
 
     public List<Team> getAllTeam() {
@@ -39,11 +43,20 @@ public class TeamService {
         return teamDao.addNewTeam(team);
     }
 
-    public Team updateTeam(Long teamId, Team updatedTeam) {
-        return teamDao.updateTeam(teamId, updatedTeam);
+    public Team updateTeam(Long teamId, Team updatedTeam) throws IllegalAccessException {
+        Team teamToUpdate = teamDao.getTeamById(teamId);
+
+        if (teamToUpdate != null) {
+            Team teamToValidate = updateValidator.updater(teamToUpdate, updatedTeam);
+            teamDao.updateTeam(teamToValidate);
+        } else {
+            log.info("Team not found with the following id: " + teamId);
+        }
+        return teamToUpdate;
     }
 
     public Team deleteTeam(Long teamId) {
         return teamDao.deleteTeam(teamId);
     }
+
 }
