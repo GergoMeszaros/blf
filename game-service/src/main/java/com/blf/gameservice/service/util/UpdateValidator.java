@@ -56,5 +56,8 @@ public class UpdateValidator {
         return (StatisticalRow) oldDataModifier(old, input);
     }
 
+    public Season updater(Season old, Season input) throws IllegalAccessException {
+        return (Season) oldDataModifier(old,input);
+    }
 
 }
