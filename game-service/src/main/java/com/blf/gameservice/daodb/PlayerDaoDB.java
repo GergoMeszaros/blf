@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 public class PlayerDaoDB implements PlayerDao {
 
     private final PlayerRepository playerRepository;
-    //PlayerPaginationRepository paginationRepository;
-    //private int numberOfPages;
 
 
     @Override
@@ -32,13 +30,6 @@ public class PlayerDaoDB implements PlayerDao {
         return playerRepository.findAllByNameContainingIgnoreCaseOrderByName(playerName.getInput());
     }
 
- /*   @Override
-    public Page<Player> getAllPaginatedPlayers(int page) {
-        Pageable pageable = PageRequest.of(page, numberOfPages);
-        return paginationRepository.findAll(pageable);
-    }
-*/
-
     @Override
     public Player getPlayerById(Long id) {
         return playerRepository.findById(id).orElse(null);
@@ -50,31 +41,8 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
-    public Player updatePlayer(Long playerId, Player updatedPlayer) {
-        Player playerToUpdate = playerRepository.findById(playerId).orElse(null);
-
-        if (playerToUpdate != null) {
-            playerToUpdate.setName(updatedPlayer.getName());
-            playerToUpdate.setAge(updatedPlayer.getAge());
-            playerToUpdate.setBirthdate(updatedPlayer.getBirthdate());
-            playerToUpdate.setBirthplace(updatedPlayer.getBirthplace());
-            playerToUpdate.setHeight(updatedPlayer.getHeight());
-            playerToUpdate.setIsActive(updatedPlayer.getIsActive());
-            playerToUpdate.setPictureRoot(updatedPlayer.getPictureRoot());
-            playerToUpdate.setPictureRootSecond(updatedPlayer.getPictureRootSecond());
-            playerToUpdate.setPlayerSummary(updatedPlayer.getPlayerSummary());
-            playerToUpdate.setPosition(updatedPlayer.getPosition());
-            playerToUpdate.setSchool(updatedPlayer.getSchool());
-            playerToUpdate.setStartDate(updatedPlayer.getStartDate());
-            playerToUpdate.setTelephone(updatedPlayer.getTelephone());
-
-            playerRepository.saveAndFlush(playerToUpdate);
-
-            log.info("Updated Player: " + playerToUpdate);
-        } else {
-            log.info("Player not found with the following id: " + playerId);
-        }
-        return playerToUpdate;
+    public Player updatePlayer(Player updatedPlayer) {
+        return playerRepository.saveAndFlush(updatedPlayer);
     }
 
     @Override

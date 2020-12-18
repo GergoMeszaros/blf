@@ -41,7 +41,7 @@ public class LeagueController {
     }
 
     @PutMapping("/{leagueId}")
-    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) {
+    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) throws IllegalAccessException {
         return leagueService.updateLeague(leagueId, updatedLeague);
     }
 
