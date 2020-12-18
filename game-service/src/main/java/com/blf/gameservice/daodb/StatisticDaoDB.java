@@ -38,11 +38,10 @@ public class StatisticDaoDB implements StatisticDao {
         return statisticRepository.saveAndFlush(statisticalrow);
     }
 
-    /*   @Override
+       @Override
        public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow) {
-           return null;
+           return statisticRepository.saveAndFlush(updatedStatisticalRow);
        }
-   */
     @Override
     public StatisticalRow deleteStatistic(Long statisticId) {
         StatisticalRow statToDelete = statisticRepository.findById(statisticId).orElse(null);

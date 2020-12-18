@@ -40,10 +40,10 @@ public class StatisticController {
         return statisticService.addNewStatistic(statisticalrow);
     }
 
-   /* @PutMapping("/{statisticId}")
-    public StatisticalRow editStatisticalRow(@PathVariable Long statisticId, @RequestBody StatisticalRow updatedStatisticalRow){
-        return null;
-    }*/
+    @PutMapping("/{statisticId}")
+    public StatisticalRow editStatisticalRow(@PathVariable Long statisticId, @RequestBody StatisticalRow updatedStatisticalRow) throws IllegalAccessException {
+        return statisticService.updateStatistic(statisticId, updatedStatisticalRow);
+    }
 
     @DeleteMapping("/{statisticId}")
     public StatisticalRow deleteStatistic(@PathVariable Long statisticId) {
