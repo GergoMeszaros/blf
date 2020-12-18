@@ -27,4 +27,14 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     public List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId) {
         return teamMemberRepository.findAllByTeamSeasonIdOrderByTeam(seasonId);
     }
+
+    @Override
+    public TeamMember getTeamMemberById(Long teamMemberId) {
+        return teamMemberRepository.findById(teamMemberId).orElse(null);
+    }
+
+    @Override
+    public TeamMember updateTeamMember(TeamMember updatedTeamMember) {
+        return teamMemberRepository.saveAndFlush(updatedTeamMember);
+    }
 }

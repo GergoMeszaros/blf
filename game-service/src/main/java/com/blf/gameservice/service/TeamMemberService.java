@@ -2,16 +2,20 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.TeamMemberDao;
 import com.blf.gameservice.entity.TeamMember;
+import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TeamMemberService {
 
     private final TeamMemberDao teamMemberDao;
+    private final UpdateValidator updateValidator;
 
 
     public List<TeamMember> getAllTeamMembers() {
@@ -20,5 +24,23 @@ public class TeamMemberService {
 
     public List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId) {
         return teamMemberDao.getAllTeamMembersBySeasonId(seasonId);
+    }
+
+    public TeamMember updateTeamMember(Long teamMemberId, TeamMember updatedTeamMember) throws IllegalAccessException {
+        TeamMember teamMemberToUpdate = teamMemberDao.getTeamMemberById(teamMemberId);
+
+        if (teamMemberToUpdate != null) {
+            TeamMember teamMemberToValidate = updateValidator.updater(teamMemberToUpdate, updatedTeamMember);
+            teamMemberDao.updateTeamMember(teamMemberToValidate);
+        } else {
+            log.info("TeamMember not found with the following id: " + teamMemberId);
+        }
+
+        return teamMemberToUpdate;
+    }
+
+    public TeamMember getTeamMemberById(Long teamMemberId) {
+        return teamMemberDao.getTeamMemberById(teamMemberId);
+
     }
 }

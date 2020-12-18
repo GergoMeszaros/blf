@@ -23,8 +23,19 @@ public class TeamMemberController {
         return teamMemberService.getAllTeamMembers();
     }
 
+    @GetMapping("/{teamMemberId}")
+    public TeamMember getTeamMemberById(@PathVariable Long teamMemberId){
+       return teamMemberService.getTeamMemberById(teamMemberId);
+    }
+
     @PostMapping("/search/{seasonId}")
     public List<TeamMember> getAllTeamMembersBySeasonId(@PathVariable Long seasonId) {
         return teamMemberService.getAllTeamMembersBySeasonId(seasonId);
     }
+
+    @PutMapping("/{teamMemberId}")
+    public TeamMember updateTeamMember(@PathVariable Long teamMemberId, @RequestBody TeamMember updatedTeamMember) throws IllegalAccessException {
+        return teamMemberService.updateTeamMember(teamMemberId, updatedTeamMember);
+    }
+
 }

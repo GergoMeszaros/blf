@@ -45,7 +45,7 @@ public class UpdateValidator {
     }
 
     public Team updater(Team old, Team input) throws IllegalAccessException {
-        return (Team) oldDataModifier(old,input);
+        return (Team) oldDataModifier(old, input);
     }
 
     public TeamMember updater(TeamMember old, TeamMember input) throws IllegalAccessException {
@@ -55,7 +55,6 @@ public class UpdateValidator {
     public StatisticalRow updater(StatisticalRow old, StatisticalRow input) throws IllegalAccessException {
         return (StatisticalRow) oldDataModifier(old, input);
     }
-
 
 
 }

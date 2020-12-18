@@ -9,4 +9,8 @@ public interface TeamMemberDao {
     List<TeamMember> getAllTeamMembers();
 
     List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId);
+
+    TeamMember getTeamMemberById(Long teamMemberId);
+
+    TeamMember updateTeamMember(TeamMember updatedTeamMember);
 }
