@@ -29,7 +29,7 @@ public class SeasonController {
     }
 
     @PutMapping("/{seasonId}")
-    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updatedSeason) {
+    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updatedSeason) throws IllegalAccessException {
         return seasonService.updateSeason(seasonId, updatedSeason);
     }
 
