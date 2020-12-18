@@ -1,5 +1,7 @@
 package com.blf.gameservice.dao;
+
 import com.blf.gameservice.entity.League;
+
 import java.util.List;
 
 public interface LeagueDao {
@@ -12,7 +14,7 @@ public interface LeagueDao {
 
     League addNewLeague(League league);
 
-    League updateLeague(Long leagueId, League updatedLeague);
+    League updateLeague(League updatedLeague);
 
     League deleteLeague(Long leagueId);
 

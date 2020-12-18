@@ -38,18 +38,8 @@ public class LeagueDaoDB implements LeagueDao {
     }
 
     @Override
-    public League updateLeague(Long leagueId, League updatedLeague) {
-        League leagueToUpdate = leagueRepository.findById(leagueId).orElse(null);
-
-        if (leagueToUpdate != null) {
-            leagueToUpdate.setName(updatedLeague.getName() == null ? leagueToUpdate.getName() : updatedLeague.getName());
-            leagueToUpdate.setOrganization(updatedLeague.getOrganization());
-
-            leagueRepository.saveAndFlush(leagueToUpdate);
-        } else {
-            log.info("League not found with the following id: " + leagueId);
-        }
-        return leagueToUpdate;
+    public League updateLeague(League updatedLeague) {
+        return leagueRepository.saveAndFlush(updatedLeague);
     }
 
     @Override
