@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 public class EventDaoDB implements EventDao {
 
     private final EventRepository eventRepository;
-    private final UpdateValidator updateValidator;
 
 
     @Override
@@ -62,16 +61,8 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
-    public Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
-        Event eventToUpdate = eventRepository.findById(eventId).orElse(null);
-
-        if (eventToUpdate != null) {
-            Event validatedEvent = updateValidator.updater(eventToUpdate, updatedEvent);
-            eventRepository.saveAndFlush(validatedEvent);
-        } else {
-            log.info("Event not found with the following id: " + eventId);
-        }
-        return eventToUpdate;
+    public Event updateEvent(Event updatedEvent) {
+        return eventRepository.saveAndFlush(updatedEvent);
     }
 
     @Override

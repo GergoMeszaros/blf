@@ -4,7 +4,6 @@ import com.blf.gameservice.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
-import java.time.temporal.Temporal;
 
 @Service
 public class UpdateValidator {

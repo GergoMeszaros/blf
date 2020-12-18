@@ -4,16 +4,20 @@ package com.blf.gameservice.service;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class EventService {
 
     private final EventDao eventDao;
+    private final UpdateValidator updateValidator;
 
 
     public List<Event> getAllEvents() {
@@ -37,7 +41,15 @@ public class EventService {
     }
 
     public Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
-        return eventDao.updateEvent(eventId, updatedEvent);
+        Event eventToUpdate = eventDao.getEventById(eventId);
+
+        if (eventToUpdate != null) {
+            Event validatedEvent = updateValidator.updater(eventToUpdate, updatedEvent);
+            eventDao.updateEvent(validatedEvent);
+        } else {
+            log.info("Event not found with the following id: " + eventId);
+        }
+        return eventToUpdate;
     }
 
     public Event deleteEvent(Long eventId) {
