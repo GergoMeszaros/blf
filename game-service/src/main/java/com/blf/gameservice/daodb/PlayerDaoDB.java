@@ -41,8 +41,8 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
-    public Player updatePlayer(Player updatedPlayer) {
-        return playerRepository.saveAndFlush(updatedPlayer);
+    public void updatePlayer(Player updatedPlayer) {
+        playerRepository.saveAndFlush(updatedPlayer);
     }
 
     @Override

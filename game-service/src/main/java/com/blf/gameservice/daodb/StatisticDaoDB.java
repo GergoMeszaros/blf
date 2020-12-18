@@ -17,6 +17,7 @@ public class StatisticDaoDB implements StatisticDao {
 
     private final StatisticalRowRepository statisticRepository;
 
+
     @Override
     public List<StatisticalRow> getAllStatistics() {
         int limiter = 40;
@@ -38,10 +39,11 @@ public class StatisticDaoDB implements StatisticDao {
         return statisticRepository.saveAndFlush(statisticalrow);
     }
 
-       @Override
-       public StatisticalRow updateStatistic(StatisticalRow updatedStatisticalRow) {
-           return statisticRepository.saveAndFlush(updatedStatisticalRow);
-       }
+    @Override
+    public void updateStatistic(StatisticalRow updatedStatisticalRow) {
+        statisticRepository.saveAndFlush(updatedStatisticalRow);
+    }
+
     @Override
     public StatisticalRow deleteStatistic(Long statisticId) {
         StatisticalRow statToDelete = statisticRepository.findById(statisticId).orElse(null);

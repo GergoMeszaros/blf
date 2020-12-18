@@ -29,8 +29,8 @@ public class SeasonDaoDB implements SeasonDao {
     }
 
     @Override
-    public Season updateSeason(Season updatedSeason) {
-        return seasonRepository.saveAndFlush(updatedSeason);
+    public void updateSeason(Season updatedSeason) {
+        seasonRepository.saveAndFlush(updatedSeason);
     }
 
     @Override

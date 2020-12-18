@@ -17,6 +17,7 @@ public class TeamMemberDaoDB implements TeamMemberDao {
 
     private final TeamMemberRepository teamMemberRepository;
 
+
     @Override
     public List<TeamMember> getAllTeamMembers() {
         int limiter = 30;
@@ -34,7 +35,7 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     }
 
     @Override
-    public TeamMember updateTeamMember(TeamMember updatedTeamMember) {
-        return teamMemberRepository.saveAndFlush(updatedTeamMember);
+    public void updateTeamMember(TeamMember updatedTeamMember) {
+        teamMemberRepository.saveAndFlush(updatedTeamMember);
     }
 }

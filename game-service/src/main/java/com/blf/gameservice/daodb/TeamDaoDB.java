@@ -15,8 +15,8 @@ import java.util.List;
 @Slf4j
 public class TeamDaoDB implements TeamDao {
 
-
     private final TeamRepository teamRepository;
+
 
     @Override
     public List<Team> getAllTeam() {
@@ -49,8 +49,8 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
-    public Team updateTeam(Team updatedTeam) {
-        return teamRepository.saveAndFlush(updatedTeam);
+    public void updateTeam(Team updatedTeam) {
+        teamRepository.saveAndFlush(updatedTeam);
     }
 
     @Override

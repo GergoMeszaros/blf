@@ -38,8 +38,8 @@ public class LeagueDaoDB implements LeagueDao {
     }
 
     @Override
-    public League updateLeague(League updatedLeague) {
-        return leagueRepository.saveAndFlush(updatedLeague);
+    public void updateLeague(League updatedLeague) {
+        leagueRepository.saveAndFlush(updatedLeague);
     }
 
     @Override

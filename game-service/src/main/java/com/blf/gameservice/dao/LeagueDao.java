@@ -14,7 +14,7 @@ public interface LeagueDao {
 
     League addNewLeague(League league);
 
-    League updateLeague(League updatedLeague);
+    void updateLeague(League updatedLeague);
 
     League deleteLeague(Long leagueId);
 

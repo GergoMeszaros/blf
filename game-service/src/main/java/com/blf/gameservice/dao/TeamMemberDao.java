@@ -12,5 +12,5 @@ public interface TeamMemberDao {
 
     TeamMember getTeamMemberById(Long teamMemberId);
 
-    TeamMember updateTeamMember(TeamMember updatedTeamMember);
+    void updateTeamMember(TeamMember updatedTeamMember);
 }

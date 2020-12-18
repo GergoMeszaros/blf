@@ -2,7 +2,6 @@ package com.blf.gameservice.controller;
 
 import com.blf.gameservice.entity.League;
 import com.blf.gameservice.service.LeagueService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

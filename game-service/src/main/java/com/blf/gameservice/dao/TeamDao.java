@@ -19,7 +19,7 @@ public interface TeamDao {
 
     Team addNewTeam(Team team);
 
-    Team updateTeam(Team updatedTeam);
+    void updateTeam(Team updatedTeam);
 
     Team deleteTeam(Long teamId);
 
