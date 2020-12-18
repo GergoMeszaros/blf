@@ -3,11 +3,14 @@ package com.blf.gameservice.daodb;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.entity.League;
 import com.blf.gameservice.repository.EventRepository;
+import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +20,7 @@ import java.util.stream.Collectors;
 public class EventDaoDB implements EventDao {
 
     private final EventRepository eventRepository;
+    private final UpdateValidator updateValidator;
 
 
     @Override
@@ -58,40 +62,12 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
-    public Event updateEvent(Long eventId, Event updatedEvent) {
+    public Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
         Event eventToUpdate = eventRepository.findById(eventId).orElse(null);
 
         if (eventToUpdate != null) {
-            eventToUpdate.setA1qScore(updatedEvent.getA1qScore());
-            eventToUpdate.setA2qScore(updatedEvent.getA2qScore());
-            eventToUpdate.setA3qScore(updatedEvent.getA3qScore());
-            eventToUpdate.setA4qScore(updatedEvent.getA4qScore());
-            eventToUpdate.setAExScore(updatedEvent.getAExScore());
-
-            eventToUpdate.setH1qScore(updatedEvent.getH1qScore());
-            eventToUpdate.setH2qScore(updatedEvent.getH2qScore());
-            eventToUpdate.setH3qScore(updatedEvent.getH3qScore());
-            eventToUpdate.setH4qScore(updatedEvent.getH4qScore());
-            eventToUpdate.setHExScore(updatedEvent.getHExScore());
-
-            eventToUpdate.setA1qTaken(updatedEvent.getA1qTaken());
-            eventToUpdate.setA2qTaken(updatedEvent.getA2qTaken());
-            eventToUpdate.setA3qTaken(updatedEvent.getA3qTaken());
-            eventToUpdate.setA4qTaken(updatedEvent.getA4qTaken());
-            eventToUpdate.setAExTaken(updatedEvent.getAExTaken());
-
-            eventToUpdate.setH1qTaken(updatedEvent.getH1qTaken());
-            eventToUpdate.setH2qTaken(updatedEvent.getH2qTaken());
-            eventToUpdate.setH3qTaken(updatedEvent.getH3qTaken());
-            eventToUpdate.setH4qTaken(updatedEvent.getH4qTaken());
-            eventToUpdate.setHExTaken(updatedEvent.getHExTaken());
-
-            eventToUpdate.setAddress(updatedEvent.getAddress());
-            eventToUpdate.setEventDate(updatedEvent.getEventDate());
-            eventToUpdate.setSummary(updatedEvent.getSummary());
-            eventToUpdate.setLeague(updatedEvent.getLeague());
-
-            eventRepository.saveAndFlush(eventToUpdate);
+            Event validatedEvent = updateValidator.updater(eventToUpdate, updatedEvent);
+            eventRepository.saveAndFlush(validatedEvent);
         } else {
             log.info("Event not found with the following id: " + eventId);
         }

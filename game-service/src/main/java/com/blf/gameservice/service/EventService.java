@@ -36,7 +36,7 @@ public class EventService {
         return eventDao.addNewEvent(event);
     }
 
-    public Event updateEvent(Long eventId, Event updatedEvent) {
+    public Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
         return eventDao.updateEvent(eventId, updatedEvent);
     }
 

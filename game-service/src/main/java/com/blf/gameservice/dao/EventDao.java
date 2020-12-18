@@ -16,7 +16,7 @@ public interface EventDao {
 
     Event addNewEvent(Event event);
 
-    Event updateEvent(Long eventId, Event updatedEvent);
+    Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException;
 
     Event deleteEvent(Long eventId);
 

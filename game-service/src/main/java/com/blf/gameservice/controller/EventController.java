@@ -47,7 +47,7 @@ public class EventController {
     }
 
     @PutMapping("/{eventId}")
-    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) {
+    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) throws IllegalAccessException {
         return eventService.updateEvent(eventId, updatedEvent);
     }
 
