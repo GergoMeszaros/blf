@@ -2,7 +2,6 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.TeamMemberDao;
 import com.blf.gameservice.entity.TeamMember;
-import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,5 @@ public class TeamMemberService {
 
     public TeamMember getTeamMemberById(Long teamMemberId) {
         return teamMemberDao.getTeamMemberById(teamMemberId);
-
     }
 }

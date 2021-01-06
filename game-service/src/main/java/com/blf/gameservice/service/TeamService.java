@@ -3,7 +3,6 @@ package com.blf.gameservice.service;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.entity.Team;
-import com.blf.gameservice.service.util.UpdateValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
