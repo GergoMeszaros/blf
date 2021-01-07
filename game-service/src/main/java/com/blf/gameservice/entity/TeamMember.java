@@ -3,16 +3,14 @@ package com.blf.gameservice.entity;
 import lombok.*;
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TeamMember {
+public class TeamMember extends DataModel{
 
-    @Id
-    @GeneratedValue
-    private Long id;
 
     @ManyToOne
     private Team team;

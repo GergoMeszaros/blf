@@ -1,24 +1,18 @@
 package com.blf.gameservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Event {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Event extends DataModel {
 
     @Type(type = "date")
     private Date eventDate;
@@ -62,7 +56,5 @@ public class Event {
 
     @ManyToOne
     private Team awayTeam;
-
-
 }
 

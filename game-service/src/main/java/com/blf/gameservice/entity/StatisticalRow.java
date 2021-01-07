@@ -4,16 +4,14 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity(name = "statistical_row")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class StatisticalRow {
+public class StatisticalRow extends DataModel{
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private Long id;
 
     private Integer playedTime;
 

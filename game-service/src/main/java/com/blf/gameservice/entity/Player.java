@@ -7,16 +7,14 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Player {
+public class Player extends DataModel{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     //@JsonProperty("Név")
     private String name;
@@ -61,5 +59,4 @@ public class Player {
     @ManyToOne
     @JsonProperty("Szezon név")
     private Season season;
-
 }

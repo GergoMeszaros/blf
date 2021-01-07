@@ -5,16 +5,14 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class League {
+public class League extends DataModel{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @JsonProperty("Név")
     private String name;
@@ -25,5 +23,4 @@ public class League {
     @ManyToOne
     @JsonProperty("Szezon név")
     private Season season;
-
 }
