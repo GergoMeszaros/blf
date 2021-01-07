@@ -16,7 +16,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = EventController.class)
 class EventControllerTest {
@@ -28,6 +31,22 @@ class EventControllerTest {
     private EventService mockedService;
 
     private List<Event> events;
+
+
+    @Test
+    public void smokeTest() {
+        assertThat(mockedService).isNotNull();
+    }
+
+
+    @Test
+    public void testWrongEndpoint() throws Exception {
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                        .get("/wrongUrl"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
 
 
     @Test
