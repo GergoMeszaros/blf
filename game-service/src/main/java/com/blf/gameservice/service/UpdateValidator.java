@@ -1,5 +1,6 @@
 package com.blf.gameservice.service;
 
+import com.blf.gameservice.entity.DataModel;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -7,7 +8,7 @@ import java.lang.reflect.Field;
 @Service
 public class UpdateValidator {
 
-    protected <Type> Type updater(Type old, Type input) throws IllegalAccessException {
+    protected <Type extends DataModel> Type updater(Type old, Type input) throws IllegalAccessException {
 
         Field[] oldFields = old.getClass().getDeclaredFields();
         Field[] updatedFields = input.getClass().getDeclaredFields();

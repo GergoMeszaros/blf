@@ -1,7 +1,6 @@
 package com.blf.gameservice.entity;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @MappedSuperclass
