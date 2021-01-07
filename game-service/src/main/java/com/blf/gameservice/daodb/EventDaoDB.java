@@ -32,20 +32,8 @@ public class EventDaoDB implements EventDao {
     }
 
     @Override
-    public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
-        List<Event> events = eventRepository.findAllBySeasonId(seasonId);
-        if (input != null) {
-            String lowerCaseInput = input.getInput().toLowerCase();
-            return events
-                    .stream()
-                    .filter(event -> event.getAddress().toLowerCase().contains(lowerCaseInput)
-                            || event.getHomeTeam().getName().toLowerCase().contains(lowerCaseInput)
-                            || event.getAwayTeam().getName().toLowerCase().contains(lowerCaseInput)
-                            || event.getLeague().getName().toLowerCase().contains(lowerCaseInput))
-                    .collect(Collectors.toList());
-        } else {
-            return events;
-        }
+    public List<Event> getEventsBySeasonAndSearch(Long seasonId) {
+        return eventRepository.findAllBySeasonId(seasonId);
     }
 
     @Override

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +29,23 @@ public class EventService {
     }
 
     public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
-        return eventDao.getEventsBySeasonAndSearch(seasonId, input);
+
+        List<Event> events = eventDao.getEventsBySeasonAndSearch(seasonId);
+
+        if (input != null) {
+
+            String lowerCaseInput = input.getInput().toLowerCase();
+
+            return events
+                    .stream()
+                    .filter(event -> event.getAddress().toLowerCase().contains(lowerCaseInput)
+                            || event.getHomeTeam().getName().toLowerCase().contains(lowerCaseInput)
+                            || event.getAwayTeam().getName().toLowerCase().contains(lowerCaseInput)
+                            || event.getLeague().getName().toLowerCase().contains(lowerCaseInput))
+                    .collect(Collectors.toList());
+        } else {
+            return events;
+        }
     }
 
     public Event getEventById(Long eventId) {
