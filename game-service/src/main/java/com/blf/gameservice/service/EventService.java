@@ -28,6 +28,11 @@ public class EventService {
         return eventDao.getEventsBySearch(input);
     }
 
+    /**
+     The business logic of this method is moved from the DAO implementation to here.
+     If we have typed input from the front-end, we convert it to lowercase and check
+        if any of the results'(events) fields contains any part of the input.
+    */
     public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
 
         List<Event> events = eventDao.getEventsBySeasonAndSearch(seasonId);

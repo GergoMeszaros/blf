@@ -24,7 +24,11 @@ public class TeamMember extends DataModel{
     @Transient
     private String isBlfTeam;
 
-
+    /**
+     This method executes only if the required field is not "null".
+     Calls the other methods which gather information from the "Team" object.
+     As well as sets the value of the "Transient" fields.
+     * */
     @PostLoad
     private void postLoad() {
         setSeason();

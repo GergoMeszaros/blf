@@ -7,11 +7,11 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 @SuperBuilder(toBuilder = true)
 public class Event extends DataModel {
 
