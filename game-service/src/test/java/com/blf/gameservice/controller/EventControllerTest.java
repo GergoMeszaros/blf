@@ -2,6 +2,7 @@ package com.blf.gameservice.controller;
 
 import com.blf.gameservice.entity.Event;
 import com.blf.gameservice.service.EventService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,14 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @WebMvcTest(controllers = EventController.class)
 class EventControllerTest {
@@ -30,7 +33,28 @@ class EventControllerTest {
     @MockBean
     private EventService mockedService;
 
-    private List<Event> events;
+    private static final List<Event> events = new ArrayList<>();
+
+
+    @BeforeAll
+    static void setUp(){
+
+        Event event = Event.builder()
+                .address("Jókai utca")
+                .summary("Test 1")
+                .id(1L)
+                .build();
+        events.add(event);
+
+        Event event2 = Event
+                .builder()
+                .address("Nagymező utca")
+                .summary("Test 2")
+                .id(2L)
+                .build();
+
+        events.add(event2);
+    }
 
 
     @Test
