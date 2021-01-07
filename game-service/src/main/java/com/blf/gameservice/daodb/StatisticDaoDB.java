@@ -18,6 +18,7 @@ public class StatisticDaoDB implements StatisticDao {
     private final StatisticalRowRepository statisticRepository;
 
 
+    //TODO remove limiter
     @Override
     public List<StatisticalRow> getAllStatistics() {
         int limiter = 40;

@@ -19,6 +19,7 @@ public class EventDaoDB implements EventDao {
     private final EventRepository eventRepository;
 
 
+    //TODO remove limiter
     @Override
     public List<Event> getAllEvents() {
         int limiter = 150;

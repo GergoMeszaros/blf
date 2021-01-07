@@ -19,6 +19,7 @@ public class PlayerDaoDB implements PlayerDao {
     private final PlayerRepository playerRepository;
 
 
+    //TODO remove limiter
     @Override
     public List<Player> getAllPlayers() {
         int limiter = 30;

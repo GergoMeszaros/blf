@@ -13,9 +13,9 @@ public class UpdateValidator {
         Field[] oldFields = old.getClass().getDeclaredFields();
         Field[] updatedFields = input.getClass().getDeclaredFields();
 
-        int oldFieldsLength = oldFields.length;
+        int numberOfFields = oldFields.length;
 
-        for (int i = 0; i < oldFieldsLength; i++) {
+        for (int i = 0; i < numberOfFields; i++) {
 
             oldFields[i].setAccessible(true);
             updatedFields[i].setAccessible(true);

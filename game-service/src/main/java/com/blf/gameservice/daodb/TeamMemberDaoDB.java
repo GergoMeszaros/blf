@@ -18,6 +18,7 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     private final TeamMemberRepository teamMemberRepository;
 
 
+    //TODO remove limiter
     @Override
     public List<TeamMember> getAllTeamMembers() {
         int limiter = 30;
