@@ -1,4 +1,4 @@
-package com.blf.gameservice.entity;
+package com.blf.gameservice.model.entity;
 
 import lombok.*;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TeamMember extends DataModel{
+public class TeamMember extends BaseEntity {
 
 
     @ManyToOne

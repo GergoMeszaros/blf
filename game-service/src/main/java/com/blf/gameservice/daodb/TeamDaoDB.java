@@ -2,7 +2,7 @@ package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
-import com.blf.gameservice.entity.Team;
+import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.LeagueDao;
-import com.blf.gameservice.entity.League;
+import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.repository.LeagueRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

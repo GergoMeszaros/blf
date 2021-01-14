@@ -1,7 +1,7 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.SeasonDao;
-import com.blf.gameservice.entity.Season;
+import com.blf.gameservice.model.entity.Season;
 import com.blf.gameservice.repository.SeasonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

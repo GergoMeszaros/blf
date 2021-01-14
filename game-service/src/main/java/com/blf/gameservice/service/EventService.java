@@ -3,7 +3,7 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
-import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.model.entity.Event;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

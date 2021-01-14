@@ -1,6 +1,6 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.entity.TeamMember;
+import com.blf.gameservice.model.entity.TeamMember;
 import com.blf.gameservice.service.TeamMemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

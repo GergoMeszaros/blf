@@ -1,6 +1,6 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.model.entity.Event;
 import com.blf.gameservice.service.EventService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.blf.gameservice.dao;
 
-import com.blf.gameservice.entity.Season;
+import com.blf.gameservice.model.entity.Season;
 
 import java.util.List;
 

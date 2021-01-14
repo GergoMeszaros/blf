@@ -1,6 +1,6 @@
 package com.blf.gameservice.repository;
 
-import com.blf.gameservice.entity.TeamMember;
+import com.blf.gameservice.model.entity.TeamMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

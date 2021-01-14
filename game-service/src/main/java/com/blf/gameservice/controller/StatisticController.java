@@ -1,6 +1,6 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.entity.StatisticalRow;
+import com.blf.gameservice.model.entity.StatisticalRow;
 import com.blf.gameservice.service.StatisticService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

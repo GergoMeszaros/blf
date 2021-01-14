@@ -3,7 +3,7 @@ package com.blf.gameservice.daodb;
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.repository.PlayerRepository;
 import com.blf.gameservice.dao.PlayerDao;
-import com.blf.gameservice.entity.Player;
+import com.blf.gameservice.model.entity.Player;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

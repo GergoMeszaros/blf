@@ -1,4 +1,4 @@
-package com.blf.gameservice.dtomodel;
+package com.blf.gameservice.model.dto;
 
 import lombok.*;
 

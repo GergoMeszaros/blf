@@ -1,6 +1,6 @@
 package com.blf.gameservice.dao;
 
-import com.blf.gameservice.entity.League;
+import com.blf.gameservice.model.entity.League;
 
 import java.util.List;
 

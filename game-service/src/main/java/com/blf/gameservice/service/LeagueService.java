@@ -1,7 +1,8 @@
 package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.LeagueDao;
-import com.blf.gameservice.entity.League;
+import com.blf.gameservice.model.entity.League;
+import com.blf.gameservice.model.entity.Season;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,11 @@ public class LeagueService {
         return leagueDao.getLeagueById(leagueId);
     }
 
+    //TODO remove hardcoded SeasonId
     public League addNewLeague(League league) {
+        league.setSeason(Season.builder()
+                .id(40L)
+                .build());
         return leagueDao.addNewLeague(league);
     }
 

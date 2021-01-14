@@ -1,4 +1,4 @@
-package com.blf.gameservice.entity;
+package com.blf.gameservice.model.entity;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Team extends DataModel{
+public class Team extends BaseEntity {
 
 
     private Integer blf;

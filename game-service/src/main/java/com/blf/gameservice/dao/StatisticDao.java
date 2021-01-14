@@ -1,6 +1,6 @@
 package com.blf.gameservice.dao;
 
-import com.blf.gameservice.entity.StatisticalRow;
+import com.blf.gameservice.model.entity.StatisticalRow;
 
 import java.util.List;
 

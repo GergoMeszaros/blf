@@ -1,7 +1,7 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.StatisticDao;
-import com.blf.gameservice.entity.StatisticalRow;
+import com.blf.gameservice.model.entity.StatisticalRow;
 import com.blf.gameservice.repository.StatisticalRowRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.blf.gameservice.service;
 
-import com.blf.gameservice.entity.DataModel;
+import com.blf.gameservice.model.entity.BaseEntity;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -17,7 +17,7 @@ public class UpdateValidator {
      * Finally compares the values of the fields and only if these values are different and not named as "id" and
         the updatedField's value is not "null" replaces the old vale.
      */
-    protected <Type extends DataModel> Type updater(Type old, Type input) throws IllegalAccessException {
+    protected <Type extends BaseEntity> Type updater(Type old, Type input) throws IllegalAccessException {
 
         Field[] oldFields = old.getClass().getDeclaredFields();
         Field[] updatedFields = input.getClass().getDeclaredFields();
@@ -41,3 +41,4 @@ public class UpdateValidator {
         return old;
     }
 }
+

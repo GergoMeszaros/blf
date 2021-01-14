@@ -1,4 +1,4 @@
-package com.blf.gameservice.entity;
+package com.blf.gameservice.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Player extends DataModel{
+public class Player extends BaseEntity {
 
 
     //@JsonProperty("Név")

@@ -1,7 +1,7 @@
 package com.blf.gameservice.dao;
 
 import com.blf.gameservice.Search.SearchInput;
-import com.blf.gameservice.entity.Team;
+import com.blf.gameservice.model.entity.Team;
 
 import java.util.List;
 

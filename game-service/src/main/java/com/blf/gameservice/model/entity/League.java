@@ -1,4 +1,4 @@
-package com.blf.gameservice.entity;
+package com.blf.gameservice.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class League extends DataModel{
+public class League extends BaseEntity {
 
 
     @JsonProperty("Név")

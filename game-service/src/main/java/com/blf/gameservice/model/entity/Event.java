@@ -1,4 +1,4 @@
-package com.blf.gameservice.entity;
+package com.blf.gameservice.model.entity;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @SuperBuilder(toBuilder = true)
-public class Event extends DataModel {
+public class Event extends BaseEntity {
 
     @Type(type = "date")
     private Date eventDate;

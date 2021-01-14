@@ -1,7 +1,7 @@
 package com.blf.gameservice.controller;
 
 import com.blf.gameservice.Search.SearchInput;
-import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.model.entity.Event;
 import com.blf.gameservice.service.EventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

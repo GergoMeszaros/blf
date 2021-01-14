@@ -2,7 +2,7 @@ package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
-import com.blf.gameservice.entity.Event;
+import com.blf.gameservice.model.entity.Event;
 import com.blf.gameservice.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

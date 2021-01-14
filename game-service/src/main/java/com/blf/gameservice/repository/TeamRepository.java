@@ -1,5 +1,5 @@
 package com.blf.gameservice.repository;
-import com.blf.gameservice.entity.Team;
+import com.blf.gameservice.model.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

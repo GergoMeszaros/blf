@@ -1,7 +1,7 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.TeamMemberDao;
-import com.blf.gameservice.entity.TeamMember;
+import com.blf.gameservice.model.entity.TeamMember;
 import com.blf.gameservice.repository.TeamMemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
