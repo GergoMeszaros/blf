@@ -1,5 +1,6 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.model.entity.TeamMember;
 import com.blf.gameservice.service.TeamMemberService;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,11 @@ public class TeamMemberController {
     @PutMapping("/{teamMemberId}")
     public TeamMember updateTeamMember(@PathVariable Long teamMemberId, @RequestBody TeamMember updatedTeamMember) throws IllegalAccessException {
         return teamMemberService.updateTeamMember(teamMemberId, updatedTeamMember);
+    }
+
+    @PostMapping("/search")
+    public List<TeamMember> getAllByPlayerName(@RequestBody SearchInput input){
+        return teamMemberService.getAllByPlayerName(input.getInput());
     }
 
 }

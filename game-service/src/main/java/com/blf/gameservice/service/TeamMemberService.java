@@ -1,6 +1,7 @@
 package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.TeamMemberDao;
+import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.model.entity.TeamMember;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,5 +41,9 @@ public class TeamMemberService {
 
     public TeamMember getTeamMemberById(Long teamMemberId) {
         return teamMemberDao.getTeamMemberById(teamMemberId);
+    }
+
+    public List<TeamMember> getAllByPlayerName(String playerName){
+        return teamMemberDao.getAllByPlayerName(playerName);
     }
 }

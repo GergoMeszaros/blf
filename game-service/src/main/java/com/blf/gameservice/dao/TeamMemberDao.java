@@ -1,5 +1,6 @@
 package com.blf.gameservice.dao;
 
+import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.model.entity.TeamMember;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface TeamMemberDao {
     TeamMember getTeamMemberById(Long teamMemberId);
 
     void updateTeamMember(TeamMember updatedTeamMember);
+
+    List<TeamMember> getAllByPlayerName(String playerName);
 }

@@ -39,4 +39,9 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     public void updateTeamMember(TeamMember updatedTeamMember) {
         teamMemberRepository.saveAndFlush(updatedTeamMember);
     }
+
+    @Override
+    public List<TeamMember> getAllByPlayerName(String playerName) {
+        return teamMemberRepository.findAllByPlayerName(playerName);
+    }
 }
