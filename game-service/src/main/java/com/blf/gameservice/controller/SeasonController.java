@@ -17,7 +17,6 @@ public class SeasonController {
 
     private final SeasonService seasonService;
 
-
     @GetMapping("")
     public List<Season> getAllSeasons() {
         return seasonService.getAllSeason();
@@ -34,12 +33,8 @@ public class SeasonController {
     }
 
     @PostMapping("")
-    public Season addNewSeason(@RequestBody Season season) {
-
-        //TODO --> season object simán nem mapként
-        log.info("added season: " + season);
-        return seasonService.addNewSeason(season);
-
+    public Season addNewSeason() {
+        return seasonService.addNewSeason();
     }
 
     @DeleteMapping("/{seasonId}")

@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
 
 @Service
@@ -37,8 +39,14 @@ public class SeasonService {
         return seasonToUpdate;
     }
 
-    public Season addNewSeason(Season season) {
-        return seasonDao.addNewSeason(season);
+    public Season addNewSeason() {
+        int now = LocalDate.now().getYear();
+        int nextYear = LocalDate.now().plusYears(1).getYear();
+
+        Season newSeason = Season.builder()
+                .name(now + "-" + nextYear)
+                .build();
+        return seasonDao.addNewSeason(newSeason);
     }
 
     public Season deleteSeason(Long seasonId) {
