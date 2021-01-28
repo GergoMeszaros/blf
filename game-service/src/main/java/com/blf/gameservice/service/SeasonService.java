@@ -42,14 +42,27 @@ public class SeasonService {
     public Season addNewSeason() {
         int now = LocalDate.now().getYear();
         int nextYear = LocalDate.now().plusYears(1).getYear();
+        String newSeasonName = now + "-" + nextYear;
 
-        Season newSeason = Season.builder()
-                .name(now + "-" + nextYear)
-                .build();
-        return seasonDao.addNewSeason(newSeason);
+        if (!seasonChecker(newSeasonName)) {
+            Season newSeason = Season.builder()
+                    .name(newSeasonName)
+                    .build();
+            return seasonDao.addNewSeason(newSeason);
+        } else {
+            return null;
+        }
     }
 
     public Season deleteSeason(Long seasonId) {
         return seasonDao.deleteSeason(seasonId);
+    }
+
+
+    private boolean seasonChecker(String seasonName) {
+        List<Season> seasons = seasonDao.getAllSeason();
+
+        return seasons.stream()
+                .anyMatch(season -> seasonName.equals(season.getName()));
     }
 }
