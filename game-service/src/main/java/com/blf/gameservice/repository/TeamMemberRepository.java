@@ -10,4 +10,6 @@ public interface TeamMemberRepository extends JpaRepository<TeamMember, Long> {
 
     List<TeamMember> findAllByTeamSeasonIdOrderByTeam(Long seasonId);
 
+    List<TeamMember> findTeamMembersByPlayerNameContainingIgnoreCase(String playerName);
+
 }

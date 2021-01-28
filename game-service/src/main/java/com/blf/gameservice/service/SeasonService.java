@@ -58,7 +58,6 @@ public class SeasonService {
         return seasonDao.deleteSeason(seasonId);
     }
 
-
     private boolean seasonChecker(String seasonName) {
         List<Season> seasons = seasonDao.getAllSeason();
 
