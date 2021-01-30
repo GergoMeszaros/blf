@@ -57,6 +57,5 @@ public class Player extends BaseEntity {
     private Integer height;
 
     @ManyToOne
-    @JsonProperty("Szezon név")
     private Season season;
 }

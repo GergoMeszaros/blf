@@ -15,5 +15,4 @@ public interface SeasonDao {
     Season deleteSeason(Long seasonId);
 
     void updateSeason(Season updatedSeason);
-
 }
