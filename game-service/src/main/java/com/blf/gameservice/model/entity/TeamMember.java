@@ -1,6 +1,9 @@
 package com.blf.gameservice.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+
 import javax.persistence.*;
 
 @EqualsAndHashCode(callSuper = false)
@@ -35,13 +38,13 @@ public class TeamMember extends BaseEntity {
         setIsBlfTeam();
     }
 
-    public void setIsBlfTeam(){
+    private void setIsBlfTeam(){
         if(team != null) {
-            this.isBlfTeam = team.getBlf() == 1 ? "Blf" : "";
+            this.isBlfTeam = team.getIsBlfTeam();
         }
     }
 
-    public void setSeason() {
+    private void setSeason() {
         if (team != null) {
             this.seasonName = team.getSeason().getName();
         }
