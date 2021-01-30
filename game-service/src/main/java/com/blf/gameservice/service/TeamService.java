@@ -2,6 +2,7 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.TeamDao;
+import com.blf.gameservice.model.dto.TeamDTO;
 import com.blf.gameservice.model.entity.Team;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,10 +17,11 @@ public class TeamService {
 
     private final TeamDao teamDao;
     private final UpdateValidator updateValidator;
+    private final DtoCreator<Team, TeamDTO> dtoCreator;
 
 
-    public List<Team> getAllTeam() {
-        return teamDao.getAllTeam();
+    public List<TeamDTO> getAllTeam() {
+        return dtoCreator.handleInput(teamDao.getAllTeam());
     }
 
     public List<Team> getAllTeamsBySeasonId(Long seasonId) {

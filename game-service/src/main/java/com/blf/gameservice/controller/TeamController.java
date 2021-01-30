@@ -1,6 +1,7 @@
 package com.blf.gameservice.controller;
 
 import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.model.dto.TeamDTO;
 import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.service.TeamService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class TeamController {
     private final TeamService teamService;
 
     @GetMapping("")
-    public List<Team> getAllTeam() {
+    public List<TeamDTO> getAllTeam() {
         return teamService.getAllTeam();
     }
 
