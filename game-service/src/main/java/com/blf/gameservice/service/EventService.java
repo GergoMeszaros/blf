@@ -3,6 +3,8 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
+import com.blf.gameservice.model.dto.BaseDTO;
+import com.blf.gameservice.model.dto.EventDTO;
 import com.blf.gameservice.model.entity.Event;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +20,13 @@ public class EventService {
 
     private final EventDao eventDao;
     private final UpdateValidator updateValidator;
+    private final DtoCreator<Event, EventDTO> dtoCreator;
 
 
-    public List<Event> getAllEvents() {
-        return eventDao.getAllEvents();
+    public List<EventDTO> getAllEvents() {
+        return dtoCreator.handleInput(eventDao.getAllEvents());
+
+        //return eventDao.getAllEvents();
     }
 
     public List<Event> getEventsBySearch(SearchInput input) {
@@ -29,10 +34,10 @@ public class EventService {
     }
 
     /**
-     The business logic of this method is moved from the DAO implementation to here.
-     If we have typed input from the front-end, we convert it to lowercase and check
-        if any of the results'(events) fields contains any part of the input.
-    */
+     * The business logic of this method is moved from the DAO implementation to here.
+     * If we have typed input from the front-end, we convert it to lowercase and check
+     * if any of the results'(events) fields contains any part of the input.
+     */
     public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
 
         List<Event> events = eventDao.getEventsBySeasonAndSearch(seasonId);

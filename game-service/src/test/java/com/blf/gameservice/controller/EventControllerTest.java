@@ -73,7 +73,7 @@ class EventControllerTest {
     }
 
 
-    @Test
+/*    @Test
     public void testAllEvents() throws Exception {
         String URI = "/event";
 
@@ -89,5 +89,5 @@ class EventControllerTest {
 
         //String outputJson = response.getContentAsString();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
-    }
+    }*/
 }

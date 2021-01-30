@@ -1,6 +1,7 @@
 package com.blf.gameservice.controller;
 
 import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.model.dto.EventDTO;
 import com.blf.gameservice.model.entity.Event;
 import com.blf.gameservice.service.EventService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class EventController {
 
 
     @GetMapping("")
-    public List<Event> getAllEvents() {
+    public List<EventDTO> getAllEvents() {
         return eventService.getAllEvents();
     }
 
