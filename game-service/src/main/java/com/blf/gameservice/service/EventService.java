@@ -3,9 +3,11 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.Search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
+import com.blf.gameservice.dao.LatestSeasonDao;
 import com.blf.gameservice.model.dto.BaseDTO;
 import com.blf.gameservice.model.dto.EventDTO;
 import com.blf.gameservice.model.entity.Event;
+import com.blf.gameservice.model.entity.Season;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ public class EventService {
 
     private final EventDao eventDao;
     private final UpdateValidator updateValidator;
+    private final LatestSeasonDao latestSeasonDao;
     private final DtoCreator<Event, EventDTO> dtoCreator;
 
 
@@ -63,6 +66,9 @@ public class EventService {
     }
 
     public Event addNewEvent(Event event) {
+        event.setSeason(Season.builder()
+                .id(latestSeasonDao.getTheLatestSeasonId())
+                .build());
         return eventDao.addNewEvent(event);
     }
 
