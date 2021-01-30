@@ -12,11 +12,11 @@ public class GameServiceApplication {
         SpringApplication.run(GameServiceApplication.class, args);
     }
 
-/*    @Bean
+    @Bean
     public ModelMapper mapperCreator(){
         return new ModelMapper();
 
-    }*/
+    }
 
 
 }
