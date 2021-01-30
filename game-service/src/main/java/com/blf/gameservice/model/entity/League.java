@@ -21,6 +21,5 @@ public class League extends BaseEntity {
     private String organization;
 
     @ManyToOne
-    @JsonProperty("Szezon név")
     private Season season;
 }

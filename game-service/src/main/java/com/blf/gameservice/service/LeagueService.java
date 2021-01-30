@@ -1,5 +1,6 @@
 package com.blf.gameservice.service;
 
+import com.blf.gameservice.dao.LatestSeasonDao;
 import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.model.entity.Season;
@@ -15,6 +16,7 @@ import java.util.List;
 public class LeagueService {
 
     private final LeagueDao leagueDao;
+    private final LatestSeasonDao latestSeasonDao;
     private final UpdateValidator updateValidator;
 
 
@@ -30,10 +32,9 @@ public class LeagueService {
         return leagueDao.getLeagueById(leagueId);
     }
 
-    //TODO remove hardcoded SeasonId
     public League addNewLeague(League league) {
         league.setSeason(Season.builder()
-                .id(40L)
+                .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());
         return leagueDao.addNewLeague(league);
     }
