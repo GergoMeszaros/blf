@@ -4,10 +4,11 @@ import lombok.*;
 
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlayerDTO {
+public class PlayerDTO extends BaseDTO{
 
     private Long id;
     private String name;
