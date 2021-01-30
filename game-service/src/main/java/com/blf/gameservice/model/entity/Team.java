@@ -30,6 +30,9 @@ public class Team extends BaseEntity {
     @ManyToOne
     private Season season;
 
+    @ManyToOne
+    private League league;
+
 
     /*@OneToMany
     @JoinTable(

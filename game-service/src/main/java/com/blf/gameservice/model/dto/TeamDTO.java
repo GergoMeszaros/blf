@@ -1,6 +1,7 @@
 package com.blf.gameservice.model.dto;
 
 
+import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.model.entity.Season;
 import com.blf.gameservice.model.entity.TeamMember;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -31,6 +32,8 @@ public class TeamDTO extends BaseDTO{
     private String address;
 
     private Season season;
+
+    private League league;
 
    // private Set<TeamMember> teamMember;
 }

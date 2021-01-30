@@ -1,8 +1,10 @@
 package com.blf.gameservice.service;
 
 import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.dao.LatestSeasonDao;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.model.dto.TeamDTO;
+import com.blf.gameservice.model.entity.Season;
 import com.blf.gameservice.model.entity.Team;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +19,7 @@ public class TeamService {
 
     private final TeamDao teamDao;
     private final UpdateValidator updateValidator;
+    private final LatestSeasonDao latestSeasonDao;
     private final DtoCreator<Team, TeamDTO> dtoCreator;
 
 
@@ -41,6 +44,9 @@ public class TeamService {
     }
 
     public Team addNewTeam(Team team) {
+        team.setSeason(Season.builder()
+                .id(latestSeasonDao.getTheLatestSeasonId())
+                .build());
         return teamDao.addNewTeam(team);
     }
 
