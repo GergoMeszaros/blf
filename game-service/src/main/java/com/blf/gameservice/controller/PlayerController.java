@@ -29,6 +29,7 @@ public class PlayerController {
         return playerService.getPlayerById(playerId);
     }
 
+
     @PostMapping("/search")
     public List<PlayerDTO> getAllPlayersByName(@RequestBody SearchInput playerName) {
         return playerService.getAllPlayersByName(playerName);
