@@ -19,7 +19,11 @@ public class DtoCreator<Type extends BaseEntity, DtoType extends BaseDTO> {
     private final ModelMapper modelMapper;
 
 
-    public List<DtoType> handleInput(List<Type> entityList) {
+    public DtoType handleSingleInput(Type entity) {
+        return convertEntityToDTO(entity);
+    }
+
+    public List<DtoType> handleListInput(List<Type> entityList) {
         return entityList.stream()
                 .map(this::convertEntityToDTO)
                 .collect(Collectors.toList());
