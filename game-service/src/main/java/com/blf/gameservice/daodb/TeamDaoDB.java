@@ -54,13 +54,12 @@ public class TeamDaoDB implements TeamDao {
     }
 
     @Override
-    public Team deleteTeam(Long teamId) {
+    public void deleteTeam(Long teamId) {
         Team teamToDelete = teamRepository.findById(teamId).orElse(null);
 
         if (teamToDelete != null) {
             teamRepository.deleteById(teamId);
             log.info("Team deleted: " + teamToDelete);
         }
-        return teamToDelete;
     }
 }

@@ -21,6 +21,6 @@ public interface TeamDao {
 
     void updateTeam(Team updatedTeam);
 
-    Team deleteTeam(Long teamId);
+    void deleteTeam(Long teamId);
 
 }
