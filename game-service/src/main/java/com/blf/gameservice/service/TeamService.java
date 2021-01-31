@@ -18,13 +18,13 @@ import java.util.List;
 public class TeamService {
 
     private final TeamDao teamDao;
-    private final UpdateValidator updateValidator;
     private final LatestSeasonDao latestSeasonDao;
+    private final UpdateValidator updateValidator;
     private final DtoCreator<Team, TeamDTO> dtoCreator;
 
 
     public List<TeamDTO> getAllTeam() {
-        return dtoCreator.handleInput(teamDao.getAllTeam());
+        return dtoCreator.handleListInput(teamDao.getAllTeam());
     }
 
     public List<Team> getAllTeamsBySeasonId(Long seasonId) {

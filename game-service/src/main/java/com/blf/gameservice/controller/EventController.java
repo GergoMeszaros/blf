@@ -26,7 +26,7 @@ public class EventController {
     }
 
     @GetMapping("/{eventId}")
-    public Event getEventById(@PathVariable Long eventId) {
+    public EventDTO getEventById(@PathVariable Long eventId) {
         return eventService.getEventById(eventId);
     }
 
@@ -36,23 +36,23 @@ public class EventController {
     }
 
     @PostMapping("/search/{seasonId}")
-    public List<Event> getAllEventsBySeasonAndSearch(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
+    public List<EventDTO> getAllEventsBySeasonAndSearch(@PathVariable Long seasonId, @RequestBody(required = false) SearchInput input){
         return eventService.getEventsBySeasonAndSearch(seasonId, input);
     }
 
     @PostMapping("")
-    public Event addNewEvent(@RequestBody Event event) {
+    public EventDTO addNewEvent(@RequestBody Event event) {
         log.info("The following event is added to database: " + event);
         return eventService.addNewEvent(event);
     }
 
     @PutMapping("/{eventId}")
-    public Event updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) throws IllegalAccessException {
+    public EventDTO updateEvent(@PathVariable Long eventId, @RequestBody Event updatedEvent) throws IllegalAccessException {
         return eventService.updateEvent(eventId, updatedEvent);
     }
 
     @DeleteMapping("/{eventId}")
-    public Event deleteEvent(@PathVariable Long eventId) {
+    public EventDTO deleteEvent(@PathVariable Long eventId) {
         return eventService.deleteEvent(eventId);
     }
 

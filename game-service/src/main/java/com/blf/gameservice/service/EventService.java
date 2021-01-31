@@ -27,9 +27,7 @@ public class EventService {
 
 
     public List<EventDTO> getAllEvents() {
-        return dtoCreator.handleInput(eventDao.getAllEvents());
-
-        //return eventDao.getAllEvents();
+        return dtoCreator.handleListInput(eventDao.getAllEvents());
     }
 
     public List<Event> getEventsBySearch(SearchInput input) {
@@ -41,7 +39,7 @@ public class EventService {
      * If we have typed input from the front-end, we convert it to lowercase and check
      * if any of the results'(events) fields contains any part of the input.
      */
-    public List<Event> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
+    public List<EventDTO> getEventsBySeasonAndSearch(Long seasonId, SearchInput input) {
 
         List<Event> events = eventDao.getEventsBySeasonAndSearch(seasonId);
 
@@ -49,30 +47,30 @@ public class EventService {
 
             String lowerCaseInput = input.getInput().toLowerCase();
 
-            return events
+            return dtoCreator.handleListInput(events
                     .stream()
                     .filter(event -> event.getAddress().toLowerCase().contains(lowerCaseInput)
                             || event.getHomeTeam().getName().toLowerCase().contains(lowerCaseInput)
                             || event.getAwayTeam().getName().toLowerCase().contains(lowerCaseInput)
                             || event.getLeague().getName().toLowerCase().contains(lowerCaseInput))
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList()));
         } else {
-            return events;
+            return dtoCreator.handleListInput(events);
         }
     }
 
-    public Event getEventById(Long eventId) {
-        return eventDao.getEventById(eventId);
+    public EventDTO getEventById(Long eventId) {
+        return dtoCreator.handleSingleInput(eventDao.getEventById(eventId));
     }
 
-    public Event addNewEvent(Event event) {
+    public EventDTO addNewEvent(Event event) {
         event.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());
-        return eventDao.addNewEvent(event);
+        return dtoCreator.handleSingleInput(eventDao.addNewEvent(event));
     }
 
-    public Event updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
+    public EventDTO updateEvent(Long eventId, Event updatedEvent) throws IllegalAccessException {
         Event eventToUpdate = eventDao.getEventById(eventId);
 
         if (eventToUpdate != null) {
@@ -81,10 +79,11 @@ public class EventService {
         } else {
             log.info("Event not found with the following id: " + eventId);
         }
-        return eventToUpdate;
+        return dtoCreator.handleSingleInput(eventToUpdate);
     }
 
-    public Event deleteEvent(Long eventId) {
-        return eventDao.deleteEvent(eventId);
+    public EventDTO deleteEvent(Long eventId) {
+        return dtoCreator.handleSingleInput(eventDao.deleteEvent(eventId));
+
     }
 }
