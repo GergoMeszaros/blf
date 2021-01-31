@@ -43,13 +43,12 @@ public class LeagueDaoDB implements LeagueDao {
     }
 
     @Override
-    public League deleteLeague(Long leagueId) {
+    public void deleteLeague(Long leagueId) {
         League leagueToDelete = leagueRepository.findById(leagueId).orElse(null);
         if (leagueToDelete != null) {
             leagueRepository.delete(leagueToDelete);
         }
         log.info("League deleted: " + leagueToDelete);
-        return leagueToDelete;
     }
 
 }

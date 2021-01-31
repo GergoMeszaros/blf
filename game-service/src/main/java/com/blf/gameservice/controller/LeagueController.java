@@ -47,8 +47,8 @@ public class LeagueController {
     }
 
     @DeleteMapping("/{leagueId}")
-    public LeagueDTO deleteLeague(@PathVariable Long leagueId) {
-        return leagueService.deleteLeague(leagueId);
+    public void deleteLeague(@PathVariable Long leagueId) {
+         leagueService.deleteLeague(leagueId);
     }
 
 }

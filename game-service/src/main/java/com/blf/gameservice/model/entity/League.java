@@ -14,10 +14,8 @@ import javax.persistence.*;
 public class League extends BaseEntity {
 
 
-    @JsonProperty("Név")
     private String name;
 
-    @JsonProperty("Szervezet")
     private String organization;
 
     @ManyToOne

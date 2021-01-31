@@ -42,6 +42,7 @@ public class LeagueService {
         league.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());
+
         return dtoCreator.handleSingleInput(
                 leagueDao.addNewLeague(league));
     }
@@ -58,7 +59,7 @@ public class LeagueService {
         return dtoCreator.handleSingleInput(leagueToUpdate);
     }
 
-    public LeagueDTO deleteLeague(Long leagueId) {
-        return dtoCreator.handleSingleInput(leagueDao.deleteLeague(leagueId));
+    public void deleteLeague(Long leagueId) {
+        leagueDao.deleteLeague(leagueId);
     }
 }
