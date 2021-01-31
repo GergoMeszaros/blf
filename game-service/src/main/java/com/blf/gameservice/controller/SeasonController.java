@@ -1,5 +1,6 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.model.dto.SeasonDTO;
 import com.blf.gameservice.model.entity.Season;
 import com.blf.gameservice.service.SeasonService;
 import lombok.RequiredArgsConstructor;
@@ -18,27 +19,27 @@ public class SeasonController {
     private final SeasonService seasonService;
 
     @GetMapping("")
-    public List<Season> getAllSeasons() {
+    public List<SeasonDTO> getAllSeasons() {
         return seasonService.getAllSeason();
     }
 
     @GetMapping("/{seasonId}")
-    public Season getSeasonById(@PathVariable Long seasonId) {
+    public SeasonDTO getSeasonById(@PathVariable Long seasonId) {
         return seasonService.getSeasonById(seasonId);
     }
 
     @PutMapping("/{seasonId}")
-    public Season editSeason(@PathVariable Long seasonId, @RequestBody Season updatedSeason) throws IllegalAccessException {
+    public SeasonDTO editSeason(@PathVariable Long seasonId, @RequestBody Season updatedSeason) throws IllegalAccessException {
         return seasonService.updateSeason(seasonId, updatedSeason);
     }
 
     @PostMapping("")
-    public Season addNewSeason() {
+    public SeasonDTO addNewSeason() {
         return seasonService.addNewSeason();
     }
 
     @DeleteMapping("/{seasonId}")
-    public Season deleteSeason(@PathVariable Long seasonId) {
+    public SeasonDTO deleteSeason(@PathVariable Long seasonId) {
         return seasonService.deleteSeason(seasonId);
     }
 
