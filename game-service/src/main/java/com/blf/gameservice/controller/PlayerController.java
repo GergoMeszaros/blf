@@ -1,6 +1,7 @@
 package com.blf.gameservice.controller;
 
 import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.model.dto.PlayerDTO;
 import com.blf.gameservice.model.entity.Player;
 import com.blf.gameservice.service.PlayerService;
 import lombok.RequiredArgsConstructor;
@@ -19,33 +20,33 @@ public class PlayerController {
    private final PlayerService playerService;
 
     @GetMapping("")
-    public List<Player> getAllPlayers() {
+    public List<PlayerDTO> getAllPlayers() {
         return playerService.getAllPlayers();
     }
 
     @GetMapping("/{playerId}")
-    public Player getPlayerById(@PathVariable Long playerId) {
+    public PlayerDTO getPlayerById(@PathVariable Long playerId) {
         return playerService.getPlayerById(playerId);
     }
 
     @PostMapping("/search")
-    public List<Player> getAllPlayersByName(@RequestBody SearchInput playerName) {
+    public List<PlayerDTO> getAllPlayersByName(@RequestBody SearchInput playerName) {
         return playerService.getAllPlayersByName(playerName);
     }
 
     @PostMapping("")
-    public Player addPlayer(@RequestBody Player player) {
+    public PlayerDTO addPlayer(@RequestBody Player player) {
         log.info("The following player is added to database: " + player);
         return playerService.addPlayer(player);
     }
 
     @PutMapping("/{playerId}")
-    public Player updatePlayer(@PathVariable Long playerId, @RequestBody Player player) throws IllegalAccessException {
+    public PlayerDTO updatePlayer(@PathVariable Long playerId, @RequestBody Player player) throws IllegalAccessException {
         return playerService.updatePlayer(playerId, player);
     }
 
     @DeleteMapping("/{playerId}")
-    public Player deletePlayer(@PathVariable Long playerId) {
+    public PlayerDTO deletePlayer(@PathVariable Long playerId) {
         return playerService.deletePlayer(playerId);
     }
 
