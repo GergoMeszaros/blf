@@ -46,12 +46,9 @@ public class SeasonService {
 
     public SeasonDTO addNewSeason() {
         int currentYear = LocalDate.now().getYear();
-        LocalDate dateOfNewSeason = LocalDate.of(currentYear, Month.JULY, 30);
-        boolean canNewSeasonBeAdded = LocalDate.now().isAfter(dateOfNewSeason);
-
         String newSeasonName = currentYear + "-" + currentYear + 1;
 
-        if (!seasonNameChecker(newSeasonName) && canNewSeasonBeAdded) {
+        if (isSeasonNameNotInDb(newSeasonName) && isDateAfterJuly(currentYear)) {
             Season newSeason = Season.builder()
                     .name(newSeasonName)
                     .build();
@@ -66,11 +63,15 @@ public class SeasonService {
         seasonDao.deleteSeason(seasonId);
     }
 
-    private boolean seasonNameChecker(String seasonName) {
+    private boolean isSeasonNameNotInDb(String seasonName) {
         List<Season> seasons = seasonDao.getAllSeason();
-
         return seasons.stream()
-                .anyMatch(season -> seasonName.equals(season.getName()));
+                .noneMatch(season -> seasonName.equals(season.getName()));
+    }
+
+    private boolean isDateAfterJuly(int currentYear) {
+        LocalDate dateOfNewSeason = LocalDate.of(currentYear, Month.JULY, 30);
+        return LocalDate.now().isAfter(dateOfNewSeason);
     }
 
 }
