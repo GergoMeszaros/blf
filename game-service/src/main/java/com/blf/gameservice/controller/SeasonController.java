@@ -39,8 +39,8 @@ public class SeasonController {
     }
 
     @DeleteMapping("/{seasonId}")
-    public SeasonDTO deleteSeason(@PathVariable Long seasonId) {
-        return seasonService.deleteSeason(seasonId);
+    public void deleteSeason(@PathVariable Long seasonId) {
+        seasonService.deleteSeason(seasonId);
     }
 
 }

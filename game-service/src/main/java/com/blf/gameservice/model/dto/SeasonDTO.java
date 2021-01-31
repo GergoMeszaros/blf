@@ -8,5 +8,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
-public class SeasonDTO extends BaseDTO{
+@NoArgsConstructor
+public class SeasonDTO extends BaseDTO {
+
+    private String name;
 }

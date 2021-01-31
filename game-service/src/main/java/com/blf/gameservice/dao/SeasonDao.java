@@ -12,7 +12,7 @@ public interface SeasonDao {
 
     Season addNewSeason(Season season);
 
-    Season deleteSeason(Long seasonId);
+    void deleteSeason(Long seasonId);
 
     void updateSeason(Season updatedSeason);
 }

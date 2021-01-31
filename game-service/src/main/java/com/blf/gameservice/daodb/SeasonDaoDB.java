@@ -39,10 +39,9 @@ public class SeasonDaoDB implements SeasonDao {
     }
 
     @Override
-    public Season deleteSeason(Long seasonId) {
+    public void deleteSeason(Long seasonId) {
         Season seasonToDelete = seasonRepository.findById(seasonId).orElse(null);
         seasonRepository.deleteById(seasonId);
         log.info("Deleted Season: " + seasonToDelete);
-        return seasonToDelete;
     }
 }

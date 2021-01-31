@@ -62,9 +62,8 @@ public class SeasonService {
         }
     }
 
-    public SeasonDTO deleteSeason(Long seasonId) {
-        return dtoCreator.handleSingleInput(
-                seasonDao.deleteSeason(seasonId));
+    public void deleteSeason(Long seasonId) {
+        seasonDao.deleteSeason(seasonId);
     }
 
     private boolean seasonNameChecker(String seasonName) {
