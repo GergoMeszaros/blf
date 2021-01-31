@@ -25,38 +25,38 @@ public class TeamController {
     }
 
     @GetMapping("/{teamId}")
-    public Team getTeamById(@PathVariable Long teamId) {
+    public TeamDTO getTeamById(@PathVariable Long teamId) {
         return teamService.getTeamById(teamId);
     }
 
     @GetMapping("/blfteams")
-    public List<Team> getALlBflTeams() {
+    public List<TeamDTO> getALlBflTeams() {
         return teamService.getAllBlfTeams();
     }
 
     @PostMapping("/search/{seasonId}")
-    public List<Team> getAllTeamsBySeason(@PathVariable Long seasonId) {
+    public List<TeamDTO> getAllTeamsBySeason(@PathVariable Long seasonId) {
         return teamService.getAllTeamsBySeasonId(seasonId);
     }
 
     @PostMapping("/search")
-    public List<Team> getTeamsByTeamName(@RequestBody SearchInput teamName) {
+    public List<TeamDTO> getTeamsByTeamName(@RequestBody SearchInput teamName) {
         return teamService.getTeamsByTeamName(teamName);
     }
 
     @PostMapping("")
-    public Team addNewTeam(@RequestBody Team team) {
+    public TeamDTO addNewTeam(@RequestBody Team team) {
         return teamService.addNewTeam(team);
     }
 
     @PutMapping("/{teamId}")
-    public Team updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam) throws IllegalAccessException {
+    public TeamDTO updateTeam(@PathVariable Long teamId, @RequestBody Team updatedTeam) throws IllegalAccessException {
         return teamService.updateTeam(teamId, updatedTeam);
     }
 
     @DeleteMapping("/{teamId}")
-    public Team deleteTeam(@PathVariable Long teamId) {
-        return teamService.deleteTeam(teamId);
+    public void deleteTeam(@PathVariable Long teamId) {
+        teamService.deleteTeam(teamId);
     }
 
 

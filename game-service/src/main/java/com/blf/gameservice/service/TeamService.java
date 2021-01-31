@@ -24,33 +24,39 @@ public class TeamService {
 
 
     public List<TeamDTO> getAllTeam() {
-        return dtoCreator.handleListInput(teamDao.getAllTeam());
+        return dtoCreator.handleListInput(
+                teamDao.getAllTeam());
     }
 
-    public List<Team> getAllTeamsBySeasonId(Long seasonId) {
-        return teamDao.getAllTeamsBySeasonId(seasonId);
+    public List<TeamDTO> getAllTeamsBySeasonId(Long seasonId) {
+        return dtoCreator.handleListInput(
+                teamDao.getAllTeamsBySeasonId(seasonId));
     }
 
-    public List<Team> getTeamsByTeamName(SearchInput teamName) {
-        return teamDao.getTeamsByTeamName(teamName);
+    public List<TeamDTO> getTeamsByTeamName(SearchInput teamName) {
+        return dtoCreator.handleListInput(
+                teamDao.getTeamsByTeamName(teamName));
     }
 
-    public Team getTeamById(Long teamId) {
-        return teamDao.getTeamById(teamId);
+    public TeamDTO getTeamById(Long teamId) {
+        return dtoCreator.handleSingleInput(
+                teamDao.getTeamById(teamId));
     }
 
-    public List<Team> getAllBlfTeams() {
-        return teamDao.getAllBlfTeams();
+    public List<TeamDTO> getAllBlfTeams() {
+        return dtoCreator.handleListInput(
+                teamDao.getAllBlfTeams());
     }
 
-    public Team addNewTeam(Team team) {
+    public TeamDTO addNewTeam(Team team) {
         team.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());
-        return teamDao.addNewTeam(team);
+        return dtoCreator.handleSingleInput(
+                teamDao.addNewTeam(team));
     }
 
-    public Team updateTeam(Long teamId, Team updatedTeam) throws IllegalAccessException {
+    public TeamDTO updateTeam(Long teamId, Team updatedTeam) throws IllegalAccessException {
         Team teamToUpdate = teamDao.getTeamById(teamId);
 
         if (teamToUpdate != null) {
@@ -59,11 +65,12 @@ public class TeamService {
         } else {
             log.info("Team not found with the following id: " + teamId);
         }
-        return teamToUpdate;
+        return dtoCreator.handleSingleInput(
+                teamToUpdate);
     }
 
-    public Team deleteTeam(Long teamId) {
-        return teamDao.deleteTeam(teamId);
+    public void deleteTeam(Long teamId) {
+        teamDao.deleteTeam(teamId);
     }
 
 }
