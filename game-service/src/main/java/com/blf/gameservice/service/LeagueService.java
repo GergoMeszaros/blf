@@ -2,6 +2,7 @@ package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.LatestSeasonDao;
 import com.blf.gameservice.dao.LeagueDao;
+import com.blf.gameservice.model.dto.LeagueDTO;
 import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.model.entity.Season;
 import lombok.RequiredArgsConstructor;
@@ -18,28 +19,34 @@ public class LeagueService {
     private final LeagueDao leagueDao;
     private final LatestSeasonDao latestSeasonDao;
     private final UpdateValidator updateValidator;
+    private final DtoCreator<League, LeagueDTO> dtoCreator;
 
 
-    public List<League> getAllLeagues() {
-        return leagueDao.getAllLeagues();
+    public List<LeagueDTO> getAllLeagues() {
+        return dtoCreator.handleListInput(
+                leagueDao.getAllLeagues());
     }
 
-    public List<League> getAllLeaguesBySeasonId(Long seasonId) {
-        return leagueDao.getAllLeaguesBySeasonId(seasonId);
+    public List<LeagueDTO> getAllLeaguesBySeasonId(Long seasonId) {
+        return dtoCreator.handleListInput(
+                leagueDao.getAllLeaguesBySeasonId(seasonId));
+
     }
 
-    public League getLeagueById(Long leagueId) {
-        return leagueDao.getLeagueById(leagueId);
+    public LeagueDTO getLeagueById(Long leagueId) {
+        return dtoCreator.handleSingleInput(
+                leagueDao.getLeagueById(leagueId));
     }
 
-    public League addNewLeague(League league) {
+    public LeagueDTO addNewLeague(League league) {
         league.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());
-        return leagueDao.addNewLeague(league);
+        return dtoCreator.handleSingleInput(
+                leagueDao.addNewLeague(league));
     }
 
-    public League updateLeague(Long leagueId, League updatedLeague) throws IllegalAccessException {
+    public LeagueDTO updateLeague(Long leagueId, League updatedLeague) throws IllegalAccessException {
         League leagueToUpdate = leagueDao.getLeagueById(leagueId);
 
         if (leagueToUpdate != null) {
@@ -48,10 +55,10 @@ public class LeagueService {
         } else {
             log.info("League not found with the following id: " + leagueId);
         }
-        return leagueToUpdate;
+        return dtoCreator.handleSingleInput(leagueToUpdate);
     }
 
-    public League deleteLeague(Long leagueId) {
-        return leagueDao.deleteLeague(leagueId);
+    public LeagueDTO deleteLeague(Long leagueId) {
+        return dtoCreator.handleSingleInput(leagueDao.deleteLeague(leagueId));
     }
 }

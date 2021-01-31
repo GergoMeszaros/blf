@@ -31,7 +31,7 @@ public class EventController {
     }
 
     @PostMapping("/search")
-    public List<Event> getAllEventsBySearch(@RequestBody SearchInput input){
+    public List<EventDTO> getAllEventsBySearch(@RequestBody SearchInput input){
         return eventService.getEventsBySearch(input);
     }
 

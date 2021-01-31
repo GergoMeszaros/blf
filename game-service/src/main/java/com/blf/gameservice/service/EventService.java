@@ -27,11 +27,13 @@ public class EventService {
 
 
     public List<EventDTO> getAllEvents() {
-        return dtoCreator.handleListInput(eventDao.getAllEvents());
+        return dtoCreator.handleListInput(
+                eventDao.getAllEvents());
     }
 
-    public List<Event> getEventsBySearch(SearchInput input) {
-        return eventDao.getEventsBySearch(input);
+    public List<EventDTO> getEventsBySearch(SearchInput input) {
+        return dtoCreator.handleListInput(
+                eventDao.getEventsBySearch(input));
     }
 
     /**
@@ -60,7 +62,8 @@ public class EventService {
     }
 
     public EventDTO getEventById(Long eventId) {
-        return dtoCreator.handleSingleInput(eventDao.getEventById(eventId));
+        return dtoCreator.handleSingleInput(
+                eventDao.getEventById(eventId));
     }
 
     public EventDTO addNewEvent(Event event) {

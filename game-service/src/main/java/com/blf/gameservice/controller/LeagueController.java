@@ -1,5 +1,7 @@
 package com.blf.gameservice.controller;
 
+import com.blf.gameservice.dao.LeagueDao;
+import com.blf.gameservice.model.dto.LeagueDTO;
 import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.service.LeagueService;
 import lombok.RequiredArgsConstructor;
@@ -19,33 +21,33 @@ public class LeagueController {
 
 
     @GetMapping("")
-    public List<League> getAllLeagues() {
+    public List<LeagueDTO> getAllLeagues() {
         return leagueService.getAllLeagues();
     }
 
     @GetMapping("/{leagueId}")
-    public League getLeagueById(@PathVariable Long leagueId) {
+    public LeagueDTO getLeagueById(@PathVariable Long leagueId) {
         return leagueService.getLeagueById(leagueId);
     }
 
     @PostMapping("/search/{seasonId}")
-    public List<League> getAllLeaguesBySeason(@PathVariable Long seasonId) {
+    public List<LeagueDTO> getAllLeaguesBySeason(@PathVariable Long seasonId) {
         return leagueService.getAllLeaguesBySeasonId(seasonId);
     }
 
     @PostMapping("")
-    public League addNewLeague(@RequestBody League league) {
+    public LeagueDTO addNewLeague(@RequestBody League league) {
         log.info("The following league is added to database: " + league);
         return leagueService.addNewLeague(league);
     }
 
     @PutMapping("/{leagueId}")
-    public League editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) throws IllegalAccessException {
+    public LeagueDTO editLeague(@PathVariable Long leagueId, @RequestBody League updatedLeague) throws IllegalAccessException {
         return leagueService.updateLeague(leagueId, updatedLeague);
     }
 
     @DeleteMapping("/{leagueId}")
-    public League deleteLeague(@PathVariable Long leagueId) {
+    public LeagueDTO deleteLeague(@PathVariable Long leagueId) {
         return leagueService.deleteLeague(leagueId);
     }
 
