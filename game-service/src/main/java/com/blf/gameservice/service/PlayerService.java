@@ -51,8 +51,7 @@ public class PlayerService {
         return dtoCreator.handleSingleInput(playerToUpdate);
     }
 
-    public PlayerDTO deletePlayer(Long playerId) {
-        return dtoCreator.handleSingleInput(
-                playerDao.deletePlayer(playerId));
+    public void deletePlayer(Long playerId) {
+        playerDao.deletePlayer(playerId);
     }
 }

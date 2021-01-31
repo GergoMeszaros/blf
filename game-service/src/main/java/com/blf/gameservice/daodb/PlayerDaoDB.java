@@ -47,10 +47,9 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
-    public Player deletePlayer(Long playerId) {
+    public void deletePlayer(Long playerId) {
         Player playerToDelete = playerRepository.findById(playerId).orElse(null);
         playerRepository.deleteById(playerId);
         log.info("Player deleted: " + playerToDelete);
-        return playerToDelete;
     }
 }
