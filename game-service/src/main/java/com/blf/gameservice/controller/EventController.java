@@ -52,8 +52,8 @@ public class EventController {
     }
 
     @DeleteMapping("/{eventId}")
-    public EventDTO deleteEvent(@PathVariable Long eventId) {
-        return eventService.deleteEvent(eventId);
+    public void deleteEvent(@PathVariable Long eventId) {
+        eventService.deleteEvent(eventId);
     }
 
 }

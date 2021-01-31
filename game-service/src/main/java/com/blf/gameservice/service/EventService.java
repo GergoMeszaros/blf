@@ -85,8 +85,8 @@ public class EventService {
         return dtoCreator.handleSingleInput(eventToUpdate);
     }
 
-    public EventDTO deleteEvent(Long eventId) {
-        return dtoCreator.handleSingleInput(eventDao.deleteEvent(eventId));
+    public void deleteEvent(Long eventId) {
+        eventDao.deleteEvent(eventId);
 
     }
 }

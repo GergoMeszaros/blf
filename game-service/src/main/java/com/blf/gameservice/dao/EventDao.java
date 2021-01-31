@@ -18,6 +18,6 @@ public interface EventDao {
 
     void updateEvent(Event updatedEvent) throws IllegalAccessException;
 
-    Event deleteEvent(Long eventId);
+    void deleteEvent(Long eventId);
 
 }
