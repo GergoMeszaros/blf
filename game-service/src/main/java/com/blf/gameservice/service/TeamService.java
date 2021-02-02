@@ -1,6 +1,6 @@
 package com.blf.gameservice.service;
 
-import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.dao.LatestSeasonDao;
 import com.blf.gameservice.dao.TeamDao;
 import com.blf.gameservice.model.dto.TeamDTO;

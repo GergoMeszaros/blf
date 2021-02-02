@@ -1,10 +1,9 @@
 package com.blf.gameservice.service;
 
 
-import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.dao.LatestSeasonDao;
-import com.blf.gameservice.model.dto.BaseDTO;
 import com.blf.gameservice.model.dto.EventDTO;
 import com.blf.gameservice.model.entity.Event;
 import com.blf.gameservice.model.entity.Season;

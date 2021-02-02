@@ -1,7 +1,5 @@
 package com.blf.gameservice.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +11,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 public class TeamMember extends BaseEntity {
-
 
     @ManyToOne
     private Team team;

@@ -1,6 +1,6 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.model.dto.TeamDTO;
 import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.service.TeamService;

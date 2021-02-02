@@ -1,4 +1,4 @@
-package com.blf.gameservice.Search;
+package com.blf.gameservice.search;
 
 
 import lombok.AllArgsConstructor;

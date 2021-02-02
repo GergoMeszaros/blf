@@ -1,11 +1,14 @@
 package com.blf.gameservice.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
@@ -58,4 +61,5 @@ public class Player extends BaseEntity {
 
     @ManyToOne
     private Season season;
+
 }

@@ -1,6 +1,6 @@
 package com.blf.gameservice.service;
 
-import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.model.dto.PlayerDTO;
 import com.blf.gameservice.model.entity.Player;

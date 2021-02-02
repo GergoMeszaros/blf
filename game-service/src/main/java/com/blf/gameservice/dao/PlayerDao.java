@@ -1,6 +1,6 @@
 package com.blf.gameservice.dao;
 
-import com.blf.gameservice.Search.SearchInput;
+import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.model.entity.Player;
 
 import java.util.List;

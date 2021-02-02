@@ -2,12 +2,10 @@ package com.blf.gameservice.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = false)
@@ -33,13 +31,12 @@ public class Team extends BaseEntity {
     @ManyToOne
     private League league;
 
-
-    /*@OneToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "team_member",
-            joinColumns = @JoinColumn(name = "id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id"))
-    private Set<TeamMember> teamMember;*/
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "player_id"))
+    private Set<Player> teamMember;
 
 
     @PostLoad
