@@ -20,9 +20,16 @@ public class EventController {
     private final EventService eventService;
 
 
+/*
     @GetMapping("")
     public List<EventDTO> getAllEvents() {
         return eventService.getAllEvents();
+    }
+*/
+
+    @GetMapping("")
+    public List<EventDTO> getAllLatestEvent(){
+        return eventService.getLatestEvents();
     }
 
     @GetMapping("/{eventId}")

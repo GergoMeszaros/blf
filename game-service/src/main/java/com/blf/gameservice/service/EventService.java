@@ -1,6 +1,8 @@
 package com.blf.gameservice.service;
 
 
+import com.blf.gameservice.model.entity.League;
+import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.dao.EventDao;
 import com.blf.gameservice.dao.LatestSeasonDao;
@@ -28,6 +30,12 @@ public class EventService {
     public List<EventDTO> getAllEvents() {
         return dtoCreator.handleListInput(
                 eventDao.getAllEvents());
+    }
+
+    public List<EventDTO> getLatestEvents() {
+        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
+        return dtoCreator.handleListInput(
+                eventDao.getEventsBySeasonAndSearch(latestSeasonId));
     }
 
     public List<EventDTO> getEventsBySearch(SearchInput input) {
@@ -66,8 +74,21 @@ public class EventService {
     }
 
     public EventDTO addNewEvent(Event event) {
+        System.out.println(event);
         event.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
+                .build());
+
+        event.setLeague(League.builder()
+                .id(event.getLeague().getId())
+                .build());
+
+        event.setAwayTeam(Team.builder()
+                .id(event.getAwayTeam().getId())
+                .build());
+
+        event.setHomeTeam(Team.builder()
+                .id(event.getHomeTeam().getId())
                 .build());
         return dtoCreator.handleSingleInput(eventDao.addNewEvent(event));
     }
