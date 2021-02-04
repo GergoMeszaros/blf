@@ -20,9 +20,14 @@ public class LeagueController {
     private final LeagueService leagueService;
 
 
-    @GetMapping("")
+ /*   @GetMapping("")
     public List<LeagueDTO> getAllLeagues() {
         return leagueService.getAllLeagues();
+    }
+*/
+    @GetMapping("")
+    public List<LeagueDTO> getAllLatestLeague(){
+        return leagueService.getLeaguesByTheLatestSeason();
     }
 
     @GetMapping("/{leagueId}")

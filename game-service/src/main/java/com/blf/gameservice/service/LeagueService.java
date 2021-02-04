@@ -33,6 +33,12 @@ public class LeagueService {
 
     }
 
+    public List<LeagueDTO> getLeaguesByTheLatestSeason() {
+        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
+        List<League> leagues = leagueDao.getLeaguesByTheLatestSeason(latestSeasonId);
+        return dtoCreator.handleListInput(leagues);
+    }
+
     public LeagueDTO getLeagueById(Long leagueId) {
         return dtoCreator.handleSingleInput(
                 leagueDao.getLeagueById(leagueId));
@@ -63,9 +69,5 @@ public class LeagueService {
         leagueDao.deleteLeague(leagueId);
     }
 
-    public List<LeagueDTO> getLeaguesByTheLatestSeason() {
-        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
-        List<League> leagues = leagueDao.getLeaguesByTheLatestSeason(latestSeasonId);
-        return dtoCreator.handleListInput(leagues);
-    }
+
 }
