@@ -48,6 +48,13 @@ public class TeamService {
                 teamDao.getAllBlfTeams());
     }
 
+    public List<TeamDTO> getTeamsByTheLatestSeason() {
+        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
+        return dtoCreator.handleListInput(
+                teamDao.getAllTeamsBySeasonId(latestSeasonId)
+        );
+    }
+
     public TeamDTO addNewTeam(Team team) {
         team.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())

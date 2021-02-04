@@ -24,6 +24,11 @@ public class TeamController {
         return teamService.getAllTeam();
     }
 
+    @GetMapping("/latestSeason")
+    public List<TeamDTO> getTeamsByTheLatestSeason() {
+        return teamService.getTeamsByTheLatestSeason();
+    }
+
     @GetMapping("/{teamId}")
     public TeamDTO getTeamById(@PathVariable Long teamId) {
         return teamService.getTeamById(teamId);
