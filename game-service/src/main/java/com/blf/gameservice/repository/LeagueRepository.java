@@ -8,5 +8,4 @@ public interface LeagueRepository extends JpaRepository<League, Long> {
 
     List<League> findAllBySeasonId(Long seasonId);
 
-
 }
