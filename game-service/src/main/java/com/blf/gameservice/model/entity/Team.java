@@ -3,10 +3,14 @@ package com.blf.gameservice.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.SortComparator;
+import org.hibernate.annotations.SortNatural;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
@@ -31,6 +35,7 @@ public class Team extends BaseEntity {
     @ManyToOne
     private League league;
 
+    
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "team_member",

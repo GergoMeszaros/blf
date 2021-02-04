@@ -20,6 +20,12 @@ public class EventDTO extends BaseDTO{
 
     private Date eventDate;
 
+    private League league;
+
+    private Team homeTeam;
+
+    private Team awayTeam;
+
     private Integer homeTotalScore;
     private Integer awayTotalScore;
     private Integer h1qScore;
@@ -50,10 +56,5 @@ public class EventDTO extends BaseDTO{
 
     private Season season;
 
-    private League league;
-
-    private Team homeTeam;
-
-    private Team awayTeam;
 
 }

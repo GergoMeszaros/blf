@@ -30,6 +30,11 @@ public class LeagueController {
         return leagueService.getLeagueById(leagueId);
     }
 
+    @GetMapping("/latestSeason")
+    public List<LeagueDTO> getLeaguesByTheLatestSeason(){
+        return leagueService.getLeaguesByTheLatestSeason();
+    }
+
     @PostMapping("/search/{seasonId}")
     public List<LeagueDTO> getAllLeaguesBySeason(@PathVariable Long seasonId) {
         return leagueService.getAllLeaguesBySeasonId(seasonId);

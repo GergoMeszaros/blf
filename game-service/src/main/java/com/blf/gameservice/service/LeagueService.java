@@ -62,4 +62,7 @@ public class LeagueService {
     public void deleteLeague(Long leagueId) {
         leagueDao.deleteLeague(leagueId);
     }
+
+    public List<LeagueDTO> getLeaguesByTheLatestSeason() {
+    }
 }
