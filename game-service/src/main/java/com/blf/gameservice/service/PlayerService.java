@@ -1,5 +1,7 @@
 package com.blf.gameservice.service;
 
+import com.blf.gameservice.dao.LatestSeasonDao;
+import com.blf.gameservice.model.entity.Season;
 import com.blf.gameservice.search.SearchInput;
 import com.blf.gameservice.dao.PlayerDao;
 import com.blf.gameservice.model.dto.PlayerDTO;
@@ -17,6 +19,7 @@ public class PlayerService {
 
     private final PlayerDao playerDao;
     private final UpdateValidator updateValidator;
+    private final LatestSeasonDao latestSeasonDao;
     private final DtoCreator<Player, PlayerDTO> dtoCreator;
 
     public List<PlayerDTO> getAllPlayers() {
@@ -35,6 +38,10 @@ public class PlayerService {
     }
 
     public PlayerDTO addPlayer(Player player) {
+        player.setSeason(Season.builder()
+                .id(latestSeasonDao.getTheLatestSeasonId())
+                .build());
+
         return dtoCreator.handleSingleInput(
                 playerDao.addPlayer(player));
     }
