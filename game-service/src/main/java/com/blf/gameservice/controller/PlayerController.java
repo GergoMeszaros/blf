@@ -19,9 +19,14 @@ public class PlayerController {
 
    private final PlayerService playerService;
 
-    @GetMapping("")
+ /*   @GetMapping("")
     public List<PlayerDTO> getAllPlayers() {
         return playerService.getAllPlayers();
+    }
+*/
+    @GetMapping("")
+    public List<PlayerDTO> getAllLatestPlayer(){
+        return playerService.getAllLatestPlayer();
     }
 
     @GetMapping("/{playerId}")

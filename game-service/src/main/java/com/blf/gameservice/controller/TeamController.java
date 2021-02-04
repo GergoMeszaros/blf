@@ -19,12 +19,12 @@ public class TeamController {
 
     private final TeamService teamService;
 
-    @GetMapping("")
+  /*  @GetMapping("")
     public List<TeamDTO> getAllTeam() {
         return teamService.getAllTeam();
     }
-
-    @GetMapping("/latestSeason")
+*/
+    @GetMapping("")
     public List<TeamDTO> getTeamsByTheLatestSeason() {
         return teamService.getTeamsByTheLatestSeason();
     }

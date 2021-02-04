@@ -9,4 +9,6 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     List<Player> findAllByNameContainingIgnoreCaseOrderByName(String playerName);
 
+    List<Player> findAllBySeasonId(Long latestSeasonId);
+
 }

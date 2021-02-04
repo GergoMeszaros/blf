@@ -32,6 +32,13 @@ public class PlayerService {
                 playerDao.getAllPlayersByName(playerName));
     }
 
+    public List<PlayerDTO> getAllLatestPlayer() {
+        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
+        return dtoCreator.handleListInput(
+                playerDao.getAllLatestPlayers(latestSeasonId)
+        );
+    }
+
     public PlayerDTO getPlayerById(Long playerId) {
         return dtoCreator.handleSingleInput(
                 playerDao.getPlayerById(playerId));
@@ -61,4 +68,6 @@ public class PlayerService {
     public void deletePlayer(Long playerId) {
         playerDao.deletePlayer(playerId);
     }
+
+
 }

@@ -11,6 +11,8 @@ public interface PlayerDao {
 
     List<Player> getAllPlayersByName(SearchInput playerName);
 
+    List<Player> getAllLatestPlayers(Long latestSeasonId);
+
     Player getPlayerById(Long id);
 
     Player addPlayer(Player player);

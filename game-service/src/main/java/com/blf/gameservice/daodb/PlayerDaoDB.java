@@ -32,6 +32,11 @@ public class PlayerDaoDB implements PlayerDao {
     }
 
     @Override
+    public List<Player> getAllLatestPlayers(Long latestSeasonId) {
+        return playerRepository.findAllBySeasonId(latestSeasonId);
+    }
+
+    @Override
     public Player getPlayerById(Long id) {
         return playerRepository.findById(id).orElse(null);
     }
