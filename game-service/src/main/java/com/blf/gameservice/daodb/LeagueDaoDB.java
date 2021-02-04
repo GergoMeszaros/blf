@@ -1,6 +1,7 @@
 package com.blf.gameservice.daodb;
 
 import com.blf.gameservice.dao.LeagueDao;
+import com.blf.gameservice.model.dto.LeagueDTO;
 import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.repository.LeagueRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,11 @@ public class LeagueDaoDB implements LeagueDao {
     @Override
     public List<League> getAllLeaguesBySeasonId(Long seasonId) {
         return leagueRepository.findAllBySeasonId(seasonId);
+    }
+
+    @Override
+    public List<League> getLeaguesByTheLatestSeason(Long latestSeasonId) {
+        return leagueRepository.findAllBySeasonId(latestSeasonId);
     }
 
     @Override
