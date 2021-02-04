@@ -64,5 +64,7 @@ public class LeagueService {
     }
 
     public List<LeagueDTO> getLeaguesByTheLatestSeason() {
+        Long latestSeasonId = latestSeasonDao.getTheLatestSeasonId();
+        return leagueDao.getLeaguesByTheLatestSeason(latestSeasonId);
     }
 }
