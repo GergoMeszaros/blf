@@ -23,13 +23,13 @@ public class Player extends BaseEntity {
     //@JsonProperty("Név")
     private String name;
 
-    @JsonProperty("Fénykép")
+    //@JsonProperty("Fénykép")
     private String pictureRoot;
 
-    @JsonProperty("Fénykép 2")
+    //@JsonProperty("Fénykép 2")
     private String pictureRootSecond;
 
-    @JsonProperty("Iskola")
+    //@JsonProperty("Iskola")
     private String school;
 
     @JsonProperty("Pozíció")
@@ -45,10 +45,10 @@ public class Player extends BaseEntity {
     @JsonProperty("Telefonszám")
     private String telephone;
 
-    @JsonProperty("Összesítés")
+    //@JsonProperty("Összesítés")
     private String playerSummary;
 
-    @JsonProperty("Aktív")
+    //@JsonProperty("Aktív")
     private Integer isActive;
 
     @JsonProperty("Kezdő dátum")
