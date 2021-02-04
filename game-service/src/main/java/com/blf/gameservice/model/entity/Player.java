@@ -3,6 +3,7 @@ package com.blf.gameservice.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -54,6 +55,7 @@ public class Player extends BaseEntity {
     private Integer startDate;
 
     @JsonProperty("Kor")
+    @Formula("FLOOR(DATEDIFF(now(), birthdate) / 365)")
     private Integer age;
 
     @JsonProperty("Magasság")
