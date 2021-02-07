@@ -19,7 +19,6 @@ public class TeamMemberService {
     private final UpdateValidator updateValidator;
 
 
-
     public List<TeamMember> getAllTeamMembers() {
         return teamMemberDao.getAllTeamMembers();
     }
@@ -45,7 +44,7 @@ public class TeamMemberService {
         return teamMemberDao.getTeamMemberById(teamMemberId);
     }
 
-    public List<TeamMember> getAllByPlayerName(String playerName){
+    public List<TeamMember> getAllByPlayerName(String playerName) {
         return teamMemberDao.getAllByPlayerName(playerName);
     }
 
@@ -63,5 +62,9 @@ public class TeamMemberService {
                 .player(player)
                 .build();
         teamMemberDao.addNewMember(teamMember);
+    }
+
+    public void deleteByPlayerIdAndTeamId(Long playerId, Long teamId) {
+        teamMemberDao.deleteByPlayerIdAndTeamId(playerId, teamId);
     }
 }

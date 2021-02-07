@@ -46,6 +46,11 @@ public class TeamMemberDaoDB implements TeamMemberDao {
     }
 
     @Override
+    public void deleteByPlayerIdAndTeamId(Long playerId, Long teamId) {
+        teamMemberRepository.deleteByTeamAndPlayerId(playerId, teamId);
+    }
+
+    @Override
     public List<TeamMember> getAllByPlayerName(String playerName) {
         return teamMemberRepository.findAllByPlayerName(playerName);
     }

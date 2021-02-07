@@ -19,4 +19,6 @@ public interface TeamMemberDao {
 
     void addNewMember(TeamMember teamMember);
 
+    void deleteByPlayerIdAndTeamId(Long playerId, Long teamId);
+
 }

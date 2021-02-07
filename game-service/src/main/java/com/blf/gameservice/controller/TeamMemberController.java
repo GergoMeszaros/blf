@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/teammember")
+@RequestMapping("/teamMember")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin
@@ -19,7 +19,7 @@ public class TeamMemberController {
     private final TeamMemberService teamMemberService;
 
     @GetMapping("/add/{teamId}/{playerId}")
-    public void addNewMember(@PathVariable Long teamId, @PathVariable Long playerId){
+    public void addNewMember(@PathVariable Long teamId, @PathVariable Long playerId) {
         teamMemberService.addNewMember(teamId, playerId);
     }
 
@@ -29,8 +29,8 @@ public class TeamMemberController {
     }
 
     @GetMapping("/{teamMemberId}")
-    public TeamMember getTeamMemberById(@PathVariable Long teamMemberId){
-       return teamMemberService.getTeamMemberById(teamMemberId);
+    public TeamMember getTeamMemberById(@PathVariable Long teamMemberId) {
+        return teamMemberService.getTeamMemberById(teamMemberId);
     }
 
     @PostMapping("/search/{seasonId}")
@@ -44,8 +44,13 @@ public class TeamMemberController {
     }
 
     @PostMapping("/search")
-    public List<TeamMember> getAllByPlayerName(@RequestBody SearchInput input){
+    public List<TeamMember> getAllByPlayerName(@RequestBody SearchInput input) {
         return teamMemberService.getAllByPlayerName(input.getInput());
+    }
+
+    @DeleteMapping("/delete/{playerId}/{teamId}")
+    public void deleteByPlayerIdAndTeamId(@PathVariable Long playerId, @PathVariable Long teamId) {
+        teamMemberService.deleteByPlayerIdAndTeamId(playerId, teamId);
     }
 
 }
