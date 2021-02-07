@@ -1,6 +1,7 @@
 package com.blf.gameservice.service;
 
 import com.blf.gameservice.dao.TeamMemberDao;
+import com.blf.gameservice.model.entity.Player;
 import com.blf.gameservice.model.entity.Team;
 import com.blf.gameservice.model.entity.TeamMember;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ public class TeamMemberService {
 
     private final TeamMemberDao teamMemberDao;
     private final UpdateValidator updateValidator;
+
 
 
     public List<TeamMember> getAllTeamMembers() {
@@ -55,6 +57,7 @@ public class TeamMemberService {
         Player player = Player.builder()
                 .id(playerId)
                 .build();
+
         TeamMember teamMember = TeamMember.builder()
                 .team(team)
                 .player(player)

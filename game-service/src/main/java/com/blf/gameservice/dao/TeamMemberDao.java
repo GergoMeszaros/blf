@@ -11,9 +11,12 @@ public interface TeamMemberDao {
 
     List<TeamMember> getAllTeamMembersBySeasonId(Long seasonId);
 
+    List<TeamMember> getAllByPlayerName(String playerName);
+
     TeamMember getTeamMemberById(Long teamMemberId);
 
     void updateTeamMember(TeamMember updatedTeamMember);
 
-    List<TeamMember> getAllByPlayerName(String playerName);
+    void addNewMember(TeamMember teamMember);
+
 }
