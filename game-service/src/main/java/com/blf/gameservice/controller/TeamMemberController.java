@@ -18,6 +18,10 @@ public class TeamMemberController {
 
     private final TeamMemberService teamMemberService;
 
+    @GetMapping("/add/{teamId}/{playerId}")
+    public void addNewMember(@PathVariable Long teamId, @PathVariable Long playerId){
+        teamMemberService.addNewMember(teamId, playerId);
+    }
 
     @GetMapping("")
     public List<TeamMember> getAllTeamMembers() {
