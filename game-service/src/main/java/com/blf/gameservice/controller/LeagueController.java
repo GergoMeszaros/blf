@@ -1,6 +1,5 @@
 package com.blf.gameservice.controller;
 
-import com.blf.gameservice.dao.LeagueDao;
 import com.blf.gameservice.model.dto.LeagueDTO;
 import com.blf.gameservice.model.entity.League;
 import com.blf.gameservice.service.LeagueService;

@@ -74,7 +74,6 @@ public class EventService {
     }
 
     public EventDTO addNewEvent(Event event) {
-        System.out.println(event);
         event.setSeason(Season.builder()
                 .id(latestSeasonDao.getTheLatestSeasonId())
                 .build());

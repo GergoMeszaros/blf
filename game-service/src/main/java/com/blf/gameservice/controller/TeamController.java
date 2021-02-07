@@ -24,6 +24,7 @@ public class TeamController {
         return teamService.getAllTeam();
     }
 */
+
     @GetMapping("")
     public List<TeamDTO> getTeamsByTheLatestSeason() {
         return teamService.getTeamsByTheLatestSeason();

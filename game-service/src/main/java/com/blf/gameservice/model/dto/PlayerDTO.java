@@ -24,4 +24,5 @@ public class PlayerDTO extends BaseDTO{
     private Integer startDate;
     private Integer age;
     private Integer height;
+
 }

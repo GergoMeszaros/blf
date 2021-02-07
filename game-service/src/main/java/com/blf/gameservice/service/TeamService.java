@@ -38,11 +38,6 @@ public class TeamService {
                 teamDao.getTeamsByTeamName(teamName));
     }
 
-    public TeamDTO getTeamById(Long teamId) {
-        return dtoCreator.handleSingleInput(
-                teamDao.getTeamById(teamId));
-    }
-
     public List<TeamDTO> getAllBlfTeams() {
         return dtoCreator.handleListInput(
                 teamDao.getAllBlfTeams());
@@ -53,6 +48,11 @@ public class TeamService {
         return dtoCreator.handleListInput(
                 teamDao.getAllTeamsBySeasonId(latestSeasonId)
         );
+    }
+
+    public TeamDTO getTeamById(Long teamId) {
+        return dtoCreator.handleSingleInput(
+                teamDao.getTeamById(teamId));
     }
 
     public TeamDTO addNewTeam(Team team) {
