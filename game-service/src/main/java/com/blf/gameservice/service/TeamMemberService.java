@@ -46,4 +46,19 @@ public class TeamMemberService {
     public List<TeamMember> getAllByPlayerName(String playerName){
         return teamMemberDao.getAllByPlayerName(playerName);
     }
+
+    public void addNewMember(Long teamId, Long playerId) {
+        Team team = Team.builder()
+                .id(teamId)
+                .build();
+
+        Player player = Player.builder()
+                .id(playerId)
+                .build();
+        TeamMember teamMember = TeamMember.builder()
+                .team(team)
+                .player(player)
+                .build();
+        teamMemberDao.addNewMember(teamMember);
+    }
 }
