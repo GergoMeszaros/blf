@@ -20,11 +20,7 @@ public class DtoCreator<Type extends BaseEntity, DtoType extends BaseDTO> {
 
 
     public DtoType handleSingleInput(Type entity) {
-        if (entity != null) {
-            return convertEntityToDTO(entity);
-
-        }
-        return null;
+        return entity == null ? null : convertEntityToDTO(entity);
     }
 
     public List<DtoType> handleListInput(List<Type> entityList) {
